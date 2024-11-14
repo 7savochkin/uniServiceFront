@@ -87,8 +87,18 @@ td {
 
 body {
     line-height: 1;
-    color: black;
-    background: white;
+    --blue-bg-color: #0E1821;
+    --white-bg-color: #FFFFFF;
+    --dark-white-color: #F0F0F0;
+    --green-text-color: #182829;
+    --gray-text-color: #586574;
+    --azure-text-color: #00CCCC;
+    overflow-x: hidden;
+}
+
+body {
+    color: var(--green-text-color, #182829);
+    background: var(--white-bg-color, #FFF);
 }
 
 ol,
@@ -119,6 +129,15 @@ q:after {
 blockquote,
 q {
     quotes: "" "";
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    position: relative;
+    background: var(--white-bg-color);
 }
 
 .container {

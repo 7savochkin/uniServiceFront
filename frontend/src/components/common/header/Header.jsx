@@ -30,8 +30,8 @@ const Header = () => {
     // useOnClickOutside(node, () => setOpen(false));
 
     return (
-        <div className="container">
-            <div className="header">
+        <div className="header">
+            <div className="container">
                 <div className="header-top">
                     <img className="header-top__logo" src={logo} alt="logo"/>
                     <ul className="header-top-nav">

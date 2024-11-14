@@ -22,7 +22,7 @@
 
 .header-top-nav__item-link {
     text-decoration: none;
-    color: #182829;
+    color: var(--green-text-color);
 }
 
 .header-top-nav__item:not(:last-child) {
@@ -39,7 +39,7 @@
     border-inline: 1px solid #f0f0f0;
     padding-block: 25px;
     padding-inline: 19px;
-    color: #f0f0f0;
+    color: var(--dark-white-color);
 }
 
 .header-top-lang__item:not(:last-child) {
@@ -91,5 +91,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--dark-white-color);
 }
