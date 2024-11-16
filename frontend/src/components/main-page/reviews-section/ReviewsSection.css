@@ -1,0 +1,15 @@
+.reviews-section {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    background: var(--light-bg-color);
+}
+
+.reviews-section__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: var(--green-text-color);
+}
