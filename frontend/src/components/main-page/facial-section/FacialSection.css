@@ -2,7 +2,9 @@
 .facial-section {
     height: calc(100vh - var(--header-height));
     background-image: url("../../../assets/images/main-page/facial-section-background.jpg");
+    background-repeat: no-repeat;
     color: var(--dark-white-color);
+    width: 100%;
 }
 
 .facial-section-content {

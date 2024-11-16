@@ -15,7 +15,7 @@ const MainPage = () => {
     return (
         <div className="main">
             <FacialSection/>
-            <WhyChooseUsSection/>
+            {/*<WhyChooseUsSection/>*/}
             <AboutUsSection/>
             <ServicesSection/>
             <CertificatesSection/>
