@@ -22,7 +22,7 @@ const MainPage = () => {
             {/*<MediaSection/>*/}
             <ReviewsSection/>
             {/*<OrderConsultationSection/>*/}
-            {/*<LastNewsSection/>*/}
+            <LastNewsSection/>
         </div>
     )
 }
