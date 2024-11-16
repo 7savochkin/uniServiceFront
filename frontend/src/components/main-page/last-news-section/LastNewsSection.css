@@ -2,6 +2,8 @@
     background: var(--light-bg-color);
     padding-top: 100px;
     padding-bottom: 116px;
+    position: relative;
+    z-index: 99;
 }
 
 .last-news-section-header {

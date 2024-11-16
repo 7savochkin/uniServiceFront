@@ -1,0 +1,99 @@
+
+.order-consultation-section {
+    background: var(--primary-bg-color);
+    background-image: url("../../../assets/images/main-page/consultation-smoke-texture.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 120px;
+    padding-bottom: 109px;
+    position: relative;
+}
+
+.order-consultation-section::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 640px;
+    left: -110px;
+    top: 115px;
+    transform: rotate(25deg);
+    background-image: url("../../../assets/images/main-page/services-section-stone-left.png");
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+
+.order-consultation-section::after {
+    content: "";
+    position: absolute;
+    width: 395px;
+    height: 746px;
+    right: -65px;
+    bottom: -90px;
+    background-image: url("../../../assets/images/main-page/services-section-stone-right.png");
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+
+.order-consultation-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-consultation-section__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: var(--white-bg-color);
+    max-width: 515px;
+}
+
+.order-consultation-section__text {
+    padding-top: 18px;
+    max-width: 372px;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: var(--gray-text-color);
+}
+
+.order-consultation-section-form {
+    padding-top: 57px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.order-consultation-section .facial-section-info__link {
+    border: none;
+    padding: 0;
+    margin: 20px 0 0;
+    width: 285px;
+    height: 54px;
+    /*margin-top: 20px;*/
+}
+
+.order-consultation-section-images__square {
+    width: 510px;
+    height: 690px;
+    position: relative;
+}
+
+.order-consultation-section-images__square img {
+    width: 100%;
+    height: 100%;
+}
+
+.order-consultation-section-images__square::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    left: -120px;
+    width: 550px;
+    height: 600px;
+    background-image: url("../../../assets/images/main-page/consultation-man.jpg");
+}

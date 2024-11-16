@@ -21,7 +21,7 @@ const MainPage = () => {
             {/*<CertificatesSection/>*/}
             {/*<MediaSection/>*/}
             <ReviewsSection/>
-            {/*<OrderConsultationSection/>*/}
+            <OrderConsultationSection/>
             <LastNewsSection/>
         </div>
     )
