@@ -12,7 +12,7 @@ const WhyChooseUsSection = () => {
       <h1 className="why-choose-us-section-title">чому обирають нас</h1>
       <div className="why-choose-us-section-content">
         <div className="why-choose-us-section-wrapper__img">
-          <div className="cover-img_bg"></div>
+          <div className="why-choose-us-section-cover-img_bg"></div>
           <img className="why-choose-us-section-img" src={why_choose_us_img} alt="" />
         </div>
         <div className="why-choose-us-section-items">

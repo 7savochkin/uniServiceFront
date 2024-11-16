@@ -2,6 +2,7 @@
   background-color: #091017;
   padding-top: 110px;
   padding-bottom: 137px;
+  position: relative;
 }
 
 .why-choose-us-section-title {
@@ -16,7 +17,6 @@
 
 .why-choose-us-section-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 40px;
 }
@@ -68,24 +68,38 @@
   position: relative;
   min-width: 550px; /* Ширина контейнера */
   height: 600px; /* Висота контейнера */
+  padding-left: 70px;
 }
 
-/* .why-choose-us-section-wrapper__img::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: -50px;
-  background-color: #00cccc;
-  width: 360px;
-  height: 700px;
-} */
-
-.cover-img_bg {
+.why-choose-us-section-cover-img_bg {
   height: 700px;
   width: 360px;
   position: absolute;
   z-index: 0;
-  left: -70px;
+  left: 0px;
   bottom: -50px;
   background-color: #00cccc;
+}
+
+.why-choose-us-section::before {
+  content: "";
+  position: absolute;
+  width: 381px;
+  height: 521px;
+  left: -195px;
+  bottom: 75px;
+  background-image: url("../../../assets/images/main-page/why-choose-us-bg-left-stone.svg");
+  background-repeat: no-repeat;
+  z-index: 2000;
+}
+
+.why-choose-us-section::after {
+  content: "";
+  position: absolute;
+  width: 225px;
+  height: 746px;
+  right: 0;
+  top: 0;
+  background-image: url("../../../assets/images/main-page/why-choose-us-bg-right-stone.svg");
+  background-repeat: no-repeat;
 }
