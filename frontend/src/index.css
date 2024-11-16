@@ -122,6 +122,7 @@ a {
 
 body {
     line-height: 1;
+    --primary-bg-color: #091017;
     --blue-bg-color: #0E1821;
     --white-bg-color: #FFFFFF;
     --light-bg-color: #FBFBFB;

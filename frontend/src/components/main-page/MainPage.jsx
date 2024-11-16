@@ -15,16 +15,15 @@ const MainPage = () => {
     return (
         <div className="main">
             <FacialSection/>
-            {/*<WhyChooseUsSection/>*/}
+            <WhyChooseUsSection/>
             <AboutUsSection/>
             <ServicesSection/>
-            <CertificatesSection/>
-            <MediaSection/>
-            <ReviewsSection/>
-            <OrderConsultationSection/>
-            <LastNewsSection/>
+            {/*<CertificatesSection/>*/}
+            {/*<MediaSection/>*/}
+            {/*<ReviewsSection/>*/}
+            {/*<OrderConsultationSection/>*/}
+            {/*<LastNewsSection/>*/}
         </div>
-
     )
 }
 
