@@ -1,0 +1,13 @@
+.slide {
+  opacity: 0.2;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.2);
+  cursor: pointer;
+}

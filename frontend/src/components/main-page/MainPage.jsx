@@ -12,19 +12,19 @@ import LastNewsSection from "./last-news-section/LastNewsSection";
 
 const MainPage = () => {
 
-    return (
-        <div className="main">
-            <FacialSection/>
-            <WhyChooseUsSection/>
-            <AboutUsSection/>
-            <ServicesSection/>
-            {/*<CertificatesSection/>*/}
-            {/*<MediaSection/>*/}
-            <ReviewsSection/>
-            <OrderConsultationSection/>
-            <LastNewsSection/>
-        </div>
-    )
+  return (
+    <div className="main">
+      <FacialSection />
+      <WhyChooseUsSection />
+      <AboutUsSection />
+      <ServicesSection />
+      <CertificatesSection />
+      <MediaSection />
+      <ReviewsSection />
+      <OrderConsultationSection />
+      <LastNewsSection />
+    </div>
+  )
 }
 
 
