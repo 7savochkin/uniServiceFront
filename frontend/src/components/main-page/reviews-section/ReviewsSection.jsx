@@ -79,7 +79,7 @@ const ReviewsSection = () => {
                             )
                         )}
                     </Swiper>
-                    <a href="#" className="facial-section-info__link">Залишити відгук</a>
+                    <span href="#" className="facial-section-info__link">Залишити відгук</span>
                 </div>
             </div>
         </section>
