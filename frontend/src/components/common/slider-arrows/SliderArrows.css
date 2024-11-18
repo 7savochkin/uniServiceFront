@@ -12,6 +12,14 @@
     cursor: pointer;
 }
 
+.arrows-dark .custom-slider-arrow {
+    border: 1px solid var(--gray-text-color);
+}
+
+.arrows-dark .custom-slider-arrow__next{
+    border-left: none;
+}
+
 .custom-slider-arrow__next {
     border-left: none;
 }

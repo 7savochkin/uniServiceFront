@@ -69,7 +69,6 @@ const CertificatesSection = () => {
                                     translate: ['90%', 0, 0],
                                 },
                             }}
-                            progressMultiplier={3}
                             navigation={{
                                 prevEl: '.certification-section-arrows__prev',
                                 nextEl: '.certification-section-arrows__next',

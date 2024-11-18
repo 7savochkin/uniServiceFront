@@ -1,8 +1,8 @@
 import "./SliderArrows.css"
 
-const SliderArrows = ({additionalClassName = null, prevClassName = null, nextClassName = null}) => {
+const SliderArrows = ({additionalClassName = null, prevClassName = null, nextClassName = null, isDark=false}) => {
 
-    const arrowsDefaultClassName = "custom-slider-arrows";
+    const arrowsDefaultClassName = isDark ? "custom-slider-arrows arrows-dark" : "custom-slider-arrows";
     const prevArrowDefaultClassName = "custom-slider-arrow custom-slider-arrow__prev";
     const nextArrowDefaultClassName = "custom-slider-arrow custom-slider-arrow__next";
 
