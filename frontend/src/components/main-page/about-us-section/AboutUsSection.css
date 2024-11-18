@@ -101,7 +101,7 @@
 }
 
 @media (max-width: 600px) {
-    .facial-section-info__link {
+    .about-us-section-btn {
         display: none;
     }
 

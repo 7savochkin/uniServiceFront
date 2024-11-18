@@ -9,7 +9,7 @@ const AboutUsSection = () => (
                 <div className="about-us-section-header">
                     <div className="about-us-section-header-wrap">
                         <h2 className="about-us-section-header__title">Про нас</h2>
-                        <a href="#" className="facial-section-info__link">Детальніше</a>
+                        <a href="#" className="facial-section-info__link about-us-section-btn">Детальніше</a>
                     </div>
                     <div className="about-us-section-header-wrap about-us-section-header-text">
                         <p className="about-us-section-header__text about-us-section-header__text-first">Виберіть
