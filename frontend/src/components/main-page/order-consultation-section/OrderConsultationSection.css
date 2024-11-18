@@ -97,3 +97,53 @@
     height: 600px;
     background-image: url("../../../assets/images/main-page/consultation-man.jpg");
 }
+
+
+@media (max-width: 1500px) {
+    .order-consultation-section::before, .order-consultation-section::after {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1220px) {
+    .order-consultation-section-images__square {
+        width: 280px;
+    }
+    .order-consultation-section-images__square::before {
+        width: 320px;
+        left: -80px;
+    }
+}
+
+@media (max-width: 940px) {
+    .order-consultation-section-images__square::before, .order-consultation-section-images__square {
+        display: none;
+    }
+
+
+    .order-consultation-section-form {
+        margin-bottom: 120px;
+    }
+
+    .order-consultation-section {
+        background-image: url('../../../assets/images/main-page/consultation-man.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-color: #fff;
+    }
+
+    .order-consultation-section {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .order-consultation-section__title {
+        max-width: 100%;
+        /*padding-top: 110px;*/
+    }
+    
+}
