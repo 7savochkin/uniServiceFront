@@ -81,3 +81,48 @@
     object-fit: cover;
     object-position: center;
 }
+
+.about-us-section-header-text {
+    gap: 40px;
+}
+
+.facial-section-info__link-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .about-us-section-header-text {
+        flex-direction: column;
+    }
+
+    .about-us-section {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .facial-section-info__link {
+        display: none;
+    }
+
+    .facial-section-info__link-mobile {
+        display: flex;
+        margin-left: auto;
+        margin-bottom: 46px;
+    }
+
+    .about-us-section {
+        padding-bottom: 64px;
+    }
+
+    .about-us-section-main__img-wrap {
+        height: 257px;
+    }
+
+    .about-us-section-header__title {
+        font-size: 30px;
+    }
+}
+
+
+

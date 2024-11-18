@@ -11,14 +11,16 @@ const AboutUsSection = () => (
                         <h2 className="about-us-section-header__title">Про нас</h2>
                         <a href="#" className="facial-section-info__link">Детальніше</a>
                     </div>
-                    <div className="about-us-section-header-wrap">
-                        <p className="about-us-section-header__text about-us-section-header__text-first">Виберіть надійність, оберіть інновації,
+                    <div className="about-us-section-header-wrap about-us-section-header-text">
+                        <p className="about-us-section-header__text about-us-section-header__text-first">Виберіть
+                            надійність, оберіть інновації,
                             довіряйте
                             безпеці. Ласкаво просимо до нашої компанії, де наука та технології об'єднуються для
                             створення
                             майбутнього безпечних вибухових речовин.
                         </p>
-                        <p className="about-us-section-header__text about-us-section-header__text-second">Наша місія полягає в тому, щоб забезпечити
+                        <p className="about-us-section-header__text about-us-section-header__text-second">Наша місія
+                            полягає в тому, щоб забезпечити
                             безпечне
                             виробництво та застосування вибухових матеріалів у різних індустріях. Ми постійно
                             вдосконалюємо
@@ -27,6 +29,7 @@ const AboutUsSection = () => (
                         </p>
                     </div>
                 </div>
+                <a href="#" className="facial-section-info__link facial-section-info__link-mobile">Детальніше</a>
                 <div className="about-us-section-main">
                     <p className="about-us-section-main__text">Наша компанія пишається високими стандартами якості та
                         строгою дотриманням усіх норм і вимог безпеки. Ми глибоко зобов'язані зберіганню і захисту
