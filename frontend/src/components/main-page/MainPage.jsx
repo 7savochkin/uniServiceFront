@@ -19,7 +19,7 @@ const MainPage = () => {
             <AboutUsSection/>
             <ServicesSection/>
             {/*<CertificatesSection/>*/}
-            {/*<MediaSection/>*/}
+            <MediaSection/>
             <ReviewsSection/>
             <OrderConsultationSection/>
             <LastNewsSection/>
