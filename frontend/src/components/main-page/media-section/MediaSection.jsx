@@ -76,40 +76,40 @@ const MediaSection = () => {
                     </div>
                 </div>
             </SwiperSlide>
-            <SwiperSlide>
-                <div className="media-section__slider-list">
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_1} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_2} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_3} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-4">
-                        <img src={media_section_image_4} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_5} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_6} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-7">
-                        <img src={media_section_image_7} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_8} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_9} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_10} alt="" className="media-section__slider-img"/>
-                    </div>
-                </div>
-            </SwiperSlide>
+            {/*<SwiperSlide>*/}
+            {/*    <div className="media-section__slider-list">*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_1} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_2} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_3} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item media-section__slider-item-4">*/}
+            {/*            <img src={media_section_image_4} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_5} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_6} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item media-section__slider-item-7">*/}
+            {/*            <img src={media_section_image_7} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_8} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_9} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*        <div className="media-section__slider-item">*/}
+            {/*            <img src={media_section_image_10} alt="" className="media-section__slider-img"/>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</SwiperSlide>*/}
         </Swiper>
 
 

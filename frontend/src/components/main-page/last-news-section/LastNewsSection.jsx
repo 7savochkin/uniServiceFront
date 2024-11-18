@@ -12,7 +12,7 @@ const LastNewsSection = () => {
                         <a href="#" className="facial-section-info__link">Показати більше</a>
                     </div>
                     <ul className="last-news-section__list">
-                        <li className="last-news-section__item">
+                        <li className="last-news-section__item last-news-section__first-child">
                             <div className="last-news-section__item-img-wrap">
                                 <img src={last_news_section_example_first} alt="last-news-section-example-first"/>
                             </div>
@@ -20,7 +20,7 @@ const LastNewsSection = () => {
                                 безпеці</h3>
                             <p className="last-news-section__item-date">28.08.2024</p>
                         </li>
-                        <li className="last-news-section__item">
+                        <li className="last-news-section__item last-news-section__second-child">
                             <div className="last-news-section__item-img-wrap">
                                 <img src={last_news_section_example_first} alt="last-news-section-example-first"/>
                             </div>
@@ -28,7 +28,7 @@ const LastNewsSection = () => {
                                 безпеці</h3>
                             <p className="last-news-section__item-date">28.08.2024</p>
                         </li>
-                        <li className="last-news-section__item">
+                        <li className="last-news-section__item last-news-section__third-child">
                             <div className="last-news-section__item-img-wrap">
                                 <img src={last_news_section_example_first} alt="last-news-section-example-first"/>
                             </div>
