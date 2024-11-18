@@ -3,6 +3,7 @@ import OrderConsultationSection from "../main-page/order-consultation-section/Or
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 
 import "./AboutUsPage.css";
+import TeamSection from "./team-section/TeamSection";
 
 const AboutUsPage = () => {
 
@@ -15,6 +16,7 @@ const AboutUsPage = () => {
         <div className="about-us">
             <Breadcrumbs paths={paths}/>
             <AboutUsSection/>
+            <TeamSection/>
             <OrderConsultationSection/>
         </div>
     )
