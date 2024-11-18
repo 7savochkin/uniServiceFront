@@ -3,7 +3,7 @@ import OrderConsultationSection from "../main-page/order-consultation-section/Or
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 
 import "./AboutUsPage.css";
-import TeamSection from "./TeamSection/TeamSection";
+import TeamSection from "./team-section/TeamSection";
 
 const AboutUsPage = () => {
 
