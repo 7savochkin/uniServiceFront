@@ -6,6 +6,7 @@ import {
 import Header from "./components/common/header/Header";
 import Footer from "./components/common/footer/Footer";
 import MainPage from "./components/main-page/MainPage";
+import AboutUsPage from "./components/about-us-page/AboutUsPage";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Header/>
             <Routes>
                 <Route path="/*" element={<MainPage/>}/>
+                <Route path="/about-us/" element={<AboutUsPage/>}/>
             </Routes>
             <Footer/>
         </div>
