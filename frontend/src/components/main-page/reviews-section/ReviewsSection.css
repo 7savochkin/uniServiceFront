@@ -26,6 +26,18 @@
 .reviews-section-header__arrows {
 }
 
+.input-field__input {
+    border: 1px solid var(--gray-text-color);
+    height: 100%;
+    padding: 17px;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 150%;
+    color: var(--gray-text-color);
+}
+
 .reviews-section__slider {
     margin-top: 84px;
     margin-bottom: 102px;
