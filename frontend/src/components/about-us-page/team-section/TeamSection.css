@@ -43,6 +43,8 @@
 .team-section-header {
     display: flex;
     justify-content: space-between;
+    position: relative;
+    z-index: 99;
 }
 
 .team-section__title {

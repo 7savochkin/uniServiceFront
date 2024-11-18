@@ -4,6 +4,7 @@ import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 
 import "./AboutUsPage.css";
 import TeamSection from "./team-section/TeamSection";
+import AchievementsSection from "./achievements-section/AchievementsSection";
 
 const AboutUsPage = () => {
 
@@ -17,6 +18,7 @@ const AboutUsPage = () => {
             <Breadcrumbs paths={paths}/>
             <AboutUsSection/>
             <TeamSection/>
+            <AchievementsSection/>
             <OrderConsultationSection/>
         </div>
     )

@@ -1,0 +1,79 @@
+.achiev-section {
+    background: var(--light-bg-color);
+    padding-top: 153px;
+    padding-bottom: 138px;
+}
+
+.achiev-section__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: var(--green-text-color);
+}
+
+.achiev-section__desc {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 170%;
+    text-transform: uppercase;
+    color: var(--green-text-color);
+    padding-top: 49px;
+    padding-bottom: 40px;
+}
+
+.achiev-section-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--dark-white-color);
+}
+
+.achiev-section-list__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 57px 0;
+    border-bottom: 1px solid var(--dark-white-color);
+    align-items: center;
+}
+
+.achiev-section-list__item-header {
+    display: flex;
+    gap: 161px;
+    width: 600px;
+    margin-right: 66px;
+    align-items: center;
+}
+
+.achiev-section-list__item-header__percent {
+    font-family: 'Russo One', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 96px;
+    text-transform: uppercase;
+    color: var(--azure-text-color);
+}
+
+.achiev-section-list__item-header__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 170%;
+    text-transform: uppercase;
+    color: var(--green-text-color);
+}
+
+.achiev-section-list__item-desc {
+    max-width: 557px;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: #586574;
+}
