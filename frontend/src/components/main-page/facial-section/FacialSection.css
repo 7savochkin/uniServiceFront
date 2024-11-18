@@ -54,6 +54,7 @@
     text-align: center;
     color: var(--white-bg-color);
     position: relative;
+    cursor: pointer;
 }
 
 .facial-section-info__link::after{
