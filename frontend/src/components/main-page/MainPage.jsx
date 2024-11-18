@@ -18,8 +18,8 @@ const MainPage = () => {
             <WhyChooseUsSection/>
             <AboutUsSection/>
             <ServicesSection/>
-            {/*<CertificatesSection/>*/}
-            <MediaSection/>
+            <CertificatesSection/>
+            {/*<MediaSection/>*/}
             <ReviewsSection/>
             <OrderConsultationSection/>
             <LastNewsSection/>
