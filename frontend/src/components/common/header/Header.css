@@ -1,6 +1,5 @@
 .header {
     font-family: Jost, sans-serif;
-    padding-inline: 15px;
     height: var(--header-height);
     box-sizing: content-box;
     border-bottom: 1px solid var(--dark-white-color);
