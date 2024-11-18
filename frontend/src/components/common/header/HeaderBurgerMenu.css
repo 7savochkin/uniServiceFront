@@ -1,44 +1,117 @@
 .menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background: #091017;
-    transform: translateX(-100%);
-    height: 100vh;
+    height: calc(100vh - var(--header-height));
     text-align: left;
-    padding: 2rem;
+    padding-top: 64px;
+    padding-left: 40px;
     position: absolute;
-    top: 74px;
+    top: 70px;
     right: 0;
     transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    width: 50%;
 }
 
-.menu.open {
+.menu.active {
     transform: translateX(0);
 }
 
 .menu-item {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: #0d0c1d;
+    color: #FFFFFF;
     text-decoration: none;
     transition: color 0.3s linear;
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+
 }
 
 .menu-item:hover {
     color: #343078;
 }
 
-@media (max-width: 576px) {
+
+.menu-lang {
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--gray-text-color);
+    width: 100px;
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: 62px;
+    display: none;
+}
+
+.menu-lang:nth-child(1) {
+}
+
+.menu-lang__item-first-child {
+    height: 50px;
+    border-right: 1px solid var(--gray-text-color);
+}
+
+.menu-lang__item {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-lang__item {
+    color: var(--gray-text-color);
+    transition: color 0.3s linear;
+}
+.menu-lang__item:hover {
+    color: var(--dark-white-color);
+    transition: color 0.3s linear;
+}
+
+.menu-social {
+    align-items: center;
+    border: 1px solid var(--gray-text-color);
+    height: 50px;
+    margin-bottom: 69px;
+
+    display: none;
+    justify-content: space-around;
+    width: 150px;
+}
+
+.menu-social__link {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-social__link-second-child {
+    border-inline: 1px solid var(--gray-text-color);
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .menu-lang {
+        display: flex;
+    }
+    .menu-item {
+        font-size: 17px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: 628px) {
+    .menu-social {
+        display: flex;
+    }
+
+
     .menu {
         width: 100%;
     }
 
-    .menu-item {
-        font-size: 1.5rem;
-        text-align: center;
-    }
 }

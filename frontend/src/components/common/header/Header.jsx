@@ -8,26 +8,28 @@ import logo from '../../../assets/images/header/logo.svg';
 import facebook_icon from '../../../assets/images/header/facebook-icon.svg'
 import instagram_icon from '../../../assets/images/header/instagram-icon.svg'
 import telegram_icon from '../../../assets/images/header/telegram-icon.svg'
+import HeaderBurger from "./HeaderBurger";
+import HeaderBurgerMenu from "./HeaderBurgerMenu";
 
 const Header = () => {
 
-    // const useOnClickOutside = (ref, handler) => {
-    //   React.useEffect(() => {
-    //     const listener = event => {
-    //       if (!ref.current || ref.current.contains(event.target)) return;
-    //       handler(event);
-    //     };
-    //     document.addEventListener("mousedown", listener);
-    //
-    //     return () => {
-    //       document.removeEventListener("mousedown", listener);
-    //     };
-    //   }, [ref, handler]);
-    // };
-    //
-    // const [open, setOpen] = React.useState(false);
-    // const node = React.useRef();
-    // useOnClickOutside(node, () => setOpen(false));
+    const useOnClickOutside = (ref, handler) => {
+      React.useEffect(() => {
+        const listener = event => {
+          if (!ref.current || ref.current.contains(event.target)) return;
+          handler(event);
+        };
+        document.addEventListener("mousedown", listener);
+
+        return () => {
+          document.removeEventListener("mousedown", listener);
+        };
+      }, [ref, handler]);
+    };
+
+    const [open, setOpen] = React.useState(false);
+    const node = React.useRef();
+    useOnClickOutside(node, () => setOpen(false));
 
     return (
         <div className="header">
@@ -88,6 +90,8 @@ const Header = () => {
                             </a>
                         </div>
                     </div>
+                    <HeaderBurger open={open}   setOpen={setOpen}/>
+                    <HeaderBurgerMenu open={open} />
                 </div>
             </div>
             {/*<div className="menu">*/}

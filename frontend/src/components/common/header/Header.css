@@ -107,3 +107,36 @@
     border-bottom: none;
     border-top: none;
 }
+
+
+@media  screen and (max-width: 1200px) {
+    .header-top-nav {
+        display: none;
+    }
+
+    .header-top-links {
+        margin-right: 57px;
+    }
+}
+
+@media  screen and (max-width: 768px) {
+    .header-top-lang {
+        display: none;
+    }
+
+    .header-top__logo {
+        width: 60px;
+    }
+}
+
+@media  screen and (max-width: 628px) {
+    .header-top-social {
+        display: none;
+    }
+}
+
+@media  screen and (max-width: 400px) {
+    .header-top-tel {
+        padding-inline: 10px;
+    }
+}
