@@ -9,6 +9,7 @@ import MainPage from "./components/main-page/MainPage";
 import AboutUsPage from "./components/about-us-page/AboutUsPage";
 import NewsListPage from "./components/news-list-page/NewsListPage";
 import NewsDetailPage from "./components/news-detail-page/NewsDetailPage";
+import ContactsPage from "./components/contacts-page/ContactsPage";
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
                 <Route path="/*" element={<MainPage/>}/>
                 <Route path="/about-us/" element={<AboutUsPage/>}/>
                 <Route path="/news/" element={<NewsListPage/>}/>
-                <Route path={"/news/:slug/"} element={<NewsDetailPage/>}/>
+                <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
+                <Route path="/contacts/" element={<ContactsPage/>}/>
             </Routes>
             <Footer/>
         </div>
