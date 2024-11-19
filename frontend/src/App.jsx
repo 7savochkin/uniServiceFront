@@ -7,6 +7,7 @@ import Header from "./components/common/header/Header";
 import Footer from "./components/common/footer/Footer";
 import MainPage from "./components/main-page/MainPage";
 import AboutUsPage from "./components/about-us-page/AboutUsPage";
+import NewsListPage from "./components/news-list-page/NewsListPage";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Routes>
                 <Route path="/*" element={<MainPage/>}/>
                 <Route path="/about-us/" element={<AboutUsPage/>}/>
+                <Route path="/news/" element={<NewsListPage/>}/>
             </Routes>
             <Footer/>
         </div>

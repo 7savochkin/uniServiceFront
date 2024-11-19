@@ -21,3 +21,9 @@
 .breadcrumbs__link-active:hover{
     opacity: 1;
 }
+
+@media screen and (max-width: 900px) {
+    .breadcrumbs{
+        padding-top: 30px;
+    }
+}
