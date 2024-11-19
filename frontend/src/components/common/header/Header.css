@@ -75,6 +75,7 @@
     padding-right: 21px;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .header-top-social {
