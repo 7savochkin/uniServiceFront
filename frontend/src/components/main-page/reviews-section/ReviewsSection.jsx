@@ -13,6 +13,7 @@ import {useState} from "react";
 import Input from "../../common/input/Input";
 
 import pop_up_close_icon from "../../../assets/images/pop-up/pop-up-close-icon.svg"
+import Button from "../../common/button/Button";
 
 const ReviewsSection = () => {
     const reviewsList = [
@@ -209,7 +210,8 @@ const ReviewsSection = () => {
                             )
                         )}
                     </Swiper>
-                    <span href="#" className="facial-section-info__link" onClick={() => setPopUpActive(true)}>Залишити відгук</span>
+                    <Button additionalClass="reviews-section__link" onClick={() => setPopUpActive(true)}>Залишити відгук</Button>
+                    {/*<span href="#" className="facial-section-info__link" onClick={() => setPopUpActive(true)}>Залишити відгук</span>*/}
                 </div>
             </div>
             <PopUp active={popUpActive} setActive={setPopUpActive}>
@@ -221,7 +223,7 @@ const ReviewsSection = () => {
                         <label htmlFor="text-area" className="text-area__label">Відгук</label>
                         <textarea name="text-area" id="" className="text-area input-field__input"
                                   placeholder="Напишіть текст" ></textarea>
-                        <input className="pop-up__send-button facial-section-info__link" type="submit" value='Відправити' />
+                        <input className="pop-up__send-button button-link" type="submit" value='Відправити' />
                     </div>
                 </form>
             </PopUp>

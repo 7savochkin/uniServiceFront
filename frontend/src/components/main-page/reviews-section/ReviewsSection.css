@@ -112,11 +112,15 @@
     box-sizing: content-box;
 }
 
-.reviews-section-content .facial-section-info__link {
+.reviews-section-content .reviews-section__link {
     width: 326px;
     height: 54px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.reviews-section__link::after {
+    left: 75%;
 }
 
 .reviews-section__slider-tablet, .reviews-section__slider-mobile {
@@ -146,7 +150,7 @@
         margin-block: 30px;
     }
 
-    .reviews-section-content .facial-section-info__link {
+    .reviews-section-content .reviews-section__link {
         width: 100%;
     }
 

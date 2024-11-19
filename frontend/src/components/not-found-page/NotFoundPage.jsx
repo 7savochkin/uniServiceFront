@@ -12,7 +12,7 @@ const NotFoundPage = () => {
                 <div className="not-found-page__wrapper">
                     <img src={notFoundImage} alt="not found image" className="not-found-page__image"/>
                     <h1 className="not-found-page__title">Сторінку не знайдено</h1>
-                    <NavLink to={"/"} className="facial-section-info__link not-found-page__btn">На головну</NavLink>
+                    <NavLink to={"/"} className="button-link not-found-page__btn">На головну</NavLink>
                 </div>
             </section>
     )
