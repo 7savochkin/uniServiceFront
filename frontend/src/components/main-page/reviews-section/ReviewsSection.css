@@ -118,3 +118,53 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.reviews-section__slider-tablet, .reviews-section__slider-mobile {
+    display: none;
+}
+
+@media (max-width: 876px) {
+    .reviews-section__slider {
+        display: none;
+    }
+
+    .reviews-section__slider-tablet {
+        display: flex;
+        margin-top: 84px;
+        margin-bottom: 62px;
+    }
+}
+
+@media (max-width: 592px) {
+
+    .reviews-section__slider-tablet {
+        display: none;
+    }
+
+    .reviews-section__slider-mobile {
+        display: flex;
+        margin-block: 30px;
+    }
+
+    .reviews-section-content .facial-section-info__link {
+        width: 100%;
+    }
+
+    .reviews-section-header {
+        flex-direction: column;
+    }
+
+    .reviews-slider-arrows {
+        margin-top: 23px;
+        margin-left: auto;
+    }
+
+    .reviews-section {
+        padding-block: 60px;
+    }
+
+    .reviews-section-header__title {
+        font-size: 30px;
+        line-height: 37px;
+    }
+}

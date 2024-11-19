@@ -170,6 +170,45 @@ const ReviewsSection = () => {
                             )
                         )}
                     </Swiper>
+
+                    <Swiper
+                        slidesPerView={2}
+                        slidesPerGroup={1}
+                        navigation={{
+                            prevEl: '.reviews-slider-arrow__prev',
+                            nextEl: '.reviews-slider-arrow__next',
+                        }}
+                        loop={true}
+                        className="reviews-section__slider-tablet"
+                        modules={[Navigation]}
+                    >
+                        {reviewsList.map(
+                            (item, index) => (
+                                <SwiperSlide key={index}>
+                                    <ReviewItem {...item} />
+                                </SwiperSlide>
+                            )
+                        )}
+                    </Swiper>
+                    <Swiper
+                        slidesPerView={1}
+                        slidesPerGroup={1}
+                        navigation={{
+                            prevEl: '.reviews-slider-arrow__prev',
+                            nextEl: '.reviews-slider-arrow__next',
+                        }}
+                        loop={true}
+                        className="reviews-section__slider-mobile"
+                        modules={[Navigation]}
+                    >
+                        {reviewsList.map(
+                            (item, index) => (
+                                <SwiperSlide key={index}>
+                                    <ReviewItem {...item} />
+                                </SwiperSlide>
+                            )
+                        )}
+                    </Swiper>
                     <span href="#" className="facial-section-info__link" onClick={() => setPopUpActive(true)}>Залишити відгук</span>
                 </div>
             </div>
