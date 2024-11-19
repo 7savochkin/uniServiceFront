@@ -15,7 +15,9 @@ const VacanciesListPage = () => {
             "title": "Назва",
             "slug": "vacancy-item-first",
             "price": 40000,
-            "description": "Опис вакансії...",
+            "description": "ТОВ “ЮНІ СЕРВІС” Добування декоративного та будівельного каменю, " +
+                "вапняку, гіпсу, крейди та глинистого сланцю." +
+                " Надання допоміжних послуг у сфері добування інших корисних копалин та розроблення кар'єрів",
             "requirements": ["Вимога 1", "Вимога 2"],
             "image": "/media/images/vacancies/vacancy_image.jpg"
         },
@@ -44,13 +46,13 @@ const VacanciesListPage = () => {
                 <div className="container">
                     <div className="vacancies-section-header">
                         <h2 className="vacancies-section__title">Вакансії/<span>Тендери</span></h2>
-                        <NavLink to="" className="facial-section-info__link">Запросити до тендеру</NavLink>
+                        <NavLink to="" className="vacancies-section__link facial-section-info__link">Запросити до тендеру</NavLink>
                     </div>
                     <div className="vacancies-section-list">
                         <ul className="vacancies-section-list__inner">
                             {vacancies.map((item, index) => <VacancyItem key={index} {...item}/>)}
                         </ul>
-                        <div className="facial-section-info__link">Показати більше</div>
+                        <span className="vacancies-section__loadmore facial-section-info__link">Показати більше</span>
                     </div>
                 </div>
             </div>
