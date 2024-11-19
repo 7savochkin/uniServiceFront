@@ -96,3 +96,14 @@
     top: 24px;
     right: 24px;
 }
+
+@media  (max-width: 492px){
+    .pop-up__content {
+        width: 350px;
+        height: 800px;
+    }
+
+    .text-area {
+        width: 100%;
+    }
+}
