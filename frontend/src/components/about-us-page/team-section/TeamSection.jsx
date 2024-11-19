@@ -55,8 +55,20 @@ const TeamSection = () => {
                             isDark={true}
                         />
                     </div>
-                    <Swiper slidesPerView={3}
+                    <Swiper slidesPerView={1}
                             slidesPerGroup={1}
+                            breakpoints={{
+                                "992": {
+                                    slidesPerView: 3,
+                                },
+                                "648": {
+                                    slidesPerView: 2,
+                                },
+
+                                "375": {
+                                    slidesPerView: 1,
+                                },
+                            }}
                             navigation={{
                                 prevEl: '.team-slider-arrow__prev',
                                 nextEl: '.team-slider-arrow__next',

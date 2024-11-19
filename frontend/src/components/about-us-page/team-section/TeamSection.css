@@ -104,3 +104,34 @@
     line-height: 25px;
     text-transform: lowercase;
 }
+
+@media (max-width: 992px) {
+    .team-section-stones::after, .team-section-stones::before {
+        display: none;
+    }
+
+    .team-section {
+        padding-bottom: 100px;
+    }
+}
+
+@media (max-width: 648px) {
+    .team-section {
+        padding-bottom: 47px;
+        padding-top: 60px;
+    }
+
+    .team-section-header {
+        flex-direction: column;
+    }
+
+    .team-slider-arrows {
+        margin-left: auto;
+        margin-bottom: 30px;
+    }
+
+    .team-section__title {
+        margin-bottom: 36px;
+        font-size: 30px;
+    }
+}
