@@ -126,11 +126,9 @@
         /*margin-bottom: 120px;*/
     }
 
-    .order-consultation-section {
-        /*background-image: url('../../../assets/images/main-page/consultation-man.jpg');*/
-        /*background-repeat: no-repeat;*/
-        /*background-size: 100%;*/
-        /*background-color: #fff;*/
+    .order-consultation-content {
+        position: relative;
+        z-index: 99;
     }
 
     .order-consultation-wrapper {
@@ -164,9 +162,22 @@
 
 
 @media (max-width: 640px) {
+    .order-consultation-section-info {
+        max-width: 600px;
+        width: 100%;
+    }
+
     .order-consultation-section__title {
         max-width: 100%;
-        /*padding-top: 110px;*/
+        font-size: 30px;
+
     }
-    
+
+    .order-consultation-section__text {
+        max-width: 100%;
+    }
+
+    .order-consultation-section-form {
+        padding-top: 41px;
+    }
 }
