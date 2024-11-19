@@ -10,11 +10,9 @@ import AboutUsPage from "./components/about-us-page/AboutUsPage";
 import NewsListPage from "./components/news-list-page/NewsListPage";
 import NewsDetailPage from "./components/news-detail-page/NewsDetailPage";
 import ContactsPage from "./components/contacts-page/ContactsPage";
-<<<<<<< HEAD
 import NotFoundPage from "./components/not-found-page/NotFoundPage";
-=======
 import ServicesPage from "./components/services-page/ServicesPage";
->>>>>>> 597391c3d2d82b4d0f6873f025cbe30524ef4094
+import MediaPage from "./components/media-page/MediaPage";
 
 
 function App() {
@@ -27,11 +25,9 @@ function App() {
                 <Route path="/news/" element={<NewsListPage/>}/>
                 <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
                 <Route path="/contacts/" element={<ContactsPage/>}/>
-<<<<<<< HEAD
                 <Route path="/not-found/" element={<NotFoundPage/>}/>
-=======
                 <Route path="/services/" element={<ServicesPage/>}/>
->>>>>>> 597391c3d2d82b4d0f6873f025cbe30524ef4094
+                <Route path="/media/" element={<MediaPage/>}/>
             </Routes>
             <Footer/>
         </div>
