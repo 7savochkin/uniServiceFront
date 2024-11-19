@@ -50,9 +50,9 @@ const ServicesSection = () => {
 
     return (
         <section className="services-section">
-            <div className="container">
-                <div className="services-section-content">
-                    <div className="services-section-header">
+            <div className="services-section-content">
+                <div className="services-section-header">
+                    <div className="services-section-header__inner container">
                         <h2 className="services-section__title">Послуги</h2>
                         <p className="services-section-header__text">Варто відзначити, що підприємство, маючи родовище
                             граніту рожевого кольору та сучасне обладнання для збагачення відсіву, постачає свою
@@ -61,7 +61,9 @@ const ServicesSection = () => {
                             вентильованих фасадів
                         </p>
                     </div>
-                    <ul className="services-section-list">
+                </div>
+                <div className="services-section-list">
+                    <ul className="services-section-list__inner container">
                         {
                             services.map((service, index) => <ServiceItem key={index} {...service} />)
                         }

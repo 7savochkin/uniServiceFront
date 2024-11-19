@@ -10,6 +10,7 @@ import AboutUsPage from "./components/about-us-page/AboutUsPage";
 import NewsListPage from "./components/news-list-page/NewsListPage";
 import NewsDetailPage from "./components/news-detail-page/NewsDetailPage";
 import ContactsPage from "./components/contacts-page/ContactsPage";
+import ServicesPage from "./components/services-page/ServicesPage";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/news/" element={<NewsListPage/>}/>
                 <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
                 <Route path="/contacts/" element={<ContactsPage/>}/>
+                <Route path="/services/" element={<ServicesPage/>}/>
             </Routes>
             <Footer/>
         </div>
