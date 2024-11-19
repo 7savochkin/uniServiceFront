@@ -76,3 +76,26 @@
         width: calc(50% - 40px);
     }
 }
+
+@media screen and (max-width: 600px) {
+    .contacts-section {
+        padding-top: 19px;
+    }
+
+    .contacts-section__title{
+        font-size: 30px;
+    }
+
+    .contacts-section-list{
+        padding-top: 34px;
+        padding-bottom: 70px;
+    }
+
+    .contacts-section-list__item{
+        width: 100%;
+    }
+
+    .contacts-section-map{
+        height: 260px;
+    }
+}
