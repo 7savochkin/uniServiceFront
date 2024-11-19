@@ -36,7 +36,9 @@ const Header = () => {
         <div className="header">
             <div className="container">
                 <div className="header-top">
-                    <img className="header-top__logo" src={logo} alt="logo"/>
+                    <NavLink to={"/"}>
+                        <img className="header-top__logo" src={logo} alt="logo"/>
+                    </NavLink>
                     <ul className="header-top-nav">
                         <li className="header-top-nav__item">
                             <NavLink to={"/about-us/"} className="header-top-nav__item-link">Про компанію</NavLink>
