@@ -1,3 +1,5 @@
+import Button from "../../common/button/Button";
+
 const ServiceItem = ({title, img, features, orderLink}) => (
     <li className="services-section-list__item">
         <div className="services-section-list__item-header">
@@ -13,7 +15,8 @@ const ServiceItem = ({title, img, features, orderLink}) => (
                                                       className="services-section-list__item-features__elem">{item}</li>)
                 }
             </ul>
-            <a href={orderLink} className="facial-section-info__link">Замовити</a>
+            <Button additionalClass={'service-section__link'}>Замовити</Button>
+            {/*<a href={orderLink} className="facial-section-info__link">Замовити</a>*/}
         </div>
     </li>
 )

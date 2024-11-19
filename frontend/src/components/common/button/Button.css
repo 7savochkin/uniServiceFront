@@ -1,0 +1,45 @@
+.button-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 91px;
+    margin: 0 15px;
+    gap: 10px;
+    width: 264px;
+    height: 54px;
+    background: var(--azure-text-color);
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--white-bg-color);
+    position: relative;
+    cursor: pointer;
+}
+
+.button-link::after{
+    content: '';
+    position: absolute;
+    top: 53%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-image: url("../../../assets/images/main-page/button-white-arrow.svg");
+    transition: all 0.3s ease-in-out;
+}
+
+.button-link:hover{
+    background: var(--azure-text-color-hover);
+    transition: all 0.3s ease-in-out;
+}
+.button-link:active {
+    background: #01A0A0;
+}
+
+.button-link:disabled {
+    background: #00CCCC;
+}

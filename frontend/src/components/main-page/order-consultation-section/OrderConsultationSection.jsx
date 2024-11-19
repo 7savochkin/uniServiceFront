@@ -104,7 +104,7 @@ const OrderConsultationSection = () => {
                                 виїзд та консультацію від фахівця</p>
                             <form onSubmit={onSubmitForm} className="order-consultation-section-form">
                                 {inputsData.map((item, i) => <Input key={i} {...item}/>)}
-                                <input className="facial-section-info__link" type="submit" value='Відправити'/>
+                                <input className="order-consultation__link button-link" type="submit" value='Відправити'/>
                             </form>
                         </div>
                         <div className="order-consultation-section-images">

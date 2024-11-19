@@ -21,7 +21,7 @@
     color: var(--green-text-color);
 }
 
-.last-news-section-header .facial-section-info__link {
+.last-news-section-header .last-news-section__link {
     padding: 12px 40px;
     width: 240px;
     height: 52px;
@@ -31,6 +31,10 @@
     display: flex;
     gap: 40px;
     margin-top: 64px;
+}
+
+.last-news-section__link::after {
+    left: 83%;
 }
 
 @media screen and (max-width: 900px) {
@@ -53,7 +57,6 @@
         margin-top: 72px;
         gap: 10px;
     }
-
 }
 
 @media screen and (max-width: 520px) {

@@ -27,7 +27,7 @@
     color: var(--green-text-color);
 }
 
-.about-us-section .facial-section-info__link {
+.about-us-section .about-us-section-btn {
     padding: 14px 91px;
     width: 291px;
     height: 54px;
@@ -86,8 +86,12 @@
     gap: 40px;
 }
 
-.facial-section-info__link-mobile {
+.about-us-info__link-mobile {
     display: none;
+}
+
+.about-us-section-btn::after {
+    left: 75%;
 }
 
 @media (max-width: 768px) {
@@ -104,8 +108,12 @@
     .about-us-section-btn {
         display: none;
     }
+    .about-us-info__link-mobile::after {
+        left: 75%;
+    }
 
-    .facial-section-info__link-mobile {
+
+    .about-us-info__link-mobile {
         display: flex;
         margin-left: auto;
         margin-bottom: 46px;

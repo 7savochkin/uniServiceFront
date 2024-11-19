@@ -112,12 +112,18 @@
     flex-grow: 1;
 }
 
-.services-section-list__item-info .facial-section-info__link {
+.services-section-list__item-info .service-section__link {
     width: 120px;
     height: 36px;
     padding: 0;
     margin: 0;
     align-self: flex-end;
+    padding-left: 15px;
+    justify-content: flex-start;
+}
+
+.service-section__link::after {
+    left: 80%;
 }
 
 .services-section-list__item-features__elem {
