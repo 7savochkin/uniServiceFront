@@ -10,6 +10,7 @@ import instagram_icon from '../../../assets/images/header/instagram-icon.svg'
 import telegram_icon from '../../../assets/images/header/telegram-icon.svg'
 import HeaderBurger from "./HeaderBurger";
 import HeaderBurgerMenu from "./HeaderBurgerMenu";
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
 
@@ -38,22 +39,22 @@ const Header = () => {
                     <img className="header-top__logo" src={logo} alt="logo"/>
                     <ul className="header-top-nav">
                         <li className="header-top-nav__item">
-                            <a href="www.google.com" className="header-top-nav__item-link">Про компанію</a>
+                            <NavLink to={"/about-us/"} className="header-top-nav__item-link">Про компанію</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <a href="www.google.com" className="header-top-nav__item-link">Послуги</a>
+                            <NavLink to={"/service/"} className="header-top-nav__item-link">Послуги</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <a href="www.google.com" className="header-top-nav__item-link">Медіа</a>
+                            <NavLink to={"/media/"} className="header-top-nav__item-link">Медіа</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <a href="www.google.com" className="header-top-nav__item-link">Вакансії</a>
+                            <NavLink to={"/vacancies/"} className="header-top-nav__item-link">Вакансії</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <a href="www.google.com" className="header-top-nav__item-link">Новини</a>
+                            <NavLink to={"/news/"} className="header-top-nav__item-link">Новини</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <a href="www.google.com" className="header-top-nav__item-link">Контакти</a>
+                            <NavLink to={"/contacts/"} className="header-top-nav__item-link">Контакти</NavLink>
                         </li>
                     </ul>
                     <div className="header-top-links">
