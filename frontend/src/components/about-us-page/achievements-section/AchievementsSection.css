@@ -77,3 +77,63 @@
     line-height: 150%;
     color: #586574;
 }
+
+@media (max-width: 992px) {
+    .achiev-section-list__item-header {
+        gap: 80px;
+        padding-block: 47px;
+    }
+    .achiev-section-list__item {
+    }
+}
+
+@media (max-width: 769px) {
+    .achiev-section-list__item {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .achiev-section-list__item-desc {
+        max-width: 100%;
+    }
+
+    .achiev-section-list__item-header {
+        max-width: 700px;
+        width: 100%;
+        padding-bottom: 39px;
+    }
+
+}
+
+@media (max-width: 482px) {
+    .achiev-section {
+        padding-top: 69px;
+        padding-bottom: 60px;
+    }
+
+    .achiev-section__title {
+        font-size: 30px;
+    }
+
+    .achiev-section__desc {
+        padding-top: 33px;
+    }
+
+    .achiev-section-list__item-header__percent {
+        font-size: 45px;
+        line-height: 54px;
+    }
+
+    .achiev-section-list__item-header {
+        gap: 21px;
+    }
+
+    .achiev-section-list__item-header__title {
+        font-size: 17px;
+    }
+
+    .achiev-section-list__item {
+        padding-bottom: 35px;
+        padding-top: 0;
+    }
+}
