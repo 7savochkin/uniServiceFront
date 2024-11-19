@@ -1,9 +1,9 @@
 import "./NewsItem.css";
 import {NavLink} from "react-router-dom";
 
-const NewsItem = ({title, image, date, additionalClass = null}) => (
+const NewsItem = ({title, slug, image, date, additionalClass = null}) => (
     <li className={additionalClass ? `news-item ${additionalClass}` : "news-item"}>
-        <NavLink to={"/about-us/"} className="news-item__link">
+        <NavLink to={`/news/${slug}/`} className="news-item__link">
             <div className="news-item__img-wrap">
                 <img src={image} alt={title}/>
             </div>

@@ -12,56 +12,72 @@ const NewsListPage = () => {
     ]
 
     const newsList = [
-        {
+                {
             "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-first",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
         {
             "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-second",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
         {
             "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-third",
+            "content": "Текст новини...",
+            "image": last_news_section_example_first,
+            "date": formatIsoDate("2024-11-13T09:00:00Z")
+        },
+                {
+            "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-first",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
         {
             "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-second",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
         {
             "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-third",
+            "content": "Текст новини...",
+            "image": last_news_section_example_first,
+            "date": formatIsoDate("2024-11-13T09:00:00Z")
+        },
+                {
+            "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-first",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
         {
             "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-second",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
         {
             "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-third",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
-        {
+                {
             "title": "Міжнародне визнання за інновації в безпеці",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
+            "slug": "international-recognition-first",
             "content": "Текст новини...",
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")

@@ -57,16 +57,23 @@ const CertificatesSection = () => {
                             slidesPerGroup={1}
                             centeredSlides={true}
                             loop={true}
-                            // grabCursor={true}
+                        // grabCursor={true}
                             effect={'creative'}
+                            watchSlidesProgress={true}
                             creativeEffect={{
                                 prev: {
                                     shadow: true,
-                                    translate: ['-90%', 0, 0],
+                                    translate: ['-100%', 0, 0],
+                                    limitProgress: 3,
+                                    shadowPerProgress: true,
+                                    origin: "left bottom"
                                 },
                                 next: {
                                     shadow: true,
-                                    translate: ['90%', 0, 0],
+                                    translate: ['100%', 0, 0],
+                                    limitProgress: 3,
+                                    shadowPerProgress: true,
+                                    origin: "right top"
                                 },
                             }}
                             navigation={{

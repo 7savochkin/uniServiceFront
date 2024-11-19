@@ -132,6 +132,7 @@ body {
     --azure-text-color: #00CCCC;
     --azure-text-color-hover: #01bdbd;;
     --placeholder-text-color: #A4ABB3;
+    --dark-gray-text-color: #4E5A67;
     --header-height: 70px;
     overflow-x: hidden;
 }
