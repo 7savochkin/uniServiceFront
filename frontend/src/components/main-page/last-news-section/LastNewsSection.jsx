@@ -42,7 +42,7 @@ const LastNewsSection = () => {
                 <div className="last-news-section-content">
                     <div className="last-news-section-header">
                         <h2 className="last-news-section-header__title">Останні новини</h2>
-                        <NavLink to="/news/" className="facial-section-info__link">Показати більше</NavLink>
+                        <NavLink to="/news/" className="facial-section-info__link last-news-section__link">Показати більше</NavLink>
                     </div>
                     <ul className="last-news-section__list">
                         {newsList.map((item, index) => (
