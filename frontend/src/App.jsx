@@ -10,7 +10,9 @@ import AboutUsPage from "./components/about-us-page/AboutUsPage";
 import NewsListPage from "./components/news-list-page/NewsListPage";
 import NewsDetailPage from "./components/news-detail-page/NewsDetailPage";
 import ContactsPage from "./components/contacts-page/ContactsPage";
+import NotFoundPage from "./components/not-found-page/NotFoundPage";
 import ServicesPage from "./components/services-page/ServicesPage";
+import MediaPage from "./components/media-page/MediaPage";
 import VacanciesListPage from "./components/vacancies-list-page/VacanciesListPage";
 
 
@@ -22,10 +24,12 @@ function App() {
                 <Route path="/*" element={<MainPage/>}/>
                 <Route path="/about-us/" element={<AboutUsPage/>}/>
                 <Route path="/contacts/" element={<ContactsPage/>}/>
+                <Route path="/not-found/" element={<NotFoundPage/>}/>
                 <Route path="/services/" element={<ServicesPage/>}/>
                 <Route path="/news/" element={<NewsListPage/>}/>
                 <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
                 <Route path="/vacancies/" element={<VacanciesListPage/>}/>
+                <Route path="/media/" element={<MediaPage/>}/>
             </Routes>
             <Footer/>
         </div>
