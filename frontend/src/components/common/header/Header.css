@@ -73,6 +73,8 @@
     /*padding-bottom: 24px;*/
     padding-left: 24px;
     padding-right: 21px;
+    display: flex;
+    align-items: center;
 }
 
 .header-top-social {
@@ -97,6 +99,17 @@
 .header-top-social__link-img {
     width: 14px;
     height: 14px;
+    color: #182829;
+    transition: .3s all;
+}
+.header-top-social__link:hover .header-top-social__link-img path {
+    fill: #00CCCC;
+    transition: .3s all;
+}
+
+.header-top-social__link:active .header-top-social__link-img path {
+    fill: #01A0A0;
+    transition: .3s all;
 }
 
 .header-top-links {
