@@ -123,19 +123,42 @@
 
 
     .order-consultation-section-form {
-        margin-bottom: 120px;
+        /*margin-bottom: 120px;*/
     }
 
     .order-consultation-section {
+        /*background-image: url('../../../assets/images/main-page/consultation-man.jpg');*/
+        /*background-repeat: no-repeat;*/
+        /*background-size: 100%;*/
+        /*background-color: #fff;*/
+    }
+
+    .order-consultation-wrapper {
         background-image: url('../../../assets/images/main-page/consultation-man.jpg');
         background-repeat: no-repeat;
-        background-size: 100%;
-        background-color: #fff;
+        background-size: cover;
+        padding-top: 110px;
+        padding-bottom: 110px;
+        background-position: bottom;
+        position: relative;
+        /*z-index: -10;*/
     }
 
     .order-consultation-section {
         padding-top: 0;
         padding-bottom: 0;
+    }
+
+    .order-consultation-bg {
+        background-color: #091017;
+        opacity: 0.7;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 15;
     }
 }
 

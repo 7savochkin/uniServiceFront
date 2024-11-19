@@ -95,22 +95,25 @@ const OrderConsultationSection = () => {
 
     return (
         <section className="order-consultation-section">
-            <div className="container">
-                <div className="order-consultation-content">
-                    <div className="order-consultation-section-info">
-                        <h2 className="order-consultation-section__title">Замовити консультацію</h2>
-                        <p className="order-consultation-section__text">Залиште свої контакти та отримайте безкоштовний
-                            виїзд та консультацію від фахівця</p>
-                        <form onSubmit={onSubmitForm} className="order-consultation-section-form">
-                            {inputsData.map((item, i) => <Input key={i} {...item}/>)}
-                            <input className="facial-section-info__link" type="submit" value='Відправити'/>
-                        </form>
-                    </div>
-                    <div className="order-consultation-section-images">
-                        <div className="order-consultation-section-images__square">
-                            <img src={consultation_square} alt={"consultation-square"}/>
+            <div className="order-consultation-wrapper">
+                <div className="container">
+                    <div className="order-consultation-content">
+                        <div className="order-consultation-section-info">
+                            <h2 className="order-consultation-section__title">Замовити консультацію</h2>
+                            <p className="order-consultation-section__text">Залиште свої контакти та отримайте безкоштовний
+                                виїзд та консультацію від фахівця</p>
+                            <form onSubmit={onSubmitForm} className="order-consultation-section-form">
+                                {inputsData.map((item, i) => <Input key={i} {...item}/>)}
+                                <input className="facial-section-info__link" type="submit" value='Відправити'/>
+                            </form>
+                        </div>
+                        <div className="order-consultation-section-images">
+                            <div className="order-consultation-section-images__square">
+                                <img src={consultation_square} alt={"consultation-square"}/>
+                            </div>
                         </div>
                     </div>
+                    <div className="order-consultation-bg"></div>
                 </div>
             </div>
         </section>
