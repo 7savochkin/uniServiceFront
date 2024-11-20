@@ -3,8 +3,15 @@ import React from 'react'
 import "./Footer.css"
 import logo from '../../../assets/images/footer/logo.svg';
 import {NavLink} from "react-router-dom";
+import {LanguageContext} from "../../../translations/language";
+import getTranslations from "../../../translations/translations";
 
 const Footer = () => {
+
+    const [language, setLanguage] = React.useContext(LanguageContext);
+
+    const translation = getTranslations(language, "footer");
+
     return (
         <footer className="footer">
             <div className="container">
@@ -14,39 +21,39 @@ const Footer = () => {
                             <img className="footer-content__logo-img" src={logo} alt="logo"/>
                         </NavLink>
                         <p className="footer-content__logo-text">
-                            Забезпечуємо безпечне виробництво та застосування вибухових матеріалів у різних індустріях.
+                            {translation["Забезпечуємо безпечне виробництво та застосування вибухових матеріалів у різних індустріях."]}
                         </p>
                     </div>
 
                     <div className="footer-content-menu">
-                        <h3 className="footer-content-menu__title footer-title">Меню:</h3>
+                        <h3 className="footer-content-menu__title footer-title">{translation["Меню:"]}</h3>
                         <ul className="footer-content-menu__list">
                             <li className="footer-content-menu__items">
-                                <a href="#1" className="footer-content-menu__link">Про компанію</a>
+                                <NavLink to="/about-us/" className="footer-content-menu__link">{translation["Про компанію"]}</NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <a href="#1" className="footer-content-menu__link">Продукція</a>
+                                <NavLink to="/services/" className="footer-content-menu__link">{translation["Продукція"]}</NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <a href="#1" className="footer-content-menu__link">Медіа</a>
+                                <NavLink to="/media/" className="footer-content-menu__link">{translation["Медіа"]}</NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <a href="#1" className="footer-content-menu__link">Вакансії</a>
+                                <NavLink to="/vacancies/" className="footer-content-menu__link">{translation["Вакансії"]}</NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <a href="#1" className="footer-content-menu__link">Новини</a>
+                                <NavLink to="/news/" className="footer-content-menu__link">{translation["Новини"]}</NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <a href="#1" className="footer-content-menu__link">Контакти</a>
+                                <NavLink to="/contacts/" className="footer-content-menu__link">{translation["Контакти"]}</NavLink>
                             </li>
                         </ul>
                     </div>
 
                     <div className="footer-content-graph">
-                        <h3 className="footer-content-graph__title footer-title">Графік роботи:</h3>
+                        <h3 className="footer-content-graph__title footer-title">{translation["Графік роботи:"]}</h3>
                         <ul className="footer-content-graph__list">
-                            <li className="footer-content-graph__items">Пн - Пт 8:00 - 17:00</li>
-                            <li className="footer-content-graph__items">Сб 8:00 - 13:00</li>
+                            <li className="footer-content-graph__items">{translation["Пн - Пт 8:00 - 17:00"]}</li>
+                            <li className="footer-content-graph__items">{translation["Сб 8:00 - 13:00"]}</li>
                             <li className="footer-content-graph__items">
                                 <a href="tel:+380979471159"
                                    className="footer-content-graph__link footer-content-graph__link-tel">+38(097)-947-11-59</a>
@@ -62,15 +69,12 @@ const Footer = () => {
 
                     <div className="footer-content-contacts">
                         <h3 className="footer-content-contacts__title footer-title">Контакти:</h3>
-                        <a href="#1" className="footer-content-cotacts__text">
-                            11634, Україна, Житомирська обл., Коростенський р-н, селище міського типу Гранітне(з),
-                            вул.Шевченка, будинок
-                        </a>
+                        <span className="footer-content-cotacts__text">
+                            {translation["11634, Україна, Житомирська обл., Коростенський р-н, селище міського типу Гранітне(з), вул.Шевченка, будинок"]}
+                        </span>
 
                         <div className="footer-content__links">
                             <a href="https://www.facebook.com/" className="footer-content__link">
-                                {/*<img src={facebook_icon} alt="facebook-icon" className="footer-content__img"/>*/}
-
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <rect width="30" height="30" fill="#00CCCC"/>

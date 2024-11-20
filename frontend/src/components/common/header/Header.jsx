@@ -47,7 +47,7 @@ const Header = () => {
                             <NavLink to={"/about-us/"} className="header-top-nav__item-link">{translation["Про компанію"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/service/"} className="header-top-nav__item-link">{translation["Послуги"]}</NavLink>
+                            <NavLink to={"/services/"} className="header-top-nav__item-link">{translation["Послуги"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/media/"} className="header-top-nav__item-link">{translation["Медіа"]}</NavLink>
