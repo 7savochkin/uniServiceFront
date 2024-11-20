@@ -86,6 +86,11 @@ const _translations = {
             "Обов’язки": "Обов’язки",
             // News page
             "Новини": "Новини",
+            // Contacts page
+            "Контакти": "Контакти",
+            "Адреса": "Адреса",
+            "Графік роботи": "Графік роботи",
+            "Соц. мережі": "Соц. мережі",
             // Breadcrumbs
             "Головна": "Головна",
             "Про компанію": "Про компанію",
@@ -178,6 +183,11 @@ const _translations = {
             "Обов’язки": "Requirements",
             // News page
             "Новини": "News",
+            // Contacts page
+            "Контакти": "Contacts",
+            "Адреса": "Address",
+            "Графік роботи": "Schedule",
+            "Соц. мережі": "Social networks",
             // Breadcrumbs
             "Головна": "Home",
             "Про компанію": "About the company",
