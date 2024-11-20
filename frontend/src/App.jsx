@@ -15,12 +15,14 @@ import ServicesPage from "./components/services-page/ServicesPage";
 import MediaPage from "./components/media-page/MediaPage";
 import VacanciesListPage from "./components/vacancies-list-page/VacanciesListPage";
 import VacancyDetailPage from "./components/vacancy-detail-page/VacancyDetailPage";
+import ScrollToTop from "./components/main-page/scroll-to-top/ScrollToTop";
 
 
 function App() {
     return (
         <div className="wrapper">
             <Header/>
+            <ScrollToTop/>
             <Routes>
                 <Route path="/*" element={<MainPage/>}/>
                 <Route path="/about-us/" element={<AboutUsPage/>}/>

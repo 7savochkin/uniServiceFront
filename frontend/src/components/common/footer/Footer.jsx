@@ -5,6 +5,7 @@ import logo from '../../../assets/images/footer/logo.svg';
 import facebook_icon from '../../../assets/images/footer/facebook-icon.svg';
 import instagram_icon from '../../../assets/images/footer/instagram-icon.svg';
 import telegram_icon from '../../../assets/images/footer/telegram-icon.svg';
+import {NavLink} from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -12,7 +13,9 @@ const Footer = () => {
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-content__logo">
-                        <img className="footer-content__logo-img" src={logo} alt="logo"/>
+                        <NavLink to={"/"}>
+                            <img className="footer-content__logo-img" src={logo} alt="logo"/>
+                        </NavLink>
                         <p className="footer-content__logo-text">
                             Забезпечуємо безпечне виробництво та застосування вибухових матеріалів у різних індустріях.
                         </p>

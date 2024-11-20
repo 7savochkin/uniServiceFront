@@ -5,25 +5,30 @@ import instagram_icon from "../../../assets/images/main-page/menu-instagram-icon
 import telegram_icon from "../../../assets/images/main-page/menu-telegram-icon.svg";
 import {NavLink} from "react-router-dom";
 
-const HeaderBurgerMenu = ({open}) => {
+const HeaderBurgerMenu = ({open, setOpen}) => {
+
+    const closeBurger = () => {
+        setOpen(!open);
+    }
+
     return (
         <nav className={`menu ${open ? "active" : ""}`}>
-            <NavLink to={"/about-us"} className="menu-item">
+            <NavLink to={"/about-us"} className="menu-item" onClick={closeBurger}>
                 Про компанію
             </NavLink>
-            <NavLink to={"/services"} className="menu-item">
+            <NavLink to={"/services"} className="menu-item" onClick={closeBurger}>
                 Послуги
             </NavLink>
-            <NavLink to={"/media"} className="menu-item">
+            <NavLink to={"/media"} className="menu-item" onClick={closeBurger}>
                 Медіа
             </NavLink>
-            <NavLink to={"/vacancies"} className="menu-item">
+            <NavLink to={"/vacancies"} className="menu-item" onClick={closeBurger}>
                 Вакансії
             </NavLink>
-            <NavLink to={"/news"} className="menu-item">
+            <NavLink to={"/news"} className="menu-item" onClick={closeBurger}>
                 Новини
             </NavLink>
-            <NavLink to={"/contacts"} className="menu-item">
+            <NavLink to={"/contacts"} className="menu-item" onClick={closeBurger}>
                 Контакти
             </NavLink>
 

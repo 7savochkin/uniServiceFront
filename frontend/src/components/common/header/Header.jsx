@@ -112,7 +112,7 @@ const Header = () => {
                         </div>
                     </div>
                     <HeaderBurger open={open} setOpen={setOpen}/>
-                    <HeaderBurgerMenu open={open}/>
+                    <HeaderBurgerMenu open={open} setOpen={setOpen}/>
                 </div>
             </div>
             {/*<div className="menu">*/}
