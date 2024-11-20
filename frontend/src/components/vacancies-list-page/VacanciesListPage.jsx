@@ -51,14 +51,18 @@ const VacanciesListPage = () => {
             <div className="vacancies-section">
                 <div className="container">
                     <div className="vacancies-section-header">
-                        <h2 className="vacancies-section__title">{translation["Вакансії"]}/<span>{translation["Тендери"]}</span></h2>
-                        <Button additionalClass={"vacancies-section__link"} className="button-link">{translation["Запросити до тендеру"]}</Button>
+                        <h2 className="vacancies-section__title">{translation["Вакансії"]}/<span>{translation["Тендери"]}</span>
+                        </h2>
+                        <Button additionalClass={"vacancies-section__link"}
+                                className="button-link">{translation["Запросити до тендеру"]}</Button>
                     </div>
                     <div className="vacancies-section-list">
                         <ul className="vacancies-section-list__inner">
-                            {vacancies.map((item, index) => <VacancyItem key={index} translation={translation} {...item}/>)}
+                            {vacancies.map((item, index) => <VacancyItem key={index}
+                                                                         translation={translation} {...item}/>)}
                         </ul>
-                        <Button additionalClass={"vacancies-section__loadmore"} className="button-link">{translation["Показати більше"]}</Button>
+                        <Button additionalClass={"vacancies-section__loadmore"}
+                                className="button-link">{translation["Показати більше"]}</Button>
                     </div>
                 </div>
             </div>
