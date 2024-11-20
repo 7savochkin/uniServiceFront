@@ -107,4 +107,8 @@
         width: 100%;
         margin: 0;
     }
+
+    .vacancies-section__link {
+        padding-right: 20px;
+    }
 }

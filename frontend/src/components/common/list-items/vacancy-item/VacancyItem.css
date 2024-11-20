@@ -92,6 +92,9 @@
     left: 85%;
 }
 
+.vacancies-list__btn::after {
+    left: 75%;
+}
 
 @media screen and (max-width: 1000px) {
     .vacancies-list-item {
@@ -108,3 +111,4 @@
         padding: 30px 20px;
     }
 }
+

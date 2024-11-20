@@ -17,6 +17,8 @@ import VacanciesListPage from "./components/vacancies-list-page/VacanciesListPag
 import VacancyDetailPage from "./components/vacancy-detail-page/VacancyDetailPage";
 import {useEffect, useState} from "react";
 import {LanguageContext, getLangFromLocaleStorage} from "./translations/language";
+import ScrollToTop from "./components/main-page/scroll-to-top/ScrollToTop";
+
 
 function App() {
 
@@ -31,6 +33,7 @@ function App() {
         <div className="wrapper">
             <LanguageContext.Provider value={[language, setLanguage]}>
                 <Header/>
+                <ScrollToTop/>
                 <Routes>
                     <Route path="/*" element={<MainPage/>}/>
                     <Route path="/about-us/" element={<AboutUsPage/>}/>
