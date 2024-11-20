@@ -2,6 +2,7 @@ import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 import "./VacanciesListPage.css";
 import {NavLink} from "react-router-dom";
 import VacancyItem from "../common/list-items/vacancy-item/VacancyItem";
+import Button from "../common/button/Button";
 
 const VacanciesListPage = () => {
 
@@ -46,7 +47,7 @@ const VacanciesListPage = () => {
                 <div className="container">
                     <div className="vacancies-section-header">
                         <h2 className="vacancies-section__title">Вакансії/<span>Тендери</span></h2>
-                        <NavLink to="" className="vacancies-section__link facial-section-info__link">Запросити до тендеру</NavLink>
+                        <Button to="" additionalClass={"vacancies-section__link"} className="button-link">Запросити до тендеру</Button>
                     </div>
                     <div className="vacancies-section-list">
                         <ul className="vacancies-section-list__inner">
