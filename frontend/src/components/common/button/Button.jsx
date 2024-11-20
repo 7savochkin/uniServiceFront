@@ -1,9 +1,12 @@
 import './Button.css'
+import {NavLink} from "react-router-dom";
 
-const Button = ({additionalClass, children, onClick}) => {
+const Button = ({additionalClass, children, onClick, link=null}) => {
     const className = additionalClass ? additionalClass + ' ' + 'button-link' : 'button-link';
     return (
-        <a href="#" className={className} onClick={onClick}>{children}</a>
+        link ?
+            <NavLink className={className} to={link}>{children}</NavLink> :
+            <span className={className} onClick={onClick}>{children}</span>
     )
 }
 

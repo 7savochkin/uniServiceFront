@@ -2,6 +2,7 @@ import "./AboutUsSection.css"
 
 import about_us_section_img from "../../../assets/images/main-page/about-us-section-img.jpg"
 import Button from "../../common/button/Button";
+import {NavLink} from "react-router-dom";
 
 const AboutUsSection = () => (
     <section className="about-us-section">
@@ -10,8 +11,7 @@ const AboutUsSection = () => (
                 <div className="about-us-section-header">
                     <div className="about-us-section-header-wrap">
                         <h2 className="about-us-section-header__title">Про нас</h2>
-                        <Button additionalClass={'about-us-section-btn'}>Детальніше</Button>
-                        {/*<a href="#" className="facial-section-info__link about-us-section-btn">Детальніше</a>*/}
+                        <Button additionalClass={'about-us-section-btn'} link={"/about-us"}>Детальніше</Button>
                     </div>
                     <div className="about-us-section-header-wrap about-us-section-header-text">
                         <p className="about-us-section-header__text about-us-section-header__text-first">Виберіть
@@ -32,7 +32,6 @@ const AboutUsSection = () => (
                     </div>
                 </div>
                 <Button additionalClass={'about-us-info__link-mobile'}>Детальніше</Button>
-                {/*<a href="#" className="facial-section-info__link facial-section-info__link-mobile">Детальніше</a>*/}
                 <div className="about-us-section-main">
                     <p className="about-us-section-main__text">Наша компанія пишається високими стандартами якості та
                         строгою дотриманням усіх норм і вимог безпеки. Ми глибоко зобов'язані зберіганню і захисту
