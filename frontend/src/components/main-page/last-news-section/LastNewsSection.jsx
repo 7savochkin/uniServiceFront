@@ -3,6 +3,7 @@ import last_news_section_example_first from "../../../assets/images/main-page/la
 import NewsItem from "../../common/list-items/news-item/NewsItem";
 import formatIsoDate from "../../../utils/dates";
 import {NavLink} from "react-router-dom";
+import Button from "../../common/button/Button";
 
 const LastNewsSection = () => {
 
@@ -42,7 +43,7 @@ const LastNewsSection = () => {
                 <div className="last-news-section-content">
                     <div className="last-news-section-header">
                         <h2 className="last-news-section-header__title">Останні новини</h2>
-                        <NavLink to="/news/" className="button-link last-news-section__link">Показати більше</NavLink>
+                        <Button additionalClass={"last-news-section__link"} link={"/news/"}>Показати більше</Button>
                     </div>
                     <ul className="last-news-section__list">
                         {newsList.map((item, index) => (

@@ -1,4 +1,5 @@
 import Button from "../../common/button/Button";
+import {NavLink} from "react-router-dom";
 
 const ServiceItem = ({title, img, features, orderLink}) => (
     <li className="services-section-list__item">
@@ -15,8 +16,7 @@ const ServiceItem = ({title, img, features, orderLink}) => (
                                                       className="services-section-list__item-features__elem">{item}</li>)
                 }
             </ul>
-            <Button additionalClass={'service-section__link'}>Замовити</Button>
-            {/*<a href={orderLink} className="facial-section-info__link">Замовити</a>*/}
+            <Button additionalClass={'service-section__link'} link={"/contacts"}>Замовити</Button>
         </div>
     </li>
 )

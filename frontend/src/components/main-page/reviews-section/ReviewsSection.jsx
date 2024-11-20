@@ -211,7 +211,6 @@ const ReviewsSection = () => {
                         )}
                     </Swiper>
                     <Button additionalClass="reviews-section__link" onClick={() => setPopUpActive(true)}>Залишити відгук</Button>
-                    {/*<span href="#" className="facial-section-info__link" onClick={() => setPopUpActive(true)}>Залишити відгук</span>*/}
                 </div>
             </div>
             <PopUp active={popUpActive} setActive={setPopUpActive}>
