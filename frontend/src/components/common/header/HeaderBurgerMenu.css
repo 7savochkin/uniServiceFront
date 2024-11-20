@@ -34,7 +34,11 @@
 }
 
 .menu-item:hover {
-    color: #343078;
+    color: #00CCCC;
+}
+
+.menu-item:active {
+    color: #01A0A0;
 }
 
 
@@ -89,11 +93,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .3s all;
+    height: 100%;
+}
+
+.menu-social__link:hover svg path {
+    fill: #00CCCC;
+}
+
+.menu-social__link:active {
+    background-color: #01A0A0;
+    svg path {
+        fill: #fff;
+    }
 }
 
 .menu-social__link-second-child {
     border-inline: 1px solid var(--gray-text-color);
     height: 100%;
+}
+
+.menu {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .menu {
+        display: flex;
+    }
 }
 
 @media (max-width: 768px) {
