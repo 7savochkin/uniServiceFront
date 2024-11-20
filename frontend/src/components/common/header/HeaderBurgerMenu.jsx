@@ -1,11 +1,16 @@
 import React from "react";
 import "./HeaderBurgerMenu.css";
-import facebook_icon from "../../../assets/images/main-page/menu-facebook-icon.svg";
-import instagram_icon from "../../../assets/images/main-page/menu-instagram-icon.svg";
-import telegram_icon from "../../../assets/images/main-page/menu-telegram-icon.svg";
 import {NavLink} from "react-router-dom";
+import {LanguageContext} from "../../../translations/language";
 
 const HeaderBurgerMenu = ({open}) => {
+
+    const [language, setLanguage] = React.useContext(LanguageContext);
+
+    function getLangClassName(value){
+        return language === value ? "menu-lang__item lang-active" : "menu-lang__item"
+    }
+
     return (
         <nav className={`menu ${open ? "active" : ""}`}>
             <NavLink to={"/about-us"} className="menu-item">
@@ -28,11 +33,13 @@ const HeaderBurgerMenu = ({open}) => {
             </NavLink>
 
             <ul className="menu-lang">
-                <li className="menu-lang__item menu-lang__item-first-child">
-                    <a href="www.google.com" className="menu-lang__item-link">UK</a>
+                <li className={getLangClassName("uk")}
+                    onClick={() => setLanguage("uk")}>
+                    <span className="menu-lang__item-link">UK</span>
                 </li>
-                <li className="menu-lang__item">
-                    <a href="#menu" className="menu-lang__item-link">ENG</a>
+                <li className={getLangClassName("en")}
+                    onClick={() => setLanguage("en")}>
+                    <span className="menu-lang__item-link">ENG</span>
                 </li>
             </ul>
             <div className="menu-social">

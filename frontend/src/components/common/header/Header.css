@@ -133,6 +133,22 @@
     border-top: none;
 }
 
+.header-top-lang__item{
+    cursor: pointer;
+}
+
+.header-top-lang__item.lang-active span{
+    color: var(--azure-text-color);
+}
+
+.header-top-lang__item span{
+    transition: 0.3s ease;
+}
+
+.header-top-lang__item:hover span{
+    color: var(--azure-text-color);
+}
+
 @media  screen and (max-width: 1200px) {
     .header-top-nav {
         display: none;

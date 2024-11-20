@@ -56,16 +56,16 @@
 .menu-lang:nth-child(1) {
 }
 
-.menu-lang__item-first-child {
-    height: 50px;
-    border-right: 1px solid var(--gray-text-color);
-}
-
 .menu-lang__item {
     width: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.menu-lang__item:first-child{
+    height: 50px;
+    border-right: 1px solid var(--gray-text-color);
 }
 
 .menu-lang__item {
@@ -75,6 +75,10 @@
 .menu-lang__item:hover {
     color: var(--dark-white-color);
     transition: color 0.3s linear;
+}
+
+.menu-lang__item.lang-active{
+    color: var(--dark-white-color);
 }
 
 .menu-social {
