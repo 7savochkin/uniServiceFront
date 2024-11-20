@@ -14,6 +14,7 @@ import NotFoundPage from "./components/not-found-page/NotFoundPage";
 import ServicesPage from "./components/services-page/ServicesPage";
 import MediaPage from "./components/media-page/MediaPage";
 import VacanciesListPage from "./components/vacancies-list-page/VacanciesListPage";
+import VacancyDetailPage from "./components/vacancy-detail-page/VacancyDetailPage";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/news/" element={<NewsListPage/>}/>
                 <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
                 <Route path="/vacancies/" element={<VacanciesListPage/>}/>
+                <Route path="/vacancies/:slug/" element={<VacancyDetailPage/>}/>
                 <Route path="/media/" element={<MediaPage/>}/>
             </Routes>
             <Footer/>
