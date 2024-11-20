@@ -22,7 +22,7 @@ const MainPage = () => {
     return (
         <div className="main">
             <FacialSection translation={translation}/>
-            <WhyChooseUsSection/>
+            <WhyChooseUsSection translation={translation}/>
             <AboutUsSection/>
             <ServicesSection/>
             <CertificatesSection/>
