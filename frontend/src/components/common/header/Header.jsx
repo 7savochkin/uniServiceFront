@@ -5,10 +5,13 @@ import HeaderBurger from "./HeaderBurger";
 import HeaderBurgerMenu from "./HeaderBurgerMenu";
 import {NavLink} from "react-router-dom";
 import {LanguageContext} from "../../../translations/language";
+import getTranslations from "../../../translations/translations";
 
 const Header = () => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
+
+    const translation = getTranslations(language, "header");
 
     const useOnClickOutside = (ref, handler) => {
       React.useEffect(() => {
@@ -41,22 +44,22 @@ const Header = () => {
                     </NavLink>
                     <ul className="header-top-nav">
                         <li className="header-top-nav__item">
-                            <NavLink to={"/about-us/"} className="header-top-nav__item-link">Про компанію</NavLink>
+                            <NavLink to={"/about-us/"} className="header-top-nav__item-link">{translation["Про компанію"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/service/"} className="header-top-nav__item-link">Послуги</NavLink>
+                            <NavLink to={"/service/"} className="header-top-nav__item-link">{translation["Послуги"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/media/"} className="header-top-nav__item-link">Медіа</NavLink>
+                            <NavLink to={"/media/"} className="header-top-nav__item-link">{translation["Медіа"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/vacancies/"} className="header-top-nav__item-link">Вакансії</NavLink>
+                            <NavLink to={"/vacancies/"} className="header-top-nav__item-link">{translation["Вакансії"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/news/"} className="header-top-nav__item-link">Новини</NavLink>
+                            <NavLink to={"/news/"} className="header-top-nav__item-link">{translation["Новини"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/contacts/"} className="header-top-nav__item-link">Контакти</NavLink>
+                            <NavLink to={"/contacts/"} className="header-top-nav__item-link">{translation["Контакти"]}</NavLink>
                         </li>
                     </ul>
                     <div className="header-top-links">

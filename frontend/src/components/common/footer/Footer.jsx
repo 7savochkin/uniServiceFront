@@ -2,9 +2,6 @@ import React from 'react'
 
 import "./Footer.css"
 import logo from '../../../assets/images/footer/logo.svg';
-import facebook_icon from '../../../assets/images/footer/facebook-icon.svg';
-import instagram_icon from '../../../assets/images/footer/instagram-icon.svg';
-import telegram_icon from '../../../assets/images/footer/telegram-icon.svg';
 import {NavLink} from "react-router-dom";
 
 const Footer = () => {

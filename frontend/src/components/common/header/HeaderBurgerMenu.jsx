@@ -2,11 +2,13 @@ import React from "react";
 import "./HeaderBurgerMenu.css";
 import {NavLink} from "react-router-dom";
 import {LanguageContext} from "../../../translations/language";
+import getTranslations from "../../../translations/translations";
 
 const HeaderBurgerMenu = ({open, setOpen}) => {
 
 
     const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "header");
 
     function getLangClassName(value){
         return language === value ? "menu-lang__item lang-active" : "menu-lang__item"
@@ -19,22 +21,22 @@ const HeaderBurgerMenu = ({open, setOpen}) => {
     return (
         <nav className={`menu ${open ? "active" : ""}`}>
             <NavLink to={"/about-us"} className="menu-item" onClick={closeBurger}>
-                Про компанію
+                {translation["Про компанію"]}
             </NavLink>
             <NavLink to={"/services"} className="menu-item" onClick={closeBurger}>
-                Послуги
+                {translation["Послуги"]}
             </NavLink>
             <NavLink to={"/media"} className="menu-item" onClick={closeBurger}>
-                Медіа
+                {translation["Медіа"]}
             </NavLink>
             <NavLink to={"/vacancies"} className="menu-item" onClick={closeBurger}>
-                Вакансії
+                {translation["Вакансії"]}
             </NavLink>
             <NavLink to={"/news"} className="menu-item" onClick={closeBurger}>
-                Новини
+                {translation["Новини"]}
             </NavLink>
             <NavLink to={"/contacts"} className="menu-item" onClick={closeBurger}>
-                Контакти
+                {translation["Контакти"]}
             </NavLink>
 
             <ul className="menu-lang">
