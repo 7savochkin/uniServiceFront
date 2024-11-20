@@ -28,7 +28,18 @@
     text-decoration: none;
     font-size: 17px;
     line-height: 25px;
+    transition: .3s all;
 }
+
+.footer-content-menu__link:hover {
+    color: #00CCCC;
+}
+
+.footer-content-menu__link:active {
+    color: #01A0A0;
+}
+
+
 
 .footer-content-menu__items:not(:last-child) {
     margin-bottom: 5px;
@@ -47,6 +58,15 @@
     color: #fff;
     font-size: 17px;
     line-height: 25px;
+    transition: .3s all;
+}
+
+.footer-content-graph__link-mail:hover {
+    color: #00CCCC;
+}
+
+.footer-content-graph__link-mail:active {
+    color: #01A0A0;
 }
 
 .footer-content-graph__items:nth-child(2) {
@@ -68,6 +88,7 @@
     color: #4e5a67;
     font-size: 17px;
     line-height: 25px;
+    transition: .3s all;
 }
 
 .footer-content-contacts {
@@ -85,6 +106,18 @@
 
 .footer-content__link:not(:last-child) {
     margin-right: 10px;
+}
+
+.footer-content__link:hover {
+    svg rect {
+    transition: .3s all;
+        fill: #fff;
+    }
+
+    svg path {
+    transition: .3s all;
+        fill: #00CCCC;
+    }
 }
 
 .footer-rights {
