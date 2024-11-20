@@ -99,6 +99,9 @@ const _translations = {
             // Breadcrumbs
             "Головна": "Головна",
             "Про компанію": "Про компанію",
+            // Not found
+            "Сторінку не знайдено": "Сторінку не знайдено",
+            "На головну": "На головну"
         }
     },
     "en": {
@@ -201,6 +204,9 @@ const _translations = {
             // Breadcrumbs
             "Головна": "Home",
             "Про компанію": "About the company",
+            // Not found
+            "Сторінку не знайдено": "Page not found",
+            "На головну": "On the home"
         }
     }
 }
