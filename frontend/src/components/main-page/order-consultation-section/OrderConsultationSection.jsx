@@ -1,8 +1,9 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Input from "../../common/input/Input";
 
 import "./OrderConsultationSection.css"
 import consultation_square from "../../../assets/images/main-page/consultation-square.png"
+import {isObjectEmpty} from "../../../utils/objects";
 
 const OrderConsultationSection = () => {
 
@@ -13,15 +14,87 @@ const OrderConsultationSection = () => {
     }
 
     const [formData, setFormData] = useState(defaultFormData)
+    const [errors, setErrors] = useState({});
+    const [isError, setIsError] = useState(false);
+
+    useEffect(() => {
+        // check that errors state is empty
+        setIsError(!isObjectEmpty(errors));
+    }, [errors])
+
+    // const validate = (name, value, errorsObj) => {
+    //     if (name === "name") {
+    //         if (!value.trim()) {
+    //             errorsObj.name = "Name is required";
+    //         } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(formData.name.trim())) {
+    //             errorsObj.name = "Name is not valid";
+    //         } else {
+    //             delete errorsObj.name;
+    //         }
+    //     } else if (name === "phone") {
+    //         if (value.trim()) {
+    //             errorsObj.phone = "Phone is required";
+    //         } else if (!/^\+?[1-9]\d{1,14}$/.test(value.trim())) {
+    //             errorsObj.phone = "Phone number is not valid";
+    //         } else {
+    //             delete errorsObj.phone;
+    //         }
+    //     }
+    //
+    //     return errorsObj;
+    // }
+    const phoneRegex = /^\+380\d{9}$/;
+    const validate = (name, value, errorsObj) => {
+        if (name === "name") {
+            if (!value.trim()) {
+                errorsObj.name = "Name is required";
+            } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(value.trim())) {
+                errorsObj.name = "Name is not valid";
+            } else {
+                delete errorsObj.name;
+            }
+        } else if (name === "phone") {
+            if (!value.trim()) {
+                errorsObj.phone = "Phone is required";
+            } else if (!phoneRegex.test(value.trim())) {
+                errorsObj.phone = "Phone number is not valid";
+            } else {
+                delete errorsObj.phone;
+            }
+        }
+
+        return errorsObj;
+    };
+
+    // const onChangeInput = (e) => {
+    //     const {name, value} = e.target;
+    //     setFormData(prevState => ({...prevState, [name]: value}));
+    //     setErrors(state => {
+    //         const newErrors = {...state};
+    //         return validate(name, value, newErrors);
+    //     });
+    // }
+
+    const onChangeInput = (e) => {
+        const {name, value} = e.target;
+        setFormData((prevState) => ({...prevState, [name]: value}));
+
+        setErrors((state) => {
+            const newErrors = {...state};
+            return validate(name, value, newErrors); // validate повертає об'єкт
+        });
+    };
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        console.log(formData);
-        setFormData(defaultFormData);
-    }
 
-    const onChangeInput = (e) => {
-        setFormData((prevState) => ({...prevState, [e.target.name]: e.target.value}));
+        if (!isError) {
+            console.log(formData);
+            // validationErrors = {}
+            setFormData(defaultFormData);
+            alert("Form submitted successfully");
+        }
+        // console.log(validationErrors);
     }
 
     const inputsData = [
@@ -100,11 +173,14 @@ const OrderConsultationSection = () => {
                     <div className="order-consultation-content">
                         <div className="order-consultation-section-info">
                             <h2 className="order-consultation-section__title">Замовити консультацію</h2>
-                            <p className="order-consultation-section__text">Залиште свої контакти та отримайте безкоштовний
+                            <p className="order-consultation-section__text">Залиште свої контакти та отримайте
+                                безкоштовний
                                 виїзд та консультацію від фахівця</p>
                             <form onSubmit={onSubmitForm} className="order-consultation-section-form">
-                                {inputsData.map((item, i) => <Input key={i} {...item}/>)}
-                                <input className="order-consultation__link button-link" type="submit" value='Відправити'/>
+                                {inputsData.map((item, i) => <Input errors={errors || {}}
+                                                                    key={i} {...item}/>)}
+                                <input className="order-consultation__link button-link" type="submit"
+                                       value='Відправити'/>
                             </form>
                         </div>
                         <div className="order-consultation-section-images">
