@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom";
 import "./VacancyItem.css";
+import Button from "../../button/Button";
 
 const VacancyItem = ({title, slug, price, description, requirements}) => (
     <li className="vacancies-list-item">
@@ -16,7 +17,7 @@ const VacancyItem = ({title, slug, price, description, requirements}) => (
                     }
                 </ul>
             </div>
-            <NavLink to={`/vacancies/${slug}/`} className="facial-section-info__link">Детальніше</NavLink>
+            <Button additionalClass={"vacancies-list__btn"} link={`/vacancies/${slug}/`} className="button-link">Детальніше</Button>
         </div>
     </li>
 )
