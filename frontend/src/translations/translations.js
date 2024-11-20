@@ -84,6 +84,8 @@ const _translations = {
             "Тендери": "Тендери",
             "Запросити до тендеру": "Запросити до тендеру",
             "Обов’язки": "Обов’язки",
+            // News page
+            "Новини": "Новини",
             // Breadcrumbs
             "Головна": "Головна",
             "Про компанію": "Про компанію",
@@ -174,6 +176,8 @@ const _translations = {
             "Тендери": "Tenders",
             "Запросити до тендеру": "Invite to tender",
             "Обов’язки": "Requirements",
+            // News page
+            "Новини": "News",
             // Breadcrumbs
             "Головна": "Home",
             "Про компанію": "About the company",

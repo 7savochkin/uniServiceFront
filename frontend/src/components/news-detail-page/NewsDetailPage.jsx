@@ -3,6 +3,9 @@ import {useParams} from "react-router-dom";
 import last_news_section_example_first from "../../assets/images/main-page/last-news-section-example-first.jpg";
 import formatIsoDate from "../../utils/dates";
 import "./NewsDetailPage.css";
+import React from "react";
+import {LanguageContext} from "../../translations/language";
+import getTranslations from "../../translations/translations";
 // import {useEffect, useState} from "react";
 
 const NewsDetailPage = () => {
@@ -50,9 +53,12 @@ const NewsDetailPage = () => {
     //
     // }, []);
 
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
     const paths = [
-        {path: "/", name: "Головна"},
-        {path: "/news/", name: "Новини"},
+        {path: "/", name: translation["Головна"]},
+        {path: "/news/", name: translation["Новини"]},
         {path: "", name: news.title}
     ]
 
