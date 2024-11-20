@@ -23,13 +23,13 @@ const MainPage = () => {
         <div className="main">
             <FacialSection translation={translation}/>
             <WhyChooseUsSection translation={translation}/>
-            <AboutUsSection/>
-            <ServicesSection/>
-            <CertificatesSection/>
-            <MediaSection/>
-            <ReviewsSection/>
-            <OrderConsultationSection/>
-            <LastNewsSection/>
+            <AboutUsSection translation={translation}/>
+            <ServicesSection translation={translation}/>
+            <CertificatesSection translation={translation}/>
+            <MediaSection translation={translation}/>
+            <ReviewsSection translation={translation}/>
+            <OrderConsultationSection translation={translation}/>
+            <LastNewsSection translation={translation}/>
         </div>
     )
 }

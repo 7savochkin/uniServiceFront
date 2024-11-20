@@ -15,14 +15,14 @@ import media_section_image_9 from "../../../assets/images/main-page/media-sectio
 import media_section_image_10 from "../../../assets/images/main-page/media-section-image-10.jpg"
 import MediaSlider from "../../common/media-slider/MediaSlider";
 
-const MediaSection = () => {
+const MediaSection = ({translation}) => {
 
 
     return <section className="media-section">
         <div className="container">
             <div className="media-section-header">
                     <h2 className="media-section__title">
-                        Медіа
+                        {translation["Медіа"]}
                     </h2>
                     <SliderArrows
                         additionalClassName={"media-slider-arrows"}

@@ -15,7 +15,7 @@ import Input from "../../common/input/Input";
 import pop_up_close_icon from "../../../assets/images/pop-up/pop-up-close-icon.svg"
 import Button from "../../common/button/Button";
 
-const ReviewsSection = () => {
+const ReviewsSection = ({translation}) => {
     const reviewsList = [
         {
             name: "Іван Петров",
@@ -78,7 +78,7 @@ const ReviewsSection = () => {
 
     const inputsData = [
         {
-            label: "Ім’я*",
+            label: `${translation["Ім’я"]}*`,
             icon: (<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_17_8922)">
                         <path
@@ -95,7 +95,7 @@ const ReviewsSection = () => {
             id: "input_name",
             name: "name",
             type: "text",
-            placeholder: "Напишіть ім’я",
+            placeholder: translation["Напишіть ім’я"],
             value: formData.name,
             onChange: onChangeInput,
             isRequired: true,
@@ -113,14 +113,14 @@ const ReviewsSection = () => {
             id: "input_email",
             name: "email",
             type: "email",
-            placeholder: "Напишіть E-mail",
+            placeholder: `${translation["Напишіть"]} E-mail`,
             value: formData.email,
             onChange: onChangeInput,
             isDark: false,
             isRequired: false,
         },
         {
-            label: "Компанія",
+            label: translation["Компанія"],
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -132,7 +132,7 @@ const ReviewsSection = () => {
             id: "input_company",
             name: "company",
             type: "text",
-            placeholder: "Напишіть назву компанії",
+            placeholder: translation["Напишіть назву компанії"],
             value: formData.company,
             onChange: onChangeInput,
             isRequired: false,
@@ -146,7 +146,7 @@ const ReviewsSection = () => {
             <div className="container">
                 <div className="reviews-section-content">
                     <div className="reviews-section-header">
-                        <h2 className="reviews-section-header__title">Відгуки</h2>
+                        <h2 className="reviews-section-header__title">{translation["Відгуки"]}</h2>
                         <SliderArrows
                             additionalClassName={"reviews-slider-arrows"}
                             prevClassName={"reviews-slider-arrow__prev"}
@@ -210,19 +210,19 @@ const ReviewsSection = () => {
                             )
                         )}
                     </Swiper>
-                    <Button additionalClass="reviews-section__link" onClick={() => setPopUpActive(true)}>Залишити відгук</Button>
+                    <Button additionalClass="reviews-section__link" onClick={() => setPopUpActive(true)}>{translation["Залишити відгук"]}</Button>
                 </div>
             </div>
             <PopUp active={popUpActive} setActive={setPopUpActive}>
                 <img src={pop_up_close_icon} alt="pop-close-icon" className="pop-up__image-close" onClick={() => setPopUpActive(false)}/>
-                <h2 className="pop-up__title">Залишити відгук</h2>
+                <h2 className="pop-up__title">{translation["Залишити відгук"]}</h2>
                 <form onSubmit={onSubmitForm} className="pop-up__form">
                     {inputsData.map((item, i) => <Input key={i} {...item}/>)}
                     <div className="pop-up__feedback">
-                        <label htmlFor="text-area" className="text-area__label">Відгук</label>
+                        <label htmlFor="text-area" className="text-area__label">{translation["Відгук"]}</label>
                         <textarea name="text-area" id="" className="text-area input-field__input"
-                                  placeholder="Напишіть текст" ></textarea>
-                        <input className="pop-up__send-button button-link" type="submit" value='Відправити' />
+                                  placeholder={translation["Напишіть текст"]} ></textarea>
+                        <input className="pop-up__send-button button-link" type="submit" value={translation["Відправити"]} />
                     </div>
                 </form>
             </PopUp>

@@ -4,7 +4,7 @@ import Input from "../../common/input/Input";
 import "./OrderConsultationSection.css"
 import consultation_square from "../../../assets/images/main-page/consultation-square.png"
 
-const OrderConsultationSection = () => {
+const OrderConsultationSection = ({translation}) => {
 
     const defaultFormData = {
         "name": "",
@@ -26,7 +26,7 @@ const OrderConsultationSection = () => {
 
     const inputsData = [
         {
-            label: "Ім’я*",
+            label: `${translation["Ім’я"]}*`,
             icon: (<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_17_8922)">
                         <path
@@ -43,14 +43,14 @@ const OrderConsultationSection = () => {
             id: "input_name",
             name: "name",
             type: "text",
-            placeholder: "Напишіть ім’я",
+            placeholder: translation["Напишіть ім’я"],
             value: formData.name,
             onChange: onChangeInput,
             isRequired: true,
             isDark: true,
         },
         {
-            label: "Телефон*",
+            label: `${translation["Телефон"]}*`,
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_17_8916)">
@@ -68,7 +68,7 @@ const OrderConsultationSection = () => {
             id: "input_phone",
             name: "phone",
             type: "text",
-            placeholder: "Напишіть телефон",
+            placeholder: translation["Напишіть телефон"],
             value: formData.phone,
             onChange: onChangeInput,
             isRequired: true,
@@ -86,7 +86,7 @@ const OrderConsultationSection = () => {
             id: "input_email",
             name: "email",
             type: "email",
-            placeholder: "Напишіть E-mail",
+            placeholder: `${translation["Напишіть"]} E-mail`,
             value: formData.email,
             onChange: onChangeInput,
             isDark: true,
@@ -99,12 +99,11 @@ const OrderConsultationSection = () => {
                 <div className="container">
                     <div className="order-consultation-content">
                         <div className="order-consultation-section-info">
-                            <h2 className="order-consultation-section__title">Замовити консультацію</h2>
-                            <p className="order-consultation-section__text">Залиште свої контакти та отримайте безкоштовний
-                                виїзд та консультацію від фахівця</p>
+                            <h2 className="order-consultation-section__title">{translation["Замовити консультацію"]}</h2>
+                            <p className="order-consultation-section__text">{translation["Залиште свої контакти та отримайте безкоштовний виїзд та консультацію від фахівця"]}</p>
                             <form onSubmit={onSubmitForm} className="order-consultation-section-form">
                                 {inputsData.map((item, i) => <Input key={i} {...item}/>)}
-                                <input className="order-consultation__link button-link" type="submit" value='Відправити'/>
+                                <input className="order-consultation__link button-link" type="submit" value={translation["Відправити"]}/>
                             </form>
                         </div>
                         <div className="order-consultation-section-images">

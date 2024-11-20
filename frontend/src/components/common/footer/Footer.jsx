@@ -68,7 +68,7 @@ const Footer = () => {
                     </div>
 
                     <div className="footer-content-contacts">
-                        <h3 className="footer-content-contacts__title footer-title">Контакти:</h3>
+                        <h3 className="footer-content-contacts__title footer-title">{translation["Контакти"]}:</h3>
                         <span className="footer-content-cotacts__text">
                             {translation["11634, Україна, Житомирська обл., Коростенський р-н, селище міського типу Гранітне(з), вул.Шевченка, будинок"]}
                         </span>

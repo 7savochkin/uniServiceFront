@@ -8,7 +8,7 @@ import services_section_feature_img_fourth
     from "../../../assets/images/main-page/services-section-feature-img-fourth.jpg"
 import ServiceItem from "./ServiceItem";
 
-const ServicesSection = () => {
+const ServicesSection = ({translation}) => {
 
     const services = [
         {
@@ -53,13 +53,8 @@ const ServicesSection = () => {
             <div className="services-section-content">
                 <div className="services-section-header">
                     <div className="services-section-header__inner container">
-                        <h2 className="services-section__title">Послуги</h2>
-                        <p className="services-section-header__text">Варто відзначити, що підприємство, маючи родовище
-                            граніту рожевого кольору та сучасне обладнання для збагачення відсіву, постачає свою
-                            унікальну
-                            продукцію ще й виробникам вогнетривких кахлів, облицювальних елементів для камінів та
-                            вентильованих фасадів
-                        </p>
+                        <h2 className="services-section__title">{translation["Послуги"]}</h2>
+                        <p className="services-section-header__text">{translation["Варто відзначити, що підприємство, маючи родовище граніту рожевого кольору та сучасне обладнання для збагачення відсіву, постачає свою унікальну продукцію ще й виробникам вогнетривких кахлів, облицювальних елементів для камінів та вентильованих фасадів"]}</p>
                     </div>
                 </div>
                 <div className="services-section-list">
