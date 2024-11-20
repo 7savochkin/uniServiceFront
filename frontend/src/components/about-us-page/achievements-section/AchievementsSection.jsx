@@ -1,16 +1,14 @@
 import "./AchievementsSection.css";
 
-const AchievementsSection = () => {
+const AchievementsSection = ({translation}) => {
 
 
     return (
         <section className="achiev-section">
             <div className="container">
                 <div className="achiev-section-content">
-                    <h2 className="achiev-section__title">Досягнення</h2>
-                    <p className="achiev-section__desc">«Юні Сервіс» представляє собою приклад успішного бізнесу, що
-                        поєднує інновації, якість, безпеку і соціальну відповідальність, що дозволяє їй не тільки
-                        досягати високих результатів, але й забезпечувати стійкий розвиток у глобальному масштабі.</p>
+                    <h2 className="achiev-section__title">{translation["Досягнення"]}</h2>
+                    <p className="achiev-section__desc">{translation["«Юні Сервіс» представляє собою приклад успішного бізнесу, що поєднує інновації, якість, безпеку і соціальну відповідальність, що дозволяє їй не тільки досягати високих результатів, але й забезпечувати стійкий розвиток у глобальному масштабі."]}</p>
                     <ul className="achiev-section-list">
                         <li className="achiev-section-list__item">
                             <div className="achiev-section-list__item-header">

@@ -6,7 +6,7 @@ import "./TeamSection.css";
 import team_section_man_first from "../../../assets/images/about-us-page/team-section-man-first.jpg"
 import {Navigation} from "swiper/modules";
 
-const TeamSection = () => {
+const TeamSection = ({translation}) => {
 
     const team = [
         {
@@ -47,7 +47,7 @@ const TeamSection = () => {
             <div className="container">
                 <div className="team-section-content">
                     <div className="team-section-header">
-                        <h2 className="team-section__title">Команда</h2>
+                        <h2 className="team-section__title">{translation["Команда"]}</h2>
                         <SliderArrows
                             additionalClassName={"team-slider-arrows"}
                             prevClassName={"team-slider-arrow__prev"}

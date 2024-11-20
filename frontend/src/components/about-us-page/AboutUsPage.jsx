@@ -5,21 +5,27 @@ import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 import "./AboutUsPage.css";
 import TeamSection from "./team-section/TeamSection";
 import AchievementsSection from "./achievements-section/AchievementsSection";
+import React from "react";
+import {LanguageContext} from "../../translations/language";
+import getTranslations from "../../translations/translations";
 
 const AboutUsPage = () => {
 
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
     const paths = [
-        {path: "/", name: "Головна"},
-        {path: "", name: "Про компанію"}
+        {path: "/", name: translation["Головна"]},
+        {path: "", name: translation["Про компанію"]}
     ]
 
     return (
         <div className="about-us">
             <Breadcrumbs paths={paths}/>
-            <AboutUsSection/>
-            <TeamSection/>
-            <AchievementsSection/>
-            <OrderConsultationSection/>
+            <AboutUsSection translation={translation}/>
+            <TeamSection translation={translation}/>
+            <AchievementsSection translation={translation}/>
+            <OrderConsultationSection translation={translation}/>
         </div>
     )
 }

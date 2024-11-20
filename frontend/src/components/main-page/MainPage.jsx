@@ -16,7 +16,6 @@ import getTranslations from "../../translations/translations";
 const MainPage = () => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
-
     const translation = getTranslations(language, "main");
 
     return (
