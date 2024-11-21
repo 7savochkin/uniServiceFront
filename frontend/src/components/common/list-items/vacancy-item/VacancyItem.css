@@ -92,8 +92,10 @@
     left: 85%;
 }
 
-.vacancies-list__btn::after {
-    left: 75%;
+.vacancies-list__btn {
+    width: 132px;
+    height: 36px;
+    margin-left: auto;
 }
 
 @media screen and (max-width: 1000px) {
