@@ -16,20 +16,13 @@
     line-height: 150%;
     text-align: center;
     color: var(--white-bg-color);
-    position: relative;
     cursor: pointer;
 }
 
-.button-link::after{
-    content: '';
-    position: absolute;
-    top: 53%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background-image: url("../../../assets/images/main-page/button-white-arrow.svg");
-    transition: all 0.3s ease-in-out;
+.button-link-svg {
+    order: 2;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
 .button-link:hover{

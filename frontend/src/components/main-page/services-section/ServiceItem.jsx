@@ -1,7 +1,7 @@
 import Button from "../../common/button/Button";
 import {NavLink} from "react-router-dom";
 
-const ServiceItem = ({title, img, features, orderLink}) => (
+const ServiceItem = ({title, img, features, orderLink, setPopUpActive}) => (
     <li className="services-section-list__item">
         <div className="services-section-list__item-header">
             <div className="services-section-list__item-img-wrap">
@@ -16,7 +16,7 @@ const ServiceItem = ({title, img, features, orderLink}) => (
                                                       className="services-section-list__item-features__elem">{item}</li>)
                 }
             </ul>
-            <Button additionalClass={'service-section__link'} link={"/contacts"}>Замовити</Button>
+            <Button additionalClass={'service-section__link'} onClick={() => setPopUpActive(true)}>Замовити</Button>
         </div>
     </li>
 )
