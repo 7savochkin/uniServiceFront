@@ -4,7 +4,7 @@ import Button from "../../button/Button";
 const VacancyItem = ({title, slug, price, description, requirements, translation}) => (
     <li className="vacancies-list-item">
         <div className="vacancies-list-item-container">
-            <p className="vacancies-list-item__price">{price} грн</p>
+            <p className="vacancies-list-item__price">{price} {translation["грн"]}</p>
             <h3 className="vacancies-list-item__title">{title}</h3>
             <p className="vacancies-list-item__desc">{description}</p>
             <div className="vacancies-list-item__requirements">
