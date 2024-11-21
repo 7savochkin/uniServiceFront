@@ -1,18 +1,17 @@
-import React from 'react'
-
-// import HeaderBurger from './HeaderBurger';
-// import HeaderBurgerMenu from './HeaderBurgerMenu';
-
-import "./Header.css"
+import React from 'react';
+import "./Header.css";
 import logo from '../../../assets/images/header/logo.svg';
-import facebook_icon from '../../../assets/images/header/facebook-icon.svg'
-import instagram_icon from '../../../assets/images/header/instagram-icon.svg'
-import telegram_icon from '../../../assets/images/header/telegram-icon.svg'
 import HeaderBurger from "./HeaderBurger";
 import HeaderBurgerMenu from "./HeaderBurgerMenu";
 import {NavLink} from "react-router-dom";
+import {LanguageContext} from "../../../translations/language";
+import getTranslations from "../../../translations/translations";
 
 const Header = () => {
+
+    const [language, setLanguage] = React.useContext(LanguageContext);
+
+    const translation = getTranslations(language, "header");
 
     const useOnClickOutside = (ref, handler) => {
       React.useEffect(() => {
@@ -32,6 +31,10 @@ const Header = () => {
     const node = React.useRef();
     useOnClickOutside(node, () => setOpen(false));
 
+    function getLangClassName(value){
+        return language === value ? "header-top-lang__item lang-active" : "header-top-lang__item"
+    }
+
     return (
         <div className="header">
             <div className="container">
@@ -41,31 +44,33 @@ const Header = () => {
                     </NavLink>
                     <ul className="header-top-nav">
                         <li className="header-top-nav__item">
-                            <NavLink to={"/about-us/"} className="header-top-nav__item-link">Про компанію</NavLink>
+                            <NavLink to={"/about-us/"} className="header-top-nav__item-link">{translation["Про компанію"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/service/"} className="header-top-nav__item-link">Послуги</NavLink>
+                            <NavLink to={"/services/"} className="header-top-nav__item-link">{translation["Послуги"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/media/"} className="header-top-nav__item-link">Медіа</NavLink>
+                            <NavLink to={"/media/"} className="header-top-nav__item-link">{translation["Медіа"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/vacancies/"} className="header-top-nav__item-link">Вакансії</NavLink>
+                            <NavLink to={"/vacancies/"} className="header-top-nav__item-link">{translation["Вакансії"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/news/"} className="header-top-nav__item-link">Новини</NavLink>
+                            <NavLink to={"/news/"} className="header-top-nav__item-link">{translation["Новини"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/contacts/"} className="header-top-nav__item-link">Контакти</NavLink>
+                            <NavLink to={"/contacts/"} className="header-top-nav__item-link">{translation["Контакти"]}</NavLink>
                         </li>
                     </ul>
                     <div className="header-top-links">
                         <ul className="header-top-lang">
-                            <li className="header-top-lang__item">
-                                <a href="www.google.com" className="header-top-lang__item-link">UK</a>
+                            <li className={getLangClassName("uk")}
+                                onClick={() => setLanguage("uk")}>
+                                <span className="header-top-lang__item-link">UK</span>
                             </li>
-                            <li className="header-top-lang__item">
-                                <a href="#menu" className="header-top-lang__item-link">ENG</a>
+                            <li className={getLangClassName("en")}
+                                onClick={() => setLanguage("en")}>
+                                <span className="header-top-lang__item-link">ENG</span>
                             </li>
                         </ul>
                         <a className="header-top-tel" href="tel:+380979471159">+38(097)-947-11-59</a>
@@ -115,37 +120,6 @@ const Header = () => {
                     <HeaderBurgerMenu open={open} setOpen={setOpen}/>
                 </div>
             </div>
-            {/*<div className="menu">*/}
-            {/* <div className="menu__content" id="menu">*/}
-            {/*   <ul className="menu__nav">*/}
-            {/*     <li className="menu__nav-basket menu__nav-item">*/}
-            {/*       <a href="#benefits" className="menu__nav-link">Basket</a>*/}
-            {/*     </li>*/}
-            {/*     <li className="menu__nav-item">*/}
-            {/*       <a href="#features" className="menu__nav-link">Features</a>*/}
-            {/*     </li>*/}
-            {/*     <li className="menu__nav-item">*/}
-            {/*       <a href="#materials" className="menu__nav-link">Materials</a>*/}
-            {/*     </li>*/}
-            {/*     <li className="menu__nav-item">*/}
-            {/*       <a href="#about" className="menu__nav-link">About us</a>*/}
-            {/*     </li>*/}
-            {/*     <li className="menu__nav-item">*/}
-            {/*       <a href="#questions" className="menu__nav-link">Message us</a>*/}
-            {/*     </li>*/}
-            {/*   </ul>*/}
-            {/*   <a href="www.google.com" className="menu__close">*/}
-            {/*     <p className="menu__side-text">Close</p>*/}
-            {/*     <img src="line.e58014bb.svg" alt="---" className="menu__side-line" />*/}
-            {/*     <img src="close-icon.595bdf93.svg" alt="X" className="menu__close-icon" />*/}
-            {/*   </a>*/}
-            {/* </div>*/}
-            {/*</div>*/}
-
-            {/*<div ref={node}>*/}
-            {/* <HeaderBurger open={open} setOpen={setOpen} />*/}
-            {/* <HeaderBurgerMenu open={open} setOpen={setOpen} />*/}
-            {/*</div>*/}
         </div>
     )
 };

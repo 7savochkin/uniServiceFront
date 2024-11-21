@@ -9,20 +9,26 @@ import MediaSection from "./media-section/MediaSection";
 import ReviewsSection from "./reviews-section/ReviewsSection";
 import OrderConsultationSection from "./order-consultation-section/OrderConsultationSection";
 import LastNewsSection from "./last-news-section/LastNewsSection";
+import React from "react";
+import {LanguageContext} from "../../translations/language";
+import getTranslations from "../../translations/translations";
 
 const MainPage = () => {
 
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
     return (
         <div className="main">
-            <FacialSection/>
-            <WhyChooseUsSection/>
-            <AboutUsSection/>
-            <ServicesSection/>
-            <CertificatesSection/>
-            <MediaSection/>
-            <ReviewsSection/>
-            <OrderConsultationSection/>
-            <LastNewsSection/>
+            <FacialSection translation={translation}/>
+            <WhyChooseUsSection translation={translation}/>
+            <AboutUsSection translation={translation}/>
+            <ServicesSection translation={translation}/>
+            <CertificatesSection translation={translation}/>
+            <MediaSection translation={translation}/>
+            <ReviewsSection translation={translation}/>
+            <OrderConsultationSection translation={translation}/>
+            <LastNewsSection translation={translation}/>
         </div>
     )
 }

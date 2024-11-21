@@ -5,12 +5,17 @@ import facebook_icon from "../../assets/images/footer/facebook-icon.svg";
 import instagram_icon from "../../assets/images/footer/instagram-icon.svg";
 import telegram_icon from "../../assets/images/footer/telegram-icon.svg";
 import React from "react";
+import {LanguageContext} from "../../translations/language";
+import getTranslations from "../../translations/translations";
 
 const ContactsPage = () => {
 
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
     const paths = [
-        {path: "/", name: "Головна"},
-        {path: "", name: "Контакти"}
+        {path: "/", name: translation["Головна"]},
+        {path: "", name: translation["Контакти"]}
     ]
 
     return (
@@ -19,15 +24,15 @@ const ContactsPage = () => {
             <div className="contacts-section">
                 <div className="container">
                     <div className="contacts-section-content">
-                        <h2 className="contacts-section__title">Контакти</h2>
+                        <h2 className="contacts-section__title">{translation["Контакти"]}</h2>
                         <ul className="contacts-section-list">
                             <li className="contacts-section-list__item">
-                                <h3 className="contacts-section-list__item-title">Адреса:</h3>
+                                <h3 className="contacts-section-list__item-title">{translation["Адреса"]}:</h3>
                                 <p className="contacts-section-list__item-text">11634, Україна, Житомирська обл.,
                                     Коростенський р-н, селище міського типу Гранітне(з), вул.Шевченка, будинок </p>
                             </li>
                             <li className="contacts-section-list__item">
-                                <h3 className="contacts-section-list__item-title">Графік роботи:</h3>
+                                <h3 className="contacts-section-list__item-title">{translation["Графік роботи"]}:</h3>
                                 <p className="contacts-section-list__item-text">
                                     Пн - Пт 8:00 - 17:00
                                     Сб 8:00 - 13:00
@@ -38,7 +43,7 @@ const ContactsPage = () => {
                                 <p className="contacts-section-list__item-text">secretar.uniservis@gmail.com</p>
                             </li>
                             <li className="contacts-section-list__item">
-                                <h3 className="contacts-section-list__item-title">Соц. мережі</h3>
+                                <h3 className="contacts-section-list__item-title">{translation["Соц. мережі"]}</h3>
                                 <div className="contacts-section-list__item-links">
                                     <a href="https://www.facebook.com/" className="footer-content__link">
                                         <img src={facebook_icon} alt="facebook-icon" className="footer-content__img"/>
@@ -61,7 +66,7 @@ const ContactsPage = () => {
                     </div>
                 </div>
             </div>
-            <OrderConsultationSection/>
+            <OrderConsultationSection translation={translation}/>
         </div>
     )
 }

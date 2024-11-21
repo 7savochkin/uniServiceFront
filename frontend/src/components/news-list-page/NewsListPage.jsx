@@ -3,16 +3,22 @@ import last_news_section_example_first from "../../assets/images/main-page/last-
 import formatIsoDate from "../../utils/dates";
 import NewsItem from "../common/list-items/news-item/NewsItem";
 import "./NewsListPage.css"
+import React from "react";
+import {LanguageContext} from "../../translations/language";
+import getTranslations from "../../translations/translations";
 
 const NewsListPage = () => {
 
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
     const paths = [
-        {path: "/", name: "Головна"},
-        {path: "", name: "Новини"}
+        {path: "/", name: translation["Головна"]},
+        {path: "", name: translation["Новини"]}
     ]
 
     const newsList = [
-                {
+        {
             "title": "Міжнародне визнання за інновації в безпеці",
             "slug": "international-recognition-first",
             "content": "Текст новини...",
@@ -33,7 +39,7 @@ const NewsListPage = () => {
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
-                {
+        {
             "title": "Міжнародне визнання за інновації в безпеці",
             "slug": "international-recognition-first",
             "content": "Текст новини...",
@@ -54,7 +60,7 @@ const NewsListPage = () => {
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
-                {
+        {
             "title": "Міжнародне визнання за інновації в безпеці",
             "slug": "international-recognition-first",
             "content": "Текст новини...",
@@ -75,7 +81,7 @@ const NewsListPage = () => {
             "image": last_news_section_example_first,
             "date": formatIsoDate("2024-11-13T09:00:00Z")
         },
-                {
+        {
             "title": "Міжнародне визнання за інновації в безпеці",
             "slug": "international-recognition-first",
             "content": "Текст новини...",
@@ -90,7 +96,7 @@ const NewsListPage = () => {
             <div className="news-list-section">
                 <div className="container">
                     <div className="news-list-section-content">
-                        <h2 className="news-list-section__title">Новини</h2>
+                        <h2 className="news-list-section__title">{translation["Новини"]}</h2>
                         <ul className="news-list-section__list">
                             {newsList.map((item, index) => (
                                 <NewsItem key={index} {...item}/>)

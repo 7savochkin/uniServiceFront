@@ -7,7 +7,7 @@ import 'swiper/css/effect-creative';
 import "./CertificatesSection.css"
 import certification_section_doc from "../../../assets/images/main-page/cerificates-section-doc.jpg";
 
-const CertificatesSection = () => {
+const CertificatesSection = ({translation}) => {
 
     const documentItems = [
         {
@@ -45,7 +45,7 @@ const CertificatesSection = () => {
             <div className="container">
                 <div className="certification-section-content">
                     <div className="certification-section-header">
-                        <h2 className="certification-section__title">Сертифікати</h2>
+                        <h2 className="certification-section__title">{translation["Сертифікати"]}</h2>
                         <SliderArrows additionalClassName="certification-section-arrows"
                                       prevClassName={"certification-section-arrows__prev"}
                                       nextClassName={"certification-section-arrows__next"}

@@ -1,6 +1,9 @@
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 import {useParams} from "react-router-dom";
 import "./VacancyDetailPage.css";
+import React from "react";
+import {LanguageContext} from "../../translations/language";
+import getTranslations from "../../translations/translations";
 
 const VacancyDetailPage = () => {
 
@@ -37,9 +40,12 @@ const VacancyDetailPage = () => {
 
     let vacancy = vacancies.find((item) => item.slug === slug)
 
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
     const paths = [
-        {path: "/", name: "Головна"},
-        {path: "/vacancies/", name: "Вакансії"},
+        {path: "/", name: translation["Головна"]},
+        {path: "/vacancies/", name: translation["Вакансії"]},
         {path: "", name: vacancy.title}
     ]
 
@@ -51,10 +57,10 @@ const VacancyDetailPage = () => {
                     <div className="vacancy-section-content">
                         <h2 className="vacancy-section__title">{vacancy.title}</h2>
                         <div className="vacancy-section__info">
-                            <p className="vacancy-section__price">{vacancy.price} грн</p>
+                            <p className="vacancy-section__price">{vacancy.price} {translation["грн"]}</p>
                             <p className="vacancy-section__text">{vacancy.description}</p>
                             <div className="vacancy-section-requirements-wrap">
-                                <h4 className="vacancies-list-item__requirements-title">Обов’язки:</h4>
+                                <h4 className="vacancies-list-item__requirements-title">{translation["Обов’язки"]}:</h4>
                                 <ul className="vacancies-list-item__requirements-list">
                                     {
                                         vacancy.requirements.map((item, index) =>
@@ -63,9 +69,8 @@ const VacancyDetailPage = () => {
                                     }
                                 </ul>
                             </div>
-                            <p className="vacancy-section__text">Зважаючи на велику кількість запитів, ми зв’язуємося з
-                                кандидатами, які повністю відповідають вимогам вакансії.</p>
-                            <p className="vacancy-section__text">Запис на співбесіду <a
+                            <p className="vacancy-section__text">{translation["Зважаючи на велику кількість запитів, ми зв’язуємося з кандидатами, які повністю відповідають вимогам вакансії."]}</p>
+                            <p className="vacancy-section__text">{translation["Запис на співбесіду"]} <a
                                 href="tel:+380508443855">050-844-38-55</a></p>
                         </div>
                     </div>

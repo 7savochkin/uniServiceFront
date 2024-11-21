@@ -1,14 +1,19 @@
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 import "./VacanciesListPage.css";
-import {NavLink} from "react-router-dom";
 import VacancyItem from "../common/list-items/vacancy-item/VacancyItem";
 import Button from "../common/button/Button";
+import React from "react";
+import {LanguageContext} from "../../translations/language";
+import getTranslations from "../../translations/translations";
 
 const VacanciesListPage = () => {
 
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
     const paths = [
-        {path: "/", name: "Головна"},
-        {path: "", name: "Вакансії"}
+        {path: "/", name: translation["Головна"]},
+        {path: "", name: translation["Вакансії"]}
     ]
 
     const vacancies = [
@@ -46,14 +51,18 @@ const VacanciesListPage = () => {
             <div className="vacancies-section">
                 <div className="container">
                     <div className="vacancies-section-header">
-                        <h2 className="vacancies-section__title">Вакансії/<span>Тендери</span></h2>
-                        <Button additionalClass={"vacancies-section__link"} className="button-link">Запросити до тендеру</Button>
+                        <h2 className="vacancies-section__title">{translation["Вакансії"]}/<span>{translation["Тендери"]}</span>
+                        </h2>
+                        <Button additionalClass={"vacancies-section__link"}
+                                className="button-link">{translation["Запросити до тендеру"]}</Button>
                     </div>
                     <div className="vacancies-section-list">
                         <ul className="vacancies-section-list__inner">
-                            {vacancies.map((item, index) => <VacancyItem key={index} {...item}/>)}
+                            {vacancies.map((item, index) => <VacancyItem key={index}
+                                                                         translation={translation} {...item}/>)}
                         </ul>
-                        <Button additionalClass={"vacancies-section__loadmore"} className="button-link">Показати більше</Button>
+                        <Button additionalClass={"vacancies-section__loadmore"}
+                                className="button-link">{translation["Показати більше"]}</Button>
                     </div>
                 </div>
             </div>

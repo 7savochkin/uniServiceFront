@@ -5,7 +5,7 @@ import formatIsoDate from "../../../utils/dates";
 import {NavLink} from "react-router-dom";
 import Button from "../../common/button/Button";
 
-const LastNewsSection = () => {
+const LastNewsSection = ({translation}) => {
 
     const newsList = [
         {
@@ -42,8 +42,8 @@ const LastNewsSection = () => {
             <div className="container">
                 <div className="last-news-section-content">
                     <div className="last-news-section-header">
-                        <h2 className="last-news-section-header__title">Останні новини</h2>
-                        <Button additionalClass={"last-news-section__link"} link={"/news/"}>Показати більше</Button>
+                        <h2 className="last-news-section-header__title">{translation["Останні новини"]}</h2>
+                        <Button additionalClass={"last-news-section__link"} link={"/news/"}>{translation["Показати більше"]}</Button>
                     </div>
                     <ul className="last-news-section__list">
                         {newsList.map((item, index) => (
