@@ -9,11 +9,12 @@ import man_first from "../../../assets/images/main-page/reviews-section-man-firs
 import ReviewItem from "./ReviewItem";
 import SliderArrows from "../../common/slider-arrows/SliderArrows";
 import PopUp from "../../common/pop-up/PopUp";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Input from "../../common/input/Input";
 
 import pop_up_close_icon from "../../../assets/images/pop-up/pop-up-close-icon.svg"
 import Button from "../../common/button/Button";
+import {isObjectEmpty} from "../../../utils/objects";
 
 const ReviewsSection = ({translation}) => {
     const reviewsList = [
@@ -64,16 +65,52 @@ const ReviewsSection = ({translation}) => {
     }
 
     const [formData, setFormData] = useState(defaultFormData)
+    const [errors, setErrors] = useState({});
+    const [isError, setIsError] = useState(false);
+
+    useEffect(() => {
+        // check that errors state is empty
+        setIsError(!isObjectEmpty(errors));
+    }, [errors])
+
+    const validate = (name, value, errorsObj) => {
+        if (name === "name") {
+            if (!value.trim()) {
+                errorsObj.name = "Name is required";
+            } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(value.trim())) {
+                errorsObj.name = "Name is not valid";
+            } else {
+                delete errorsObj.name;
+            }
+        }
+
+        return errorsObj;
+    };
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        console.log(formData);
-        setFormData(defaultFormData);
-        setPopUpActive(false);
+        // console.log(formData);
+        // setFormData(defaultFormData);
+
+        if (!isError) {
+        // setPopUpActive(false);
+            console.log(formData);
+            // validationErrors = {}
+            setFormData(defaultFormData);
+            alert("Form submitted successfully");
+        }
     }
 
     const onChangeInput = (e) => {
-        setFormData((prevState) => ({...prevState, [e.target.name]: e.target.value}));
+        //setFormData((prevState) => ({...prevState, [e.target.name]: e.target.value}));
+        const {name, value} = e.target;
+        setFormData((prevState) => ({...prevState, [name]: value}));
+
+        setErrors((state) => {
+            const newErrors = {...state};
+            return validate(name, value, newErrors); // validate повертає об'єкт
+        });
+
     }
 
     const inputsData = [
@@ -217,7 +254,7 @@ const ReviewsSection = ({translation}) => {
                 <img src={pop_up_close_icon} alt="pop-close-icon" className="pop-up__image-close" onClick={() => setPopUpActive(false)}/>
                 <h2 className="pop-up__title">{translation["Залишити відгук"]}</h2>
                 <form onSubmit={onSubmitForm} className="pop-up__form">
-                    {inputsData.map((item, i) => <Input key={i} {...item}/>)}
+                    {inputsData.map((item, i) => <Input errors={errors || {}} key={i} {...item}/>)}
                     <div className="pop-up__feedback">
                         <label htmlFor="text-area" className="text-area__label">{translation["Відгук"]}</label>
                         <textarea name="text-area" id="" className="text-area input-field__input"
