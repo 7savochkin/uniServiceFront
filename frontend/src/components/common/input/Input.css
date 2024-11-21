@@ -18,7 +18,7 @@
 }
 
 div.input-field-wrap > input.input-field__input--error {
-    border: 1px solid #CE2E2E;
+    border-left: 1px solid #CE2E2E;
 }
 
 .input-field-wrap.input-field__input--error {

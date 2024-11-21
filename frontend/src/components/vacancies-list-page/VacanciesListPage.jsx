@@ -61,7 +61,7 @@ const VacanciesListPage = () => {
         // setFormData(defaultFormData);
 
         if (!isError) {
-        // setPopUpActive(false);
+        setPopUpActive(false);
             console.log(formData);
             // validationErrors = {}
             setFormData(defaultFormData);
