@@ -104,7 +104,7 @@ const _translations = {
             "На головну": "На головну"
         }
     },
-    "en": {
+    "en-us": {
         "header": {
             "Про компанію": "About us",
             "Медіа": "Media",

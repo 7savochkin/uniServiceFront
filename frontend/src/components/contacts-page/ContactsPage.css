@@ -56,6 +56,10 @@
     padding-top: 6px;
 }
 
+.contacts-section-list__item-text.schedule {
+    max-width: 160px;
+}
+
 .contacts-section-list__item-links {
     padding-top: 10px;
 }

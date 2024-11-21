@@ -18,18 +18,39 @@ import VacancyDetailPage from "./components/vacancy-detail-page/VacancyDetailPag
 import {useEffect, useState} from "react";
 import {LanguageContext, getLangFromLocaleStorage} from "./translations/language";
 import ScrollToTop from "./components/main-page/scroll-to-top/ScrollToTop";
+import useAPIClient from "./hooks/api.hook";
+import useHttp from "./hooks/http.hook";
 
 
 function App() {
 
     const [language, setLanguage] = useState(getLangFromLocaleStorage())
+    const client = useAPIClient(language);
+
+    const {request: getContacts, loading: loadingContacts,
+        error: errorContacts,clearError: clearErrorContacts} = useHttp(client.getContacts);
+    const {request: getPhones, loading: loadingPhones,
+        error: errorPhones, clearError: clearErrorPhones, } = useHttp(client.getPhoneNumbers);
+
+    const [contacts, setContacts] = useState({})
+
+    async function fetchData(){
+        const responseContacts  = await getContacts();
+        const responsePhones = await getPhones();
+        setContacts({
+            ...responseContacts.data,
+            "phones": responsePhones.data
+        })
+    }
 
     useEffect(() => {
         window.localStorage.setItem("lang", language);
+        fetchData().then(r => {});
     }, [language]);
 
+    console.log(loadingContacts, loadingPhones);
 
-    return (
+    return loadingContacts || loadingPhones ? <p>Loading</p> : (
         <div className="wrapper">
             <LanguageContext.Provider value={[language, setLanguage]}>
                 <Header/>
@@ -37,7 +58,7 @@ function App() {
                 <Routes>
                     <Route path="/*" element={<MainPage/>}/>
                     <Route path="/about-us/" element={<AboutUsPage/>}/>
-                    <Route path="/contacts/" element={<ContactsPage/>}/>
+                    <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
                     <Route path="/not-found/" element={<NotFoundPage/>}/>
                     <Route path="/services/" element={<ServicesPage/>}/>
                     <Route path="/news/" element={<NewsListPage/>}/>
@@ -46,7 +67,7 @@ function App() {
                     <Route path="/vacancies/:slug/" element={<VacancyDetailPage/>}/>
                     <Route path="/media/" element={<MediaPage/>}/>
                 </Routes>
-                <Footer/>
+                <Footer contacts={contacts}/>
             </LanguageContext.Provider>
         </div>
     )

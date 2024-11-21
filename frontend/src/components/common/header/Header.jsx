@@ -68,8 +68,8 @@ const Header = () => {
                                 onClick={() => setLanguage("uk")}>
                                 <span className="header-top-lang__item-link">UK</span>
                             </li>
-                            <li className={getLangClassName("en")}
-                                onClick={() => setLanguage("en")}>
+                            <li className={getLangClassName("en-us")}
+                                onClick={() => setLanguage("en-us")}>
                                 <span className="header-top-lang__item-link">ENG</span>
                             </li>
                         </ul>
