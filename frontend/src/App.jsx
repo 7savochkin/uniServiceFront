@@ -27,19 +27,30 @@ function App() {
     const [language, setLanguage] = useState(getLangFromLocaleStorage())
     const client = useAPIClient(language);
 
-    const {request: getContacts, loading: loadingContacts,
-        error: errorContacts,clearError: clearErrorContacts} = useHttp(client.getContacts);
-    const {request: getPhones, loading: loadingPhones,
-        error: errorPhones, clearError: clearErrorPhones, } = useHttp(client.getPhoneNumbers);
-    const {request: getAboutUs, loading: loadingAboutUs,
-        error: errorAboutUs, clearError: clearErrorAboutUs} = useHttp(client.getAboutUs);
-    let loadingData = [loadingContacts, loadingPhones, loadingAboutUs];
+    const {
+        request: getContacts, loading: loadingContacts,
+        error: errorContacts, clearError: clearErrorContacts
+    } = useHttp(client.getContacts);
+    const {
+        request: getPhones, loading: loadingPhones,
+        error: errorPhones, clearError: clearErrorPhones,
+    } = useHttp(client.getPhoneNumbers);
+    const {
+        request: getAboutUs, loading: loadingAboutUs,
+        error: errorAboutUs, clearError: clearErrorAboutUs
+    } = useHttp(client.getAboutUs);
+    const {
+        request: getServices, loading: loadingServices,
+        error: errorServices, clearError: clearErorServices
+    } = useHttp(client.getServices)
+    let loadingData = [loadingContacts, loadingPhones, loadingAboutUs, loadingServices];
 
     const [contacts, setContacts] = useState({});
     const [aboutUs, setAboutUs] = useState({});
+    const [services, setServices] = useState([]);
 
-    async function fetchData(){
-        const responseContacts  = await getContacts();
+    async function fetchData() {
+        const responseContacts = await getContacts();
         const responsePhones = await getPhones();
         setContacts({
             ...responseContacts.data,
@@ -48,11 +59,15 @@ function App() {
 
         const responseAboutUs = await getAboutUs();
         setAboutUs({...responseAboutUs.data})
+
+        const responseServices = await getServices();
+        setServices(responseServices.data);
     }
 
     useEffect(() => {
         window.localStorage.setItem("lang", language);
-        fetchData().then(r => {});
+        fetchData().then(r => {
+        });
     }, [language]);
 
     return loadingData.some(v => v === true) ? <p>Loading</p> : (
@@ -61,11 +76,12 @@ function App() {
                 <Header/>
                 <ScrollToTop/>
                 <Routes>
-                    <Route path="/*" element={<MainPage aboutUs={aboutUs}/>}/>
+                    <Route path="/*" element={<MainPage aboutUs={aboutUs}
+                                                        services={services}/>}/>
                     <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
                     <Route path="/not-found/" element={<NotFoundPage/>}/>
-                    <Route path="/services/" element={<ServicesPage/>}/>
+                    <Route path="/services/" element={<ServicesPage services={services}/>}/>
                     <Route path="/news/" element={<NewsListPage/>}/>
                     <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
                     <Route path="/vacancies/" element={<VacanciesListPage/>}/>

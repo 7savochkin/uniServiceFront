@@ -1,8 +1,6 @@
 import "./AboutUsSection.css"
 
-import about_us_section_img from "../../../assets/images/main-page/about-us-section-img.jpg"
 import Button from "../../common/button/Button";
-import {NavLink} from "react-router-dom";
 
 const AboutUsSection = ({translation, aboutUs}) => (
     <section className="about-us-section">
