@@ -3,6 +3,7 @@ import "./HeaderBurgerMenu.css";
 import {NavLink} from "react-router-dom";
 import {LanguageContext} from "../../../translations/language";
 import getTranslations from "../../../translations/translations";
+import {useNavActive} from "../../../hooks/setNavClass.hook";
 
 const HeaderBurgerMenu = ({open, setOpen}) => {
 
@@ -18,46 +19,51 @@ const HeaderBurgerMenu = ({open, setOpen}) => {
         setOpen(!open);
     }
 
+    const defaultClassLink = "menu-item";
+    const activeClassLink = "active-link";
+
+    const {setNavClass} = useNavActive(defaultClassLink, activeClassLink);
+
     return (
         <nav className={`menu ${open ? "active" : ""}`}>
             <NavLink
                 to="/about-us"
-                className={({isActive}) => `menu-item ${isActive ? "menu-item--active" : ""}`}
+                className={({isActive}) => setNavClass(isActive)}
                 onClick={closeBurger}
             >
                 {translation["Про компанію"]}
             </NavLink>
             <NavLink
                 to="/services"
-                className={({isActive}) => `menu-item ${isActive ? "menu-item--active" : ""}`}
+                className={({isActive}) => setNavClass(isActive)}
                 onClick={closeBurger}
             >
                 {translation["Послуги"]}
             </NavLink>
             <NavLink
                 to="/media"
-                className={({isActive}) => `menu-item ${isActive ? "menu-item--active" : ""}`}
+                className={({isActive}) => setNavClass(isActive)}
                 onClick={closeBurger}
             >
                 {translation["Медіа"]}
             </NavLink>
             <NavLink
                 to="/vacancies"
-                className={({isActive}) => `menu-item ${isActive ? "menu-item--active" : ""}`}
+                className={({isActive}) => setNavClass(isActive)}
                 onClick={closeBurger}
             >
                 {translation["Вакансії"]}
             </NavLink>
             <NavLink
                 to="/news"
-                className={({isActive}) => `menu-item ${isActive ? "menu-item--active" : ""}`}
+                className={({isActive}) => setNavClass(isActive)}
                 onClick={closeBurger}
             >
                 {translation["Новини"]}
             </NavLink>
             <NavLink
                 to="/contacts"
-                className={({isActive}) => `menu-item ${isActive ? "menu-item--active" : ""}`}
+                className={({isActive}) => setNavClass(isActive)}
                 onClick={closeBurger}
             >
                 {translation["Контакти"]}

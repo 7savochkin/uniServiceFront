@@ -6,6 +6,7 @@ import HeaderBurgerMenu from "./HeaderBurgerMenu";
 import {NavLink} from "react-router-dom";
 import {LanguageContext} from "../../../translations/language";
 import getTranslations from "../../../translations/translations";
+import {useNavActive} from "../../../hooks/setNavClass.hook";
 
 const Header = () => {
 
@@ -35,6 +36,11 @@ const Header = () => {
         return language === value ? "header-top-lang__item lang-active" : "header-top-lang__item"
     }
 
+    const defaultClassLink = "header-top-nav__item-link";
+    const activeClassLink = "active-link";
+
+    const {setNavClass} = useNavActive(defaultClassLink, activeClassLink);
+
     return (
         <header className="header">
             <div className="container">
@@ -45,35 +51,32 @@ const Header = () => {
                     <ul className="header-top-nav">
                         <li className="header-top-nav__item">
                             <NavLink to={"/about-us/"}
-                                     className={({isActive}) =>
-                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Про компанію"]}</NavLink>
+                                     className={({isActive}) => setNavClass(isActive)}>{translation["Про компанію"]}
+                            </NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/services/"}
-                                     className={({isActive}) =>
-                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Послуги"]}</NavLink>
+                                     className={({isActive}) => setNavClass(isActive)}>{translation["Послуги"]}
+                            </NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/media/"}
-                                     className={({isActive}) =>
-                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Медіа"]}</NavLink>
+                                     className={({isActive}) => setNavClass(isActive)}>{translation["Медіа"]}
+                            </NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/vacancies/"}
-                                     className={({isActive}) =>
-                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Вакансії"]}</NavLink>
+                                     className={({isActive}) => setNavClass(isActive)}>{translation["Вакансії"]}
+                            </NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/news/"}
-                                     className={({isActive}) =>
-                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>
-                                {translation["Новини"]}
+                                     className={({isActive}) => setNavClass(isActive)}>{translation["Новини"]}
                             </NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/contacts/"}
-                                     className={({isActive}) =>
-                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Контакти"]}</NavLink>
+                                     className={({isActive}) => setNavClass(isActive)}>{translation["Контакти"]}</NavLink>
                         </li>
                     </ul>
                     <div className="header-top-links">

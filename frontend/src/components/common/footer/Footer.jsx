@@ -5,6 +5,7 @@ import logo from '../../../assets/images/footer/logo.svg';
 import {NavLink} from "react-router-dom";
 import {LanguageContext} from "../../../translations/language";
 import getTranslations from "../../../translations/translations";
+import {useNavActive} from "../../../hooks/setNavClass.hook";
 
 const Footer = ({contacts}) => {
 
@@ -13,6 +14,11 @@ const Footer = ({contacts}) => {
 
     const phones = contacts?.phones;
     const phoneNumber = phones ? phones.map(item => item?.phone)[0] : null;
+
+    const defaultClassLink = "footer-content-menu__link";
+    const activeClassLink = "active-link";
+
+    const {setNavClass} = useNavActive(defaultClassLink, activeClassLink);
 
     return (
         <footer className="footer">
@@ -33,7 +39,7 @@ const Footer = ({contacts}) => {
                             <li className="footer-content-menu__items">
                                 <NavLink
                                     to="/about-us/"
-                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                    className={({isActive}) => setNavClass(isActive)}
                                 >
                                     {translation["Про компанію"]}
                                 </NavLink>
@@ -41,7 +47,7 @@ const Footer = ({contacts}) => {
                             <li className="footer-content-menu__items">
                                 <NavLink
                                     to="/services/"
-                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                    className={({isActive}) => setNavClass(isActive)}
                                 >
                                     {translation["Продукція"]}
                                 </NavLink>
@@ -49,7 +55,7 @@ const Footer = ({contacts}) => {
                             <li className="footer-content-menu__items">
                                 <NavLink
                                     to="/media/"
-                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                    className={({isActive}) => setNavClass(isActive)}
                                 >
                                     {translation["Медіа"]}
                                 </NavLink>
@@ -57,7 +63,7 @@ const Footer = ({contacts}) => {
                             <li className="footer-content-menu__items">
                                 <NavLink
                                     to="/vacancies/"
-                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                    className={({isActive}) => setNavClass(isActive)}
                                 >
                                     {translation["Вакансії"]}
                                 </NavLink>
@@ -65,7 +71,7 @@ const Footer = ({contacts}) => {
                             <li className="footer-content-menu__items">
                                 <NavLink
                                     to="/news/"
-                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                    className={({isActive}) => setNavClass(isActive)}
                                 >
                                     {translation["Новини"]}
                                 </NavLink>
@@ -73,7 +79,7 @@ const Footer = ({contacts}) => {
                             <li className="footer-content-menu__items">
                                 <NavLink
                                     to="/contacts/"
-                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                    className={({isActive}) => setNavClass(isActive)}
                                 >
                                     {translation["Контакти"]}
                                 </NavLink>

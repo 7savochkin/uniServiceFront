@@ -149,10 +149,6 @@
     color: var(--azure-text-color);
 }
 
-.header-top-nav__item-link--active {
-    color: var(--azure-text-color);
-}
-
 @media  screen and (max-width: 1200px) {
     .header-top-nav {
         display: none;

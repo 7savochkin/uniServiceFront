@@ -188,3 +188,7 @@ q {
     height: 100%;
     padding-inline: 20px;
 }
+
+.active-link {
+    color: var(--azure-text-color);
+}

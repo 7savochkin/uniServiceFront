@@ -121,7 +121,7 @@
     }
 }
 
-.footer-content-menu__link--active {
+.active-link {
     color: var(--azure-text-color);
 }
 
