@@ -120,6 +120,10 @@
     }
 }
 
+.footer-content-menu__link--active {
+    color: var(--azure-text-color);
+}
+
 .footer-rights {
     font-size: 12px;
     line-height: 17px;

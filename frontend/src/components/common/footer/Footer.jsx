@@ -29,22 +29,52 @@ const Footer = () => {
                         <h3 className="footer-content-menu__title footer-title">{translation["Меню:"]}</h3>
                         <ul className="footer-content-menu__list">
                             <li className="footer-content-menu__items">
-                                <NavLink to="/about-us/" className="footer-content-menu__link">{translation["Про компанію"]}</NavLink>
+                                <NavLink
+                                    to="/about-us/"
+                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                >
+                                    {translation["Про компанію"]}
+                                </NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <NavLink to="/services/" className="footer-content-menu__link">{translation["Продукція"]}</NavLink>
+                                <NavLink
+                                    to="/services/"
+                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                >
+                                    {translation["Продукція"]}
+                                </NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <NavLink to="/media/" className="footer-content-menu__link">{translation["Медіа"]}</NavLink>
+                                <NavLink
+                                    to="/media/"
+                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                >
+                                    {translation["Медіа"]}
+                                </NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <NavLink to="/vacancies/" className="footer-content-menu__link">{translation["Вакансії"]}</NavLink>
+                                <NavLink
+                                    to="/vacancies/"
+                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                >
+                                    {translation["Вакансії"]}
+                                </NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <NavLink to="/news/" className="footer-content-menu__link">{translation["Новини"]}</NavLink>
+                                <NavLink
+                                    to="/news/"
+                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                >
+                                    {translation["Новини"]}
+                                </NavLink>
                             </li>
                             <li className="footer-content-menu__items">
-                                <NavLink to="/contacts/" className="footer-content-menu__link">{translation["Контакти"]}</NavLink>
+                                <NavLink
+                                    to="/contacts/"
+                                    className={({isActive}) => `footer-content-menu__link ${isActive ? "footer-content-menu__link--active" : ""}`}
+                                >
+                                    {translation["Контакти"]}
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
