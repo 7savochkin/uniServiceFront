@@ -20,6 +20,7 @@ import {LanguageContext, getLangFromLocaleStorage} from "./translations/language
 import ScrollToTop from "./components/main-page/scroll-to-top/ScrollToTop";
 import useAPIClient from "./hooks/api.hook";
 import useHttp from "./hooks/http.hook";
+import Spinner from "./components/common/spinner/Spinner";
 
 
 function App() {
@@ -90,7 +91,7 @@ function App() {
         });
     }, [language]);
 
-    return loadingData.some(v => v === true) ? <p>Loading</p> : (
+    return loadingData.some(v => v === true) ? <Spinner /> : (
         <div className="wrapper">
             <LanguageContext.Provider value={[language, setLanguage]}>
                 <Header/>
