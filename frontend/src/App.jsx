@@ -31,8 +31,12 @@ function App() {
         error: errorContacts,clearError: clearErrorContacts} = useHttp(client.getContacts);
     const {request: getPhones, loading: loadingPhones,
         error: errorPhones, clearError: clearErrorPhones, } = useHttp(client.getPhoneNumbers);
+    const {request: getAboutUs, loading: loadingAboutUs,
+        error: errorAboutUs, clearError: clearErrorAboutUs} = useHttp(client.getAboutUs);
+    let loadingData = [loadingContacts, loadingPhones, loadingAboutUs];
 
-    const [contacts, setContacts] = useState({})
+    const [contacts, setContacts] = useState({});
+    const [aboutUs, setAboutUs] = useState({});
 
     async function fetchData(){
         const responseContacts  = await getContacts();
@@ -41,6 +45,9 @@ function App() {
             ...responseContacts.data,
             "phones": responsePhones.data
         })
+
+        const responseAboutUs = await getAboutUs();
+        setAboutUs({...responseAboutUs.data})
     }
 
     useEffect(() => {
@@ -48,16 +55,14 @@ function App() {
         fetchData().then(r => {});
     }, [language]);
 
-    console.log(loadingContacts, loadingPhones);
-
-    return loadingContacts || loadingPhones ? <p>Loading</p> : (
+    return loadingData.some(v => v === true) ? <p>Loading</p> : (
         <div className="wrapper">
             <LanguageContext.Provider value={[language, setLanguage]}>
                 <Header/>
                 <ScrollToTop/>
                 <Routes>
-                    <Route path="/*" element={<MainPage/>}/>
-                    <Route path="/about-us/" element={<AboutUsPage/>}/>
+                    <Route path="/*" element={<MainPage aboutUs={aboutUs}/>}/>
+                    <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
                     <Route path="/not-found/" element={<NotFoundPage/>}/>
                     <Route path="/services/" element={<ServicesPage/>}/>

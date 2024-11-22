@@ -10,6 +10,7 @@ class API {
         this.request.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
         this.request.defaults.headers.common["Content-Type"] = "application/json";
         this.request.defaults.headers.common["Accept-Language"] = lang;
+        this.request.defaults.timeout = 5000;
     }
 
     getContacts = async (data) => {
@@ -18,6 +19,21 @@ class API {
     }
     getPhoneNumbers = async (data) => {
         let url = "contacts/phone_numbers";
+        return await this.request({url: url, method: "GET"});
+    }
+
+    getAboutUs = async (data) => {
+        let url = "about_us/";
+        return await this.request({url: url, method: "GET"});
+    }
+
+    getAboutUsTeam = async (data) => {
+        let url = "about_us/team/";
+        return await this.request({url: url, method: "GET"});
+    }
+
+    getAboutUsAchievements = async (data) => {
+        let url = "/about_us/achievements/";
         return await this.request({url: url, method: "GET"});
     }
 }
