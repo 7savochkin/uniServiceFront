@@ -119,6 +119,7 @@
 
 .menu {
     display: none;
+    z-index: 99;
 }
 
 @media (max-width: 1200px) {

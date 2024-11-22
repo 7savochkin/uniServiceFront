@@ -14,29 +14,29 @@ const Header = () => {
     const translation = getTranslations(language, "header");
 
     const useOnClickOutside = (ref, handler) => {
-      React.useEffect(() => {
-        const listener = event => {
-          if (!ref.current || ref.current.contains(event.target)) return;
-          handler(event);
-        };
-        document.addEventListener("mousedown", listener);
+        React.useEffect(() => {
+            const listener = event => {
+                if (!ref.current || ref.current.contains(event.target)) return;
+                handler(event);
+            };
+            document.addEventListener("mousedown", listener);
 
-        return () => {
-          document.removeEventListener("mousedown", listener);
-        };
-      }, [ref, handler]);
+            return () => {
+                document.removeEventListener("mousedown", listener);
+            };
+        }, [ref, handler]);
     };
 
     const [open, setOpen] = React.useState(false);
-    const node = React.useRef();
-    useOnClickOutside(node, () => setOpen(false));
+    const menuRef = React.useRef();
+    useOnClickOutside(menuRef, () => setOpen(false));
 
-    function getLangClassName(value){
+    function getLangClassName(value) {
         return language === value ? "header-top-lang__item lang-active" : "header-top-lang__item"
     }
 
     return (
-        <div className="header">
+        <header className="header">
             <div className="container">
                 <div className="header-top">
                     <NavLink to={"/"}>
@@ -44,22 +44,28 @@ const Header = () => {
                     </NavLink>
                     <ul className="header-top-nav">
                         <li className="header-top-nav__item">
-                            <NavLink to={"/about-us/"} className="header-top-nav__item-link">{translation["Про компанію"]}</NavLink>
+                            <NavLink to={"/about-us/"}
+                                     className="header-top-nav__item-link">{translation["Про компанію"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/services/"} className="header-top-nav__item-link">{translation["Послуги"]}</NavLink>
+                            <NavLink to={"/services/"}
+                                     className="header-top-nav__item-link">{translation["Послуги"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/media/"} className="header-top-nav__item-link">{translation["Медіа"]}</NavLink>
+                            <NavLink to={"/media/"}
+                                     className="header-top-nav__item-link">{translation["Медіа"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/vacancies/"} className="header-top-nav__item-link">{translation["Вакансії"]}</NavLink>
+                            <NavLink to={"/vacancies/"}
+                                     className="header-top-nav__item-link">{translation["Вакансії"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/news/"} className="header-top-nav__item-link">{translation["Новини"]}</NavLink>
+                            <NavLink to={"/news/"}
+                                     className="header-top-nav__item-link">{translation["Новини"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
-                            <NavLink to={"/contacts/"} className="header-top-nav__item-link">{translation["Контакти"]}</NavLink>
+                            <NavLink to={"/contacts/"}
+                                     className="header-top-nav__item-link">{translation["Контакти"]}</NavLink>
                         </li>
                     </ul>
                     <div className="header-top-links">
@@ -76,7 +82,8 @@ const Header = () => {
                         <a className="header-top-tel" href="tel:+380979471159">+38(097)-947-11-59</a>
                         <div className="header-top-social">
                             <a className="header-top-social__link" href="https://www.facebook.com/">
-                                <svg className={"header-top-social__link-img"} width="8" height="14" viewBox="0 0 8 14" fill="#182829"
+                                <svg className={"header-top-social__link-img"} width="8" height="14" viewBox="0 0 8 14"
+                                     fill="#182829"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M5.08433 14V7.61441H7.22685L7.54829 5.12509H5.08433V3.53603C5.08433 2.81554 5.28358 2.32453 6.31793 2.32453L7.63501 2.32399V0.097461C7.40724 0.0678617 6.62539 0 5.71539 0C3.81517 0 2.51425 1.15988 2.51425 3.28949V5.12509H0.365234V7.61441H2.51425V14H5.08433Z"
@@ -84,7 +91,8 @@ const Header = () => {
                                 </svg>
                             </a>
                             <a className="header-top-social__link" href="https://www.instagram.com/">
-                                <svg className={"header-top-social__link-img"} width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                <svg className={"header-top-social__link-img"} width="14" height="14"
+                                     viewBox="0 0 14 14" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_7_3261)">
                                         <path
@@ -106,7 +114,8 @@ const Header = () => {
 
                             </a>
                             <a className="header-top-social__link" href="https://www.telegram.com/">
-                                <svg className={"header-top-social__link-img"} width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                <svg className={"header-top-social__link-img"} width="14" height="14"
+                                     viewBox="0 0 14 14" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M0.247281 7.52467L3.47316 8.72867L4.72177 12.7442C4.80167 13.0014 5.11615 13.0964 5.32489 12.9258L7.12305 11.4599C7.31154 11.3063 7.58001 11.2987 7.77699 11.4416L11.0202 13.7963C11.2435 13.9586 11.5599 13.8362 11.6159 13.5664L13.9917 2.13817C14.0529 1.84343 13.7633 1.59754 13.4826 1.70609L0.243501 6.81333C-0.083212 6.93933 -0.0803654 7.40189 0.247281 7.52467ZM4.52055 8.08775L10.8251 4.20476C10.9384 4.13518 11.055 4.28839 10.9577 4.37864L5.7546 9.21517C5.57171 9.38541 5.45374 9.61324 5.42033 9.86053L5.24309 11.174C5.21961 11.3494 4.97326 11.3668 4.92487 11.1971L4.24321 8.80189C4.16513 8.52871 4.27891 8.2369 4.52055 8.08775Z"
@@ -116,11 +125,14 @@ const Header = () => {
                             </a>
                         </div>
                     </div>
-                    <HeaderBurger open={open} setOpen={setOpen}/>
-                    <HeaderBurgerMenu open={open} setOpen={setOpen}/>
+                    <div ref={menuRef}>
+                        <HeaderBurger open={open} setOpen={setOpen}/>
+
+                        <HeaderBurgerMenu open={open} setOpen={setOpen}/>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
     )
 };
 
