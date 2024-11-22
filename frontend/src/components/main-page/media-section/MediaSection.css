@@ -44,6 +44,9 @@
     border: 1px solid var(--gray-text-color);
 }
 
+.media-slider-arrows .media-slider-arrow__next {
+    border-left: none;
+}
 
 @media (max-width: 768px) {
     .media-section__slider-item-4,
