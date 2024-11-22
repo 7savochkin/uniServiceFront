@@ -4,11 +4,12 @@
     align-items: center;
     height: 100vh;
     background-color: #f9f9f9;
-    position: absolute;
+    position: fixed;
     z-index: 1000; /* Ensure it overlays content */
     width: 100%;
     opacity: 1;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    overflow: hidden;
 }
 
 .spinner-container.hidden{
@@ -32,4 +33,8 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.spinner-section {
+    position: relative;
 }

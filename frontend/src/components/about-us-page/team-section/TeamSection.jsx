@@ -3,45 +3,36 @@ import SliderArrows from "../../common/slider-arrows/SliderArrows";
 import TeamItem from "./TeamItem";
 
 import "./TeamSection.css";
-import team_section_man_first from "../../../assets/images/about-us-page/team-section-man-first.jpg"
 import {Navigation} from "swiper/modules";
+import useAPIClient from "../../../hooks/api.hook";
+import useHttp from "../../../hooks/http.hook";
+import React, {useEffect, useState} from "react";
+import {LanguageContext} from "../../../translations/language";
+import Spinner from "../../common/spinner/Spinner";
 
 const TeamSection = ({translation}) => {
 
-    const team = [
-        {
-            "name": "Олексій Михайлов",
-            "position": "Менеджер",
-            "image": team_section_man_first
-        },
-        {
-            "name": "Олексій Михайлов",
-            "position": "Менеджер",
-            "image": team_section_man_first
-        },
-        {
-            "name": "Олексій Михайлов",
-            "position": "Менеджер",
-            "image": team_section_man_first
-        },
-        {
-            "name": "Олексій Михайлов",
-            "position": "Менеджер",
-            "image": team_section_man_first
-        },
-        {
-            "name": "Олексій Михайлов",
-            "position": "Менеджер",
-            "image": team_section_man_first
-        },
-        {
-            "name": "Олексій Михайлов",
-            "position": "Менеджер",
-            "image": team_section_man_first
-        }
-    ]
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const client = useAPIClient(language);
+    const {
+        request, loading,
+        error, clearError
+    } = useHttp(client.getAboutUsTeam);
 
-    return (
+    const [team, setTeam] = useState([]);
+
+    async function fetchData() {
+        const response = await request();
+        setTeam(response.data);
+    }
+
+    useEffect(() => {
+        fetchData().then(r => {
+        }).catch(() => {
+        });
+    }, [language]);
+
+    return loading ? <Spinner loading={loading} isSection={true}/> : (
         <section className="team-section">
             <div className="team-section-stones"></div>
             <div className="container">
@@ -80,7 +71,7 @@ const TeamSection = ({translation}) => {
                             team.map(
                                 (item, index) => (
                                     <SwiperSlide key={index}>
-                                        <TeamItem {...item}/>
+                                        <TeamItem item={item}/>
                                     </SwiperSlide>
                                 ))
                         }

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./Spinner.css";
 
-const Spinner = ({loading}) => {
+const Spinner = ({loading, isSection=false}) => {
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -17,7 +17,7 @@ const Spinner = ({loading}) => {
     }, [loading]);
 
     return isVisible && (
-        <div className={`spinner-container ${!loading ? 'hidden' : ''}`}>
+        <div className={`spinner-container ${!loading ? 'hidden' : ''} ${isSection ? "spinner-section" : ""}`}>
             <div className="spinner"></div>
         </div>
     );
