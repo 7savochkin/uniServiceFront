@@ -4,6 +4,16 @@
     align-items: center;
     height: 100vh;
     background-color: #f9f9f9;
+    position: absolute;
+    z-index: 1000; /* Ensure it overlays content */
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.spinner-container.hidden{
+    opacity: 0; /* Fade out */
+    /*transform: translateY(-20px); !* Move upwards *!*/
 }
 
 .spinner {

@@ -91,8 +91,11 @@ function App() {
         });
     }, [language]);
 
-    return loadingData.some(v => v === true) ? <Spinner /> : (
+    const loading = loadingData.some(v => v === true);
+
+    return (
         <div className="wrapper">
+            <Spinner loading={loading}/>
             <LanguageContext.Provider value={[language, setLanguage]}>
                 <Header/>
                 <ScrollToTop/>
