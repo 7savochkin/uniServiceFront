@@ -1,12 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Spinner.css";
 
-const Spinner = () => {
-    return (
-        <div className="spinner-container">
+const Spinner = ({loading}) => {
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        if (loading) {
+            // Show spinner immediately when loading starts
+            setIsVisible(true);
+        } else {
+            // Delay hiding spinner to complete fade-out animation
+            const timeout = setTimeout(() => setIsVisible(false), 500);
+            return () => clearTimeout(timeout); // Cleanup timeout on unmount or new loading state
+        }
+    }, [loading]);
+
+    return isVisible && (
+        <div className={`spinner-container ${!loading ? 'hidden' : ''}`}>
             <div className="spinner"></div>
         </div>
     );
-};
+}
+    ;
 
-export default Spinner;
+    export default Spinner;

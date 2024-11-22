@@ -1,0 +1,11 @@
+.media-page {
+    background: var(--light-bg-color);
+}
+
+.filters .filters-buttons{
+    display: none;
+}
+
+.filters .custom-slider-arrows {
+    margin-left: auto;
+}
