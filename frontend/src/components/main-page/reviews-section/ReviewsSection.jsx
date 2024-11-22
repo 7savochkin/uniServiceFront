@@ -1,7 +1,6 @@
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from 'swiper/modules';
 import "swiper/css";
-// import "../../common/input/Input.css"
 
 
 import "./ReviewsSection.css"
@@ -16,49 +15,11 @@ import pop_up_close_icon from "../../../assets/images/pop-up/pop-up-close-icon.s
 import Button from "../../common/button/Button";
 import {isObjectEmpty} from "../../../utils/objects";
 
-const ReviewsSection = ({translation}) => {
-    const reviewsList = [
-        {
-            name: "Іван Петров",
-            img: man_first,
-            text: 'генеральний директор компанії "Стальні Конструкції"',
-            desc: 'Моя компанія співпрацює з цією компанією вже більше пяти років. Вони завжди надають нам високоякісні вибухові речовини, що відповідають усім міжнародним стандартам безпеки.'
-        },
-        {
-            name: "Іван Петров",
-            img: man_first,
-            text: 'генеральний директор компанії "Стальні Конструкції"',
-            desc: 'Моя компанія співпрацює з цією компанією вже більше пяти років. Вони завжди надають нам високоякісні вибухові речовини, що відповідають усім міжнародним стандартам безпеки.'
-        },
-        {
-            name: "Іван Петров",
-            img: man_first,
-            text: 'генеральний директор компанії "Стальні Конструкції"',
-            desc: 'Моя компанія співпрацює з цією компанією вже більше пяти років. Вони завжди надають нам високоякісні вибухові речовини, що відповідають усім міжнародним стандартам безпеки.'
-        },
-        {
-            name: "Іван Петров",
-            img: man_first,
-            text: 'генеральний директор компанії "Стальні Конструкції"',
-            desc: 'Моя компанія співпрацює з цією компанією вже більше пяти років. Вони завжди надають нам високоякісні вибухові речовини, що відповідають усім міжнародним стандартам безпеки.'
-        },
-        {
-            name: "Іван Петров",
-            img: man_first,
-            text: 'генеральний директор компанії "Стальні Конструкції"',
-            desc: 'Моя компанія співпрацює з цією компанією вже більше пяти років. Вони завжди надають нам високоякісні вибухові речовини, що відповідають усім міжнародним стандартам безпеки.'
-        },
-        {
-            name: "Іван Петров",
-            img: man_first,
-            text: 'генеральний директор компанії "Стальні Конструкції"',
-            desc: 'Моя компанія співпрацює з цією компанією вже більше пяти років. Вони завжди надають нам високоякісні вибухові речовини, що відповідають усім міжнародним стандартам безпеки.'
-        }
-    ];
+const ReviewsSection = ({translation, reviews}) => {
 
     const [popUpActive, setPopUpActive] = useState(false);
 
-        const defaultFormData = {
+    const defaultFormData = {
         "name": "",
         "email": "",
         "company": "",
@@ -200,10 +161,10 @@ const ReviewsSection = ({translation}) => {
                         className="reviews-section__slider"
                         modules={[Navigation]}
                     >
-                        {reviewsList.map(
+                        {reviews.map(
                             (item, index) => (
                                 <SwiperSlide key={index}>
-                                    <ReviewItem {...item} />
+                                    <ReviewItem item={item} />
                                 </SwiperSlide>
                             )
                         )}
@@ -220,10 +181,10 @@ const ReviewsSection = ({translation}) => {
                         className="reviews-section__slider-tablet"
                         modules={[Navigation]}
                     >
-                        {reviewsList.map(
+                        {reviews.map(
                             (item, index) => (
                                 <SwiperSlide key={index}>
-                                    <ReviewItem {...item} />
+                                    <ReviewItem item={item} />
                                 </SwiperSlide>
                             )
                         )}
@@ -239,10 +200,10 @@ const ReviewsSection = ({translation}) => {
                         className="reviews-section__slider-mobile"
                         modules={[Navigation]}
                     >
-                        {reviewsList.map(
+                        {reviews.map(
                             (item, index) => (
                                 <SwiperSlide key={index}>
-                                    <ReviewItem {...item} />
+                                    <ReviewItem item={item} />
                                 </SwiperSlide>
                             )
                         )}

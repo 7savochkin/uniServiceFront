@@ -43,11 +43,18 @@ function App() {
         request: getServices, loading: loadingServices,
         error: errorServices, clearError: clearErorServices
     } = useHttp(client.getServices);
-    let loadingData = [loadingContacts, loadingPhones, loadingAboutUs, loadingServices];
+    const {
+        request: getReviews, loading: loadingReviews,
+        error: errorReviews, clearError: clearErorReviews
+    } = useHttp(client.getReviews);
+    let loadingData = [
+        loadingContacts, loadingPhones, loadingAboutUs, loadingServices, loadingReviews
+    ];
 
     const [contacts, setContacts] = useState({});
     const [aboutUs, setAboutUs] = useState({});
     const [services, setServices] = useState([]);
+    const [reviews, setReviews] = useState([]);
 
     async function fetchData() {
         const responseContacts = await getContacts();
@@ -62,6 +69,9 @@ function App() {
 
         const responseServices = await getServices();
         setServices(responseServices.data);
+
+        const responseReviews = await getReviews();
+        setReviews(responseReviews.data);
     }
 
     useEffect(() => {
@@ -77,7 +87,9 @@ function App() {
                 <ScrollToTop/>
                 <Routes>
                     <Route path="/*" element={<MainPage aboutUs={aboutUs}
-                                                        services={services}/>}/>
+                                                        services={services}
+                                                        reviews={reviews}
+                    />}/>
                     <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
                     <Route path="/not-found/" element={<NotFoundPage/>}/>

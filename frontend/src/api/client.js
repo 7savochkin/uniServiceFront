@@ -41,6 +41,11 @@ class API {
         let url = "/services/";
         return await this.request({url: url, method: "GET"});
     }
+
+    getReviews = async (data) => {
+        let url = "/reviews/";
+        return await this.request({url: url, method: "GET"});
+    }
 }
 
 export default API;
