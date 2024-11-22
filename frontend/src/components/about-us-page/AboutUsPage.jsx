@@ -9,7 +9,7 @@ import React from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
-const AboutUsPage = () => {
+const AboutUsPage = ({aboutUs}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
@@ -22,7 +22,7 @@ const AboutUsPage = () => {
     return (
         <div className="about-us">
             <Breadcrumbs paths={paths}/>
-            <AboutUsSection translation={translation}/>
+            <AboutUsSection translation={translation} aboutUs={aboutUs}/>
             <TeamSection translation={translation}/>
             <AchievementsSection translation={translation}/>
             <OrderConsultationSection translation={translation}/>

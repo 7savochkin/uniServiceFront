@@ -1,11 +1,5 @@
 import "./ServicesSection.css"
 
-import services_section_feature_img_first from "../../../assets/images/main-page/services-section-feature-img-first.jpg"
-import services_section_feature_img_second
-    from "../../../assets/images/main-page/services-section-feature-img-second.jpg"
-import services_section_feature_img_third from "../../../assets/images/main-page/services-section-feature-img-third.jpg"
-import services_section_feature_img_fourth
-    from "../../../assets/images/main-page/services-section-feature-img-fourth.jpg"
 import ServiceItem from "./ServiceItem";
 import pop_up_close_icon from "../../../assets/images/pop-up/pop-up-close-icon.svg";
 import Input from "../../common/input/Input";
@@ -13,7 +7,7 @@ import PopUp from "../../common/pop-up/PopUp";
 import React, {useEffect, useState} from "react";
 import {isObjectEmpty} from "../../../utils/objects";
 
-const ServicesSection = ({translation}) => {
+const ServicesSection = ({translation, services}) => {
 
     const defaultFormData = {
         "name": "",
@@ -22,43 +16,6 @@ const ServicesSection = ({translation}) => {
         "message": "",
     }
 
-    const services = [
-        {
-            "title": "Виробництво компонентів емульсійно-вибухової речовини Гранеміт И-30-У",
-            "img": services_section_feature_img_first,
-            "features": [
-                "Гарантована висока якість продукту.",
-                "Власний спеціалізований транспорт для своєчасної і безпечної доставки на об'єкт.",
-            ],
-            "orderLink": "#"
-        },
-        {
-            "title": "Комплекс буровибухових робіт",
-            "img": services_section_feature_img_second,
-            "features": [
-                "Починаючи з розбивки блока під буріння за допомогою новітнього програмного забезпечення та обладнання.",
-                "Виконання самого буріння зарядки та проведення масового вибуху.",
-            ],
-            "orderLink": "#"
-        },
-        {
-            "title": "Послуги з буріння",
-            "img": services_section_feature_img_third,
-            "features": [
-                "Станки SmartROC T45 (діаметр свердловин 115-127 мм).",
-                "Станки FlexiROC D65 (діаметр свердловин 147-152 мм).",
-            ],
-            "orderLink": "#"
-        },
-        {
-            "title": "Власний транспорт для доставки бурових станків",
-            "img": services_section_feature_img_fourth,
-            "features": [
-                "Гарантує своєчасну та безпечну доставку необхідного обладнання на об'єкт.",
-            ],
-            "orderLink": "#"
-        }
-    ]
     const [popUpActive, setPopUpActive] = useState(false);
 
     const [formData, setFormData] = useState(defaultFormData)
@@ -195,7 +152,7 @@ const ServicesSection = ({translation}) => {
                 <div className="services-section-list">
                     <ul className="services-section-list__inner container">
                         {
-                            services.map((service, index) => <ServiceItem key={index} setPopUpActive={setPopUpActive} {...service} />)
+                            services.map((service, index) => <ServiceItem key={index} translation={translation} item={service} setPopUpActive={setPopUpActive} />)
                         }
                     </ul>
                 </div>

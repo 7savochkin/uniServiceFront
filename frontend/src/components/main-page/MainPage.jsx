@@ -13,7 +13,7 @@ import React from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
-const MainPage = () => {
+const MainPage = ({aboutUs, services, reviews, news}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
@@ -22,13 +22,13 @@ const MainPage = () => {
         <div className="main">
             <FacialSection translation={translation}/>
             <WhyChooseUsSection translation={translation}/>
-            <AboutUsSection translation={translation}/>
-            <ServicesSection translation={translation}/>
+            <AboutUsSection translation={translation} aboutUs={aboutUs}/>
+            <ServicesSection translation={translation} services={services}/>
             <CertificatesSection translation={translation}/>
             <MediaSection translation={translation}/>
-            <ReviewsSection translation={translation}/>
+            <ReviewsSection translation={translation} reviews={reviews}/>
             <OrderConsultationSection translation={translation}/>
-            <LastNewsSection translation={translation}/>
+            <LastNewsSection translation={translation} news={news}/>
         </div>
     )
 }

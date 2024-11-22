@@ -8,10 +8,13 @@ import React from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
-const ContactsPage = () => {
+const ContactsPage = ({contacts}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
+
+    const phones = contacts?.phones;
+    const phoneNumber = phones ? phones.map(item => item?.phone)[0] : null;
 
     const paths = [
         {path: "/", name: translation["Головна"]},
@@ -28,30 +31,29 @@ const ContactsPage = () => {
                         <ul className="contacts-section-list">
                             <li className="contacts-section-list__item">
                                 <h3 className="contacts-section-list__item-title">{translation["Адреса"]}:</h3>
-                                <p className="contacts-section-list__item-text">11634, Україна, Житомирська обл.,
-                                    Коростенський р-н, селище міського типу Гранітне(з), вул.Шевченка, будинок </p>
+                                <p className="contacts-section-list__item-text">{contacts?.address}</p>
                             </li>
                             <li className="contacts-section-list__item">
                                 <h3 className="contacts-section-list__item-title">{translation["Графік роботи"]}:</h3>
-                                <p className="contacts-section-list__item-text">
-                                    Пн - Пт 8:00 - 17:00
-                                    Сб 8:00 - 13:00
+                                <p className="contacts-section-list__item-text schedule">
+                                    {contacts?.schedule}
                                 </p>
                             </li>
                             <li className="contacts-section-list__item">
-                                <h3 className="contacts-section-list__item-title">+38(097)-947-11-59</h3>
-                                <p className="contacts-section-list__item-text">secretar.uniservis@gmail.com</p>
+                                <a href={`tel:${phoneNumber}`} className="contacts-section-list__item-title">{phoneNumber}</a>
+                                <br/>
+                                <a href={`mailto:${contacts?.email}`} className="contacts-section-list__item-text">{contacts?.email}</a>
                             </li>
                             <li className="contacts-section-list__item">
                                 <h3 className="contacts-section-list__item-title">{translation["Соц. мережі"]}</h3>
                                 <div className="contacts-section-list__item-links">
-                                    <a href="https://www.facebook.com/" className="footer-content__link">
+                                    <a href={contacts?.facebook} className="footer-content__link">
                                         <img src={facebook_icon} alt="facebook-icon" className="footer-content__img"/>
                                     </a>
-                                    <a href="https://www.instagram.com/" className="footer-content__link">
+                                    <a href={contacts?.instagram} className="footer-content__link">
                                         <img src={instagram_icon} alt="instagram-icon" className="footer-content__img"/>
                                     </a>
-                                    <a href="https://www.telegram.com/" className="footer-content__link">
+                                    <a href={contacts?.telegram} className="footer-content__link">
                                         <img src={telegram_icon} alt="telegram-icon" className="footer-content__img"/>
                                     </a>
                                 </div>

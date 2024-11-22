@@ -18,35 +18,100 @@ import VacancyDetailPage from "./components/vacancy-detail-page/VacancyDetailPag
 import {useEffect, useState} from "react";
 import {LanguageContext, getLangFromLocaleStorage} from "./translations/language";
 import ScrollToTop from "./components/main-page/scroll-to-top/ScrollToTop";
+import useAPIClient from "./hooks/api.hook";
+import useHttp from "./hooks/http.hook";
 
 
 function App() {
 
     const [language, setLanguage] = useState(getLangFromLocaleStorage())
+    const client = useAPIClient(language);
+
+    const {
+        request: getContacts, loading: loadingContacts,
+        error: errorContacts, clearError: clearErrorContacts
+    } = useHttp(client.getContacts);
+    const {
+        request: getPhones, loading: loadingPhones,
+        error: errorPhones, clearError: clearErrorPhones,
+    } = useHttp(client.getPhoneNumbers);
+    const {
+        request: getAboutUs, loading: loadingAboutUs,
+        error: errorAboutUs, clearError: clearErrorAboutUs
+    } = useHttp(client.getAboutUs);
+    const {
+        request: getServices, loading: loadingServices,
+        error: errorServices, clearError: clearErorServices
+    } = useHttp(client.getServices);
+    const {
+        request: getReviews, loading: loadingReviews,
+        error: errorReviews, clearError: clearErorReviews
+    } = useHttp(client.getReviews);
+    const {
+        request: getNews, loading: loadingNews,
+        error: errorNews, clearError: clearErrorNews
+    } = useHttp(client.getNews);
+
+    let loadingData = [
+        loadingContacts, loadingPhones, loadingAboutUs,
+        loadingServices, loadingReviews, loadingNews
+    ];
+
+    const [contacts, setContacts] = useState({});
+    const [aboutUs, setAboutUs] = useState({});
+    const [services, setServices] = useState([]);
+    const [reviews, setReviews] = useState([]);
+    const [news, setNews] = useState([]);
+
+    async function fetchData() {
+        const responseContacts = await getContacts();
+        const responsePhones = await getPhones();
+        setContacts({
+            ...responseContacts.data,
+            "phones": responsePhones.data
+        })
+
+        const responseAboutUs = await getAboutUs();
+        setAboutUs({...responseAboutUs.data})
+
+        const responseServices = await getServices();
+        setServices(responseServices.data);
+
+        const responseReviews = await getReviews();
+        setReviews(responseReviews.data);
+
+        const responseNews = await getNews();
+        setNews(responseNews.data?.results);
+    }
 
     useEffect(() => {
         window.localStorage.setItem("lang", language);
+        fetchData().then(r => {
+        });
     }, [language]);
 
-
-    return (
+    return loadingData.some(v => v === true) ? <p>Loading</p> : (
         <div className="wrapper">
             <LanguageContext.Provider value={[language, setLanguage]}>
                 <Header/>
                 <ScrollToTop/>
                 <Routes>
-                    <Route path="/*" element={<MainPage/>}/>
-                    <Route path="/about-us/" element={<AboutUsPage/>}/>
-                    <Route path="/contacts/" element={<ContactsPage/>}/>
+                    <Route path="/*" element={<MainPage aboutUs={aboutUs}
+                                                        services={services}
+                                                        reviews={reviews}
+                                                        news={news}
+                    />}/>
+                    <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
+                    <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
                     <Route path="/not-found/" element={<NotFoundPage/>}/>
-                    <Route path="/services/" element={<ServicesPage/>}/>
+                    <Route path="/services/" element={<ServicesPage services={services}/>}/>
                     <Route path="/news/" element={<NewsListPage/>}/>
                     <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
                     <Route path="/vacancies/" element={<VacanciesListPage/>}/>
                     <Route path="/vacancies/:slug/" element={<VacancyDetailPage/>}/>
                     <Route path="/media/" element={<MediaPage/>}/>
                 </Routes>
-                <Footer/>
+                <Footer contacts={contacts}/>
             </LanguageContext.Provider>
         </div>
     )

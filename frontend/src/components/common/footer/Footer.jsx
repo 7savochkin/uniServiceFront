@@ -6,11 +6,13 @@ import {NavLink} from "react-router-dom";
 import {LanguageContext} from "../../../translations/language";
 import getTranslations from "../../../translations/translations";
 
-const Footer = () => {
+const Footer = ({contacts}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
-
     const translation = getTranslations(language, "footer");
+
+    const phones = contacts?.phones;
+    const phoneNumber = phones ? phones.map(item => item?.phone)[0] : null;
 
     return (
         <footer className="footer">
@@ -82,16 +84,16 @@ const Footer = () => {
                     <div className="footer-content-graph">
                         <h3 className="footer-content-graph__title footer-title">{translation["Графік роботи:"]}</h3>
                         <ul className="footer-content-graph__list">
-                            <li className="footer-content-graph__items">{translation["Пн - Пт 8:00 - 17:00"]}</li>
-                            <li className="footer-content-graph__items">{translation["Сб 8:00 - 13:00"]}</li>
+                            <li className="footer-content-graph__items">{contacts?.schedule}</li>
                             <li className="footer-content-graph__items">
-                                <a href="tel:+380979471159"
-                                   className="footer-content-graph__link footer-content-graph__link-tel">+38(097)-947-11-59</a>
+                                <a href={`tel:${phoneNumber}`}
+                                   // className="footer-content-graph__link footer-content-graph__link-tel">+38(097)-947-11-59</a>
+                                   className="footer-content-graph__link footer-content-graph__link-tel">{phoneNumber}</a>
                             </li>
                             <li className="footer-content-graph__items">
-                                <a href="mailto:secretar.uniservis@gmail.com"
+                                <a href={`mailto:${contacts?.email}`}
                                    className="footer-content-graph__link footer-content-graph__link-mail">
-                                    secretar.uniservis@gmail.com
+                                    {contacts?.email}
                                 </a>
                             </li>
                         </ul>
@@ -100,11 +102,11 @@ const Footer = () => {
                     <div className="footer-content-contacts">
                         <h3 className="footer-content-contacts__title footer-title">{translation["Контакти"]}:</h3>
                         <span className="footer-content-cotacts__text">
-                            {translation["11634, Україна, Житомирська обл., Коростенський р-н, селище міського типу Гранітне(з), вул.Шевченка, будинок"]}
+                            {contacts?.address}
                         </span>
 
                         <div className="footer-content__links">
-                            <a href="https://www.facebook.com/" className="footer-content__link">
+                            <a href={contacts?.facebook} className="footer-content__link">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <rect width="30" height="30" fill="#00CCCC"/>
@@ -114,7 +116,7 @@ const Footer = () => {
                                 </svg>
 
                             </a>
-                            <a href="https://www.instagram.com/" className="footer-content__link">
+                            <a href={contacts?.instagram} className="footer-content__link">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <rect width="30" height="30" fill="#00CCCC"/>
@@ -137,7 +139,7 @@ const Footer = () => {
                                 </svg>
 
                             </a>
-                            <a href="https://www.telegram.com/" className="footer-content__link">
+                            <a href={contacts?.telegram} className="footer-content__link">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <rect width="30" height="30" fill="#00CCCC"/>
