@@ -51,10 +51,14 @@ function App() {
         request: getNews, loading: loadingNews,
         error: errorNews, clearError: clearErrorNews
     } = useHttp(client.getNews);
+    const {
+        request: getMedia, loading: loadingMedia,
+        error: errorMedia, clearError: clearErrorMedia
+    } = useHttp(client.getMedia);
 
     let loadingData = [
         loadingContacts, loadingPhones, loadingAboutUs,
-        loadingServices, loadingReviews, loadingNews
+        loadingServices, loadingReviews, loadingNews, loadingMedia
     ];
 
     const [contacts, setContacts] = useState({});
@@ -62,6 +66,7 @@ function App() {
     const [services, setServices] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [news, setNews] = useState([]);
+    const [media, setMedia] = useState([]);
 
     async function fetchData() {
         const responseContacts = await getContacts();
@@ -82,6 +87,9 @@ function App() {
 
         const responseNews = await getNews();
         setNews(responseNews.data?.results);
+
+        const responseMedia = await getMedia();
+        setMedia(responseMedia.data?.results);
     }
 
     useEffect(() => {

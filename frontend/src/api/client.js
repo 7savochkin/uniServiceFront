@@ -51,6 +51,11 @@ class API {
         let url = "/news/";
         return await this.request({url: url, method: "GET"});
     }
+
+    getMedia = async (data) => {
+        let url = "/media/images/";
+        return await this.request({url: url, method: "GET"});
+    }
 }
 
 export default API;

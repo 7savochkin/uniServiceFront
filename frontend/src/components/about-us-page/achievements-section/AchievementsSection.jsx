@@ -35,7 +35,7 @@ const AchievementsSection = ({translation}) => {
                     <p className="achiev-section__desc">{translation["«Юні Сервіс» представляє собою приклад успішного бізнесу, що поєднує інновації, якість, безпеку і соціальну відповідальність, що дозволяє їй не тільки досягати високих результатів, але й забезпечувати стійкий розвиток у глобальному масштабі."]}</p>
                     <ul className="achiev-section-list">
                         {achievements.map((item, key) => (
-                            <li className="achiev-section-list__item">
+                            <li className="achiev-section-list__item" key={key}>
                                 <div className="achiev-section-list__item-header">
                                     <p className="achiev-section-list__item-header__percent">{item?.percent}</p>
                                     <h3 className="achiev-section-list__item-header__title">{item?.title}</h3>
