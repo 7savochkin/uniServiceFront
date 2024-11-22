@@ -87,8 +87,7 @@ function App() {
 
     useEffect(() => {
         window.localStorage.setItem("lang", language);
-        fetchData().then(r => {
-        });
+        fetchData().then(r => {});
     }, [language]);
 
     const loading = loadingData.some(v => v === true);
@@ -109,8 +108,8 @@ function App() {
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
                     <Route path="/not-found/" element={<NotFoundPage/>}/>
                     <Route path="/services/" element={<ServicesPage services={services}/>}/>
-                    <Route path="/news/" element={<NewsListPage/>}/>
-                    <Route path="/news/:slug/" element={<NewsDetailPage/>}/>
+                    <Route path="/news/" element={<NewsListPage news={news}/>}/>
+                    <Route path="/news/:id/" element={<NewsDetailPage news={news}/>}/>
                     <Route path="/vacancies/" element={<VacanciesListPage/>}/>
                     <Route path="/vacancies/:slug/" element={<VacancyDetailPage/>}/>
                     <Route path="/media/" element={<MediaPage/>}/>

@@ -4,7 +4,7 @@ import formatIsoDate from "../../../../utils/dates";
 
 const NewsItem = ({item, additionalClass = null}) => (
     <li className={additionalClass ? `news-item ${additionalClass}` : "news-item"}>
-        <NavLink to={`/news/${item?.title}/`} className="news-item__link">
+        <NavLink to={`/news/${item?.id}/`} className="news-item__link">
             <div className="news-item__img-wrap">
                 <img src={`https://uniservice.site/${item?.image}`} alt={item?.title}/>
             </div>

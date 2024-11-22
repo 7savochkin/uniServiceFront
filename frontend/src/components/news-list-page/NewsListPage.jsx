@@ -1,13 +1,11 @@
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
-import last_news_section_example_first from "../../assets/images/main-page/last-news-section-example-first.jpg";
-import formatIsoDate from "../../utils/dates";
 import NewsItem from "../common/list-items/news-item/NewsItem";
 import "./NewsListPage.css"
 import React from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
-const NewsListPage = () => {
+const NewsListPage = ({news}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
@@ -15,79 +13,6 @@ const NewsListPage = () => {
     const paths = [
         {path: "/", name: translation["Головна"]},
         {path: "", name: translation["Новини"]}
-    ]
-
-    const newsList = [
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-first",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-second",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-third",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-first",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-second",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-third",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-first",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-second",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-third",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "slug": "international-recognition-first",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
     ]
 
     return (
@@ -98,8 +23,8 @@ const NewsListPage = () => {
                     <div className="news-list-section-content">
                         <h2 className="news-list-section__title">{translation["Новини"]}</h2>
                         <ul className="news-list-section__list">
-                            {newsList.map((item, index) => (
-                                <NewsItem key={index} {...item}/>)
+                            {news.map((item, index) => (
+                                <NewsItem key={index} item={item}/>)
                             )}
                         </ul>
                     </div>
