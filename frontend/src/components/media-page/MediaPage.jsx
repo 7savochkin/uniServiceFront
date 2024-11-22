@@ -6,6 +6,8 @@ import React from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
+import './MediaPage.css'
+
 const MediaPage = () => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
