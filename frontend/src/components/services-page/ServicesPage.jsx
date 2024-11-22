@@ -6,7 +6,7 @@ import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
 
-const ServicesPage = () => {
+const ServicesPage = ({services}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
@@ -20,7 +20,7 @@ const ServicesPage = () => {
     return (
         <div className="services">
             <Breadcrumbs paths={paths}/>
-            <ServicesSection translation={translation}/>
+            <ServicesSection translation={translation} services={services}/>
         </div>
     )
 }

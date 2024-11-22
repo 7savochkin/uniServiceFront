@@ -42,7 +42,7 @@ function App() {
     const {
         request: getServices, loading: loadingServices,
         error: errorServices, clearError: clearErorServices
-    } = useHttp(client.getServices)
+    } = useHttp(client.getServices);
     let loadingData = [loadingContacts, loadingPhones, loadingAboutUs, loadingServices];
 
     const [contacts, setContacts] = useState({});
