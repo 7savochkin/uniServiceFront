@@ -11,7 +11,8 @@ const Footer = ({contacts}) => {
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "footer");
 
-    const phoneNumber = contacts.phones.map(item => item?.phone)[0]
+    const phones = contacts?.phones;
+    const phoneNumber = phones ? phones.map(item => item?.phone)[0] : null;
 
     return (
         <footer className="footer">
@@ -53,16 +54,16 @@ const Footer = ({contacts}) => {
                     <div className="footer-content-graph">
                         <h3 className="footer-content-graph__title footer-title">{translation["Графік роботи:"]}</h3>
                         <ul className="footer-content-graph__list">
-                            <li className="footer-content-graph__items">{contacts.schedule}</li>
+                            <li className="footer-content-graph__items">{contacts?.schedule}</li>
                             <li className="footer-content-graph__items">
                                 <a href={`tel:${phoneNumber}`}
                                    // className="footer-content-graph__link footer-content-graph__link-tel">+38(097)-947-11-59</a>
                                    className="footer-content-graph__link footer-content-graph__link-tel">{phoneNumber}</a>
                             </li>
                             <li className="footer-content-graph__items">
-                                <a href={`mailto:${contacts.email}`}
+                                <a href={`mailto:${contacts?.email}`}
                                    className="footer-content-graph__link footer-content-graph__link-mail">
-                                    {contacts.email}
+                                    {contacts?.email}
                                 </a>
                             </li>
                         </ul>
@@ -71,11 +72,11 @@ const Footer = ({contacts}) => {
                     <div className="footer-content-contacts">
                         <h3 className="footer-content-contacts__title footer-title">{translation["Контакти"]}:</h3>
                         <span className="footer-content-cotacts__text">
-                            {contacts.address}
+                            {contacts?.address}
                         </span>
 
                         <div className="footer-content__links">
-                            <a href={contacts.facebook} className="footer-content__link">
+                            <a href={contacts?.facebook} className="footer-content__link">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <rect width="30" height="30" fill="#00CCCC"/>
@@ -85,7 +86,7 @@ const Footer = ({contacts}) => {
                                 </svg>
 
                             </a>
-                            <a href={contacts.instagram} className="footer-content__link">
+                            <a href={contacts?.instagram} className="footer-content__link">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <rect width="30" height="30" fill="#00CCCC"/>
@@ -108,7 +109,7 @@ const Footer = ({contacts}) => {
                                 </svg>
 
                             </a>
-                            <a href={contacts.telegram} className="footer-content__link">
+                            <a href={contacts?.telegram} className="footer-content__link">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <rect width="30" height="30" fill="#00CCCC"/>
