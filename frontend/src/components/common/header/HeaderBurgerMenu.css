@@ -112,6 +112,10 @@
     }
 }
 
+.menu-item--active {
+    color: var(--azure-text-color);
+}
+
 .menu-social__link-second-child {
     border-inline: 1px solid var(--gray-text-color);
     height: 100%;

@@ -45,27 +45,35 @@ const Header = () => {
                     <ul className="header-top-nav">
                         <li className="header-top-nav__item">
                             <NavLink to={"/about-us/"}
-                                     className="header-top-nav__item-link">{translation["Про компанію"]}</NavLink>
+                                     className={({isActive}) =>
+                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Про компанію"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/services/"}
-                                     className="header-top-nav__item-link">{translation["Послуги"]}</NavLink>
+                                     className={({isActive}) =>
+                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Послуги"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/media/"}
-                                     className="header-top-nav__item-link">{translation["Медіа"]}</NavLink>
+                                     className={({isActive}) =>
+                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Медіа"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/vacancies/"}
-                                     className="header-top-nav__item-link">{translation["Вакансії"]}</NavLink>
+                                     className={({isActive}) =>
+                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Вакансії"]}</NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/news/"}
-                                     className="header-top-nav__item-link">{translation["Новини"]}</NavLink>
+                                     className={({isActive}) =>
+                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>
+                                {translation["Новини"]}
+                            </NavLink>
                         </li>
                         <li className="header-top-nav__item">
                             <NavLink to={"/contacts/"}
-                                     className="header-top-nav__item-link">{translation["Контакти"]}</NavLink>
+                                     className={({isActive}) =>
+                                         `header-top-nav__item-link ${isActive ? "header-top-nav__item-link--active" : ""}`}>{translation["Контакти"]}</NavLink>
                         </li>
                     </ul>
                     <div className="header-top-links">
