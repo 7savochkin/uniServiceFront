@@ -47,14 +47,21 @@ function App() {
         request: getReviews, loading: loadingReviews,
         error: errorReviews, clearError: clearErorReviews
     } = useHttp(client.getReviews);
+    const {
+        request: getNews, loading: loadingNews,
+        error: errorNews, clearError: clearErrorNews
+    } = useHttp(client.getNews);
+
     let loadingData = [
-        loadingContacts, loadingPhones, loadingAboutUs, loadingServices, loadingReviews
+        loadingContacts, loadingPhones, loadingAboutUs,
+        loadingServices, loadingReviews, loadingNews
     ];
 
     const [contacts, setContacts] = useState({});
     const [aboutUs, setAboutUs] = useState({});
     const [services, setServices] = useState([]);
     const [reviews, setReviews] = useState([]);
+    const [news, setNews] = useState([]);
 
     async function fetchData() {
         const responseContacts = await getContacts();
@@ -72,6 +79,9 @@ function App() {
 
         const responseReviews = await getReviews();
         setReviews(responseReviews.data);
+
+        const responseNews = await getNews();
+        setNews(responseNews.data?.results);
     }
 
     useEffect(() => {
@@ -89,6 +99,7 @@ function App() {
                     <Route path="/*" element={<MainPage aboutUs={aboutUs}
                                                         services={services}
                                                         reviews={reviews}
+                                                        news={news}
                     />}/>
                     <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>

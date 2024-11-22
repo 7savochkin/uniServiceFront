@@ -1,14 +1,15 @@
 import "./NewsItem.css";
 import {NavLink} from "react-router-dom";
+import formatIsoDate from "../../../../utils/dates";
 
-const NewsItem = ({title, slug, image, date, additionalClass = null}) => (
+const NewsItem = ({item, additionalClass = null}) => (
     <li className={additionalClass ? `news-item ${additionalClass}` : "news-item"}>
-        <NavLink to={`/news/${slug}/`} className="news-item__link">
+        <NavLink to={`/news/${item?.title}/`} className="news-item__link">
             <div className="news-item__img-wrap">
-                <img src={image} alt={title}/>
+                <img src={`https://uniservice.site/${item?.image}`} alt={item?.title}/>
             </div>
-            <h3 className="news-item__title">{title}</h3>
-            <p className="news-item__date">{date}</p>
+            <h3 className="news-item__title">{item?.title}</h3>
+            <p className="news-item__date">{item?.date ? formatIsoDate(item?.date) : "00.00.0000"}</p>
         </NavLink>
     </li>
 )

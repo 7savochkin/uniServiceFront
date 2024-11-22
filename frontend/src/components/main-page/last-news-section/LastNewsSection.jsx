@@ -1,32 +1,8 @@
 import "./LastNewsSection.css"
-import last_news_section_example_first from "../../../assets/images/main-page/last-news-section-example-first.jpg"
 import NewsItem from "../../common/list-items/news-item/NewsItem";
-import formatIsoDate from "../../../utils/dates";
-import {NavLink} from "react-router-dom";
 import Button from "../../common/button/Button";
 
-const LastNewsSection = ({translation}) => {
-
-    const newsList = [
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-        {
-            "title": "Міжнародне визнання за інновації в безпеці",
-            "content": "Текст новини...",
-            "image": last_news_section_example_first,
-            "date": formatIsoDate("2024-11-13T09:00:00Z")
-        },
-    ]
+const LastNewsSection = ({translation, news}) => {
 
     const getAdditionalClass = (ind) => {
         const AdditionalClasses = [
@@ -36,6 +12,8 @@ const LastNewsSection = ({translation}) => {
         ]
         return AdditionalClasses[ind]
     }
+
+    const newsList = news.length >= 3 ? news.slice(0, 3) : news;
 
     return (
         <section className="last-news-section">
@@ -47,7 +25,7 @@ const LastNewsSection = ({translation}) => {
                     </div>
                     <ul className="last-news-section__list">
                         {newsList.map((item, index) => (
-                            <NewsItem key={index} additionalClass={getAdditionalClass(index)} {...item}/>)
+                            <NewsItem key={index} additionalClass={getAdditionalClass(index)} item={item}/>)
                         )}
                     </ul>
                 </div>

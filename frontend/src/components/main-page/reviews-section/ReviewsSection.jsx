@@ -4,7 +4,6 @@ import "swiper/css";
 
 
 import "./ReviewsSection.css"
-import man_first from "../../../assets/images/main-page/reviews-section-man-first.jpg"
 import ReviewItem from "./ReviewItem";
 import SliderArrows from "../../common/slider-arrows/SliderArrows";
 import PopUp from "../../common/pop-up/PopUp";
