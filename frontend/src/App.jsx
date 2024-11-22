@@ -22,7 +22,6 @@ import useAPIClient from "./hooks/api.hook";
 import useHttp from "./hooks/http.hook";
 import Spinner from "./components/common/spinner/Spinner";
 
-
 function App() {
 
     const [language, setLanguage] = useState(getLangFromLocaleStorage())
@@ -88,7 +87,7 @@ function App() {
     useEffect(() => {
         window.localStorage.setItem("lang", language);
         fetchData().then(r => {
-        });
+        })
     }, [language]);
 
     return loadingData.some(v => v === true) ? <Spinner /> : (
