@@ -16,6 +16,7 @@ const ServicesSection = ({translation, services}) => {
         "email": "",
         "phone": "",
         "message": "",
+        "service_title": "title",
     }
 
     const [popUpActive, setPopUpActive] = useState(false);
@@ -65,6 +66,7 @@ const ServicesSection = ({translation, services}) => {
                 phone: formData.phone,
                 email: formData.email,
                 message: formData.message,
+                service_title: "service_title",
             };
 
             try {
