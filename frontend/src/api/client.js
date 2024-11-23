@@ -69,6 +69,32 @@ class API {
             },
         });
     };
+
+    postFormOrderService = async (url, formData) => {
+        const queryParams = new URLSearchParams(formData).toString();
+        const fullUrl = `${url}?${queryParams}`;
+
+        return this.request({
+            url: fullUrl,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
+
+    postFormOrderTender = async (url, formData) => {
+        const queryParams = new URLSearchParams(formData).toString();
+        const fullUrl = `${url}?${queryParams}`;
+
+        return this.request({
+            url: fullUrl,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
 }
 
 export default API;

@@ -6,6 +6,8 @@ import Input from "../../common/input/Input";
 import PopUp from "../../common/pop-up/PopUp";
 import React, {useEffect, useState} from "react";
 import {isObjectEmpty} from "../../../utils/objects";
+import useAPIClient from "../../../hooks/api.hook";
+import {LanguageContext} from "../../../translations/language";
 
 const ServicesSection = ({translation, services}) => {
 
@@ -21,6 +23,8 @@ const ServicesSection = ({translation, services}) => {
     const [formData, setFormData] = useState(defaultFormData)
     const [errors, setErrors] = useState({});
     const [isError, setIsError] = useState(false);
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const client = useAPIClient(language);
 
     useEffect(() => {
         // check that errors state is empty
@@ -50,17 +54,31 @@ const ServicesSection = ({translation, services}) => {
         return errorsObj;
     };
 
-     const onSubmitForm = (e) => {
+    const onSubmitForm = async(e) => {
         e.preventDefault();
         // console.log(formData);
         // setFormData(defaultFormData);
 
         if (!isError) {
-        setPopUpActive(false);
-            console.log(formData);
-            // validationErrors = {}
-            setFormData(defaultFormData);
-            alert("Form submitted successfully");
+            const dataToSend = {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email,
+                message: formData.message,
+            };
+
+            try {
+                const response = await client.postFormOrderService('/order/service/', dataToSend);
+                console.log("Form submitted successfully:", response.data);
+                setFormData(defaultFormData);
+                alert("Форма успішно відправлена!");
+                setPopUpActive(false);
+            } catch (error) {
+                console.log("error.message: ", error.response.data);
+                alert("Сталася помилка при відправці форми.");
+            }
+        } else {
+            alert("Будь ласка, виправте помилки в формі.");
         }
     }
 
@@ -152,7 +170,9 @@ const ServicesSection = ({translation, services}) => {
                 <div className="services-section-list">
                     <ul className="services-section-list__inner container">
                         {
-                            services.map((service, index) => <ServiceItem key={index} translation={translation} item={service} setPopUpActive={setPopUpActive} />)
+                            services.map((service, index) => <ServiceItem key={index} translation={translation}
+                                                                          item={service}
+                                                                          setPopUpActive={setPopUpActive}/>)
                         }
                     </ul>
                 </div>
@@ -165,9 +185,9 @@ const ServicesSection = ({translation, services}) => {
                 <form onSubmit={onSubmitForm} className="pop-up__form">
                     {inputsData.map((item, i) => <Input errors={errors || {}} key={i} {...item}/>)}
                     <div className="pop-up__feedback">
-                        <label htmlFor="text-area" className="text-area__label">{translation["Повідомлення"]}</label>
-                        <textarea name="text-area" id="" className="text-area input-field__input"
-                                  placeholder={translation["Напишіть текст"]}></textarea>
+                        <label htmlFor="text-area" className="text-area__label">{translation["Повідомлення"]}*</label>
+                        <textarea name="message" id="" required={true} className="text-area input-field__input"
+                                  placeholder={translation["Напишіть текст"]} value={formData.message} onChange={onChangeInput}></textarea>
                         <input className="pop-up__send-button button-link" type="submit"
                                value={translation["Відправити"]}/>
                     </div>

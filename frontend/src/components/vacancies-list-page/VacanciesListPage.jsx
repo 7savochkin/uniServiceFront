@@ -9,6 +9,7 @@ import {isObjectEmpty} from "../../utils/objects";
 import PopUp from "../common/pop-up/PopUp";
 import pop_up_close_icon from "../../assets/images/pop-up/pop-up-close-icon.svg";
 import Input from "../common/input/Input";
+import useAPIClient from "../../hooks/api.hook";
 
 const VacanciesListPage = () => {
 
@@ -26,6 +27,8 @@ const VacanciesListPage = () => {
     const [formData, setFormData] = useState(defaultFormData)
     const [errors, setErrors] = useState({});
     const [isError, setIsError] = useState(false);
+
+    const client = useAPIClient(language);
 
     useEffect(() => {
         // check that errors state is empty
@@ -55,17 +58,29 @@ const VacanciesListPage = () => {
         return errorsObj;
     };
 
-     const onSubmitForm = (e) => {
+     const onSubmitForm = async (e) => {
         e.preventDefault();
-        // console.log(formData);
-        // setFormData(defaultFormData);
 
         if (!isError) {
-        setPopUpActive(false);
-            console.log(formData);
-            // validationErrors = {}
-            setFormData(defaultFormData);
-            alert("Form submitted successfully");
+            const dataToSend = {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email,
+                message: formData.message,
+            };
+
+            try {
+                const response = await client.postFormOrderTender('/order/tender/', dataToSend);
+                console.log("Form submitted successfully:", response.data);
+                setFormData(defaultFormData);
+                alert("Форма успішно відправлена!");
+                setPopUpActive(false);
+            } catch (error) {
+                console.log("error.message: ", error.response.data);
+                alert("Сталася помилка при відправці форми.");
+            }
+        } else {
+            alert("Будь ласка, виправте помилки в формі.");
         }
     }
 
@@ -210,8 +225,8 @@ const VacanciesListPage = () => {
                     {inputsData.map((item, i) => <Input errors={errors || {}} key={i} {...item}/>)}
                     <div className="pop-up__feedback">
                         <label htmlFor="text-area" className="text-area__label">{translation["Повідомлення"]}</label>
-                        <textarea name="text-area" id="" className="text-area input-field__input"
-                                  placeholder={translation["Напишіть текст"]}></textarea>
+                        <textarea name="message" id="" className="text-area input-field__input"
+                                  placeholder={translation["Напишіть текст"]} required={true} value={formData.message} onChange={onChangeInput}></textarea>
                         <input className="pop-up__send-button button-link" type="submit"
                                value={translation["Відправити"]}/>
                     </div>
