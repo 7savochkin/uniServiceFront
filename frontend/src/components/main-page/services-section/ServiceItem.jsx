@@ -11,10 +11,10 @@ const ServiceItem = ({item, translation, setPopUpActive}) => (
         <div className="services-section-list__item-info">
             <ul className="services-section-list__item-features">
                 {
-                    // features.map((item, index) => <li key={index}
-                    //                                   className="services-section-list__item-features__elem">{item}</li>)
+                    item?.description?.map((feature, index) => (
+                        <li key={index} className="services-section-list__item-features__elem">{feature}</li>
+                    ))
                 }
-                <li className="services-section-list__item-features__elem">{item?.description}</li>
             </ul>
             <Button additionalClass={'service-section__link'} onClick={() => setPopUpActive(true)}>{translation["Замовити"]}</Button>
         </div>

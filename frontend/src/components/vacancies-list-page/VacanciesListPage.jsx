@@ -9,9 +9,30 @@ import {isObjectEmpty} from "../../utils/objects";
 import PopUp from "../common/pop-up/PopUp";
 import pop_up_close_icon from "../../assets/images/pop-up/pop-up-close-icon.svg";
 import Input from "../common/input/Input";
+import ShowMore from "../common/show-more/ShowMore";
 import useAPIClient from "../../hooks/api.hook";
 
-const VacanciesListPage = () => {
+
+const VacanciesListPage = ({vacanciesData, setVacanciesData, loadingVacanciesData}) => {
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const translation = getTranslations(language, "main");
+
+    const [vacancies, setVacancies] = useState([]);
+    const [vacancyTitles, setVacancyTitles] = useState({});
+    const [hasNextPage, setHasNextPage] = useState(true);
+
+    useEffect(() => {
+        if (!loadingVacanciesData) {
+            setVacancies(vacanciesData.results.vacancies);
+            setVacancyTitles(vacanciesData.results.titles_of_vacancies);
+            setHasNextPage(!!vacanciesData.next);
+        }
+    }, [vacanciesData]);
+
+    const paths = [
+        {path: "/", name: translation["Головна"]},
+        {path: "", name: translation["Вакансії"]}
+    ]
 
     const defaultFormData = {
         "name": "",
@@ -20,8 +41,6 @@ const VacanciesListPage = () => {
         "message": "",
     }
 
-    const [language, setLanguage] = React.useContext(LanguageContext);
-    const translation = getTranslations(language, "main");
     const [popUpActive, setPopUpActive] = useState(false);
 
     const [formData, setFormData] = useState(defaultFormData)
@@ -58,7 +77,7 @@ const VacanciesListPage = () => {
         return errorsObj;
     };
 
-     const onSubmitForm = async (e) => {
+    const onSubmitForm = async (e) => {
         e.preventDefault();
 
         if (!isError) {
@@ -95,40 +114,6 @@ const VacanciesListPage = () => {
         });
 
     }
-
-    const paths = [
-        {path: "/", name: translation["Головна"]},
-        {path: "", name: translation["Вакансії"]}
-    ]
-
-    const vacancies = [
-        {
-            "title": "Назва",
-            "slug": "vacancy-item-first",
-            "price": 40000,
-            "description": "ТОВ “ЮНІ СЕРВІС” Добування декоративного та будівельного каменю, " +
-                "вапняку, гіпсу, крейди та глинистого сланцю." +
-                " Надання допоміжних послуг у сфері добування інших корисних копалин та розроблення кар'єрів",
-            "requirements": ["Вимога 1", "Вимога 2"],
-            "image": "/media/images/vacancies/vacancy_image.jpg"
-        },
-        {
-            "title": "Назва",
-            "slug": "vacancy-item-second",
-            "price": 30000,
-            "description": "Опис вакансії...",
-            "requirements": ["Вимога 1", "Вимога 2"],
-            "image": "/media/images/vacancies/vacancy_image.jpg"
-        },
-        {
-            "title": "Назва",
-            "price": 100000,
-            "slug": "vacancy-item-third",
-            "description": "Опис вакансії...",
-            "requirements": ["Вимога 1", "Вимога 2"],
-            "image": "/media/images/vacancies/vacancy_image.jpg"
-        },
-    ]
 
     const inputsData = [
         {
@@ -210,10 +195,12 @@ const VacanciesListPage = () => {
                     <div className="vacancies-section-list">
                         <ul className="vacancies-section-list__inner">
                             {vacancies.map((item, index) => <VacancyItem key={index}
-                                                                         translation={translation} {...item}/>)}
+                                                                         translation={translation}
+                                                                         titles={vacancyTitles} item={item}/>)}
                         </ul>
-                        <Button additionalClass={"vacancies-section__loadmore"}
-                                className="button-link">{translation["Показати більше"]}</Button>
+                        {hasNextPage && <ShowMore fetchFuncData={client.getVacancies} setData={setVacanciesData}
+                                                  setHasNextPage={setHasNextPage} withKey={"vacancies"}/>
+                        }
                     </div>
                 </div>
             </div>

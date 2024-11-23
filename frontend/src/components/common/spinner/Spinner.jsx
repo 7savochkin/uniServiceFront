@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./Spinner.css";
 
-const Spinner = ({loading, isSection=false}) => {
+const Spinner = ({loading, isSection=false, isElement=false}) => {
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -16,8 +16,15 @@ const Spinner = ({loading, isSection=false}) => {
         }
     }, [loading]);
 
+    const getClassName = () => {
+        const defaultClass = "spinner-container";
+        const elementClass = isElement ? "spinner-element" : "";
+        const sectionClass = isSection ? "spinner-section" : "";
+        return `${defaultClass} ${elementClass} ${sectionClass}`;
+    }
+
     return isVisible && (
-        <div className={`spinner-container ${!loading ? 'hidden' : ''} ${isSection ? "spinner-section" : ""}`}>
+        <div className={`${getClassName()} ${!loading ? "hidden" : ""}`}>
             <div className="spinner"></div>
         </div>
     );

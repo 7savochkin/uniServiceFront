@@ -39,3 +39,9 @@
 .spinner-section {
     position: relative;
 }
+
+.spinner-element{
+    position: relative;
+    height: auto;
+    z-index: 99;
+}

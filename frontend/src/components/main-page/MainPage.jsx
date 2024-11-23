@@ -18,6 +18,9 @@ const MainPage = ({aboutUs, services, reviews, news}) => {
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
 
+    const [reviewsData, loadingReviews] = reviews;
+    const [newsData, loadingNews] = news;
+
     return (
         <div className="main">
             <FacialSection translation={translation}/>
@@ -26,9 +29,9 @@ const MainPage = ({aboutUs, services, reviews, news}) => {
             <ServicesSection translation={translation} services={services}/>
             <CertificatesSection translation={translation}/>
             <MediaSection translation={translation}/>
-            <ReviewsSection translation={translation} reviews={reviews}/>
+            <ReviewsSection translation={translation} data={reviewsData} loading={loadingReviews}/>
             <OrderConsultationSection translation={translation}/>
-            <LastNewsSection translation={translation} news={news}/>
+            <LastNewsSection translation={translation} data={newsData} loading={loadingNews}/>
         </div>
     )
 }
