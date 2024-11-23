@@ -57,8 +57,6 @@ const ServicesSection = ({translation, services}) => {
 
     const onSubmitForm = async(e) => {
         e.preventDefault();
-        // console.log(formData);
-        // setFormData(defaultFormData);
 
         if (!isError) {
             const dataToSend = {
@@ -76,8 +74,8 @@ const ServicesSection = ({translation, services}) => {
                 alert("Форма успішно відправлена!");
                 setPopUpActive(false);
             } catch (error) {
-                console.log("error.message: ", error.response.data);
-                alert("Сталася помилка при відправці форми.");
+                console.log("error.message: ", error.response.data.email);
+                alert(`Сталася помилка при відправці форми: ${error.message}`);
             }
         } else {
             alert("Будь ласка, виправте помилки в формі.");
@@ -122,7 +120,7 @@ const ServicesSection = ({translation, services}) => {
             isDark: false,
         },
         {
-            label: "Email",
+            label: "Email*",
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -137,7 +135,7 @@ const ServicesSection = ({translation, services}) => {
             value: formData.email,
             onChange: onChangeInput,
             isDark: false,
-            isRequired: false,
+            isRequired: true,
         },
         {
             label: `${translation["Телефон"]}*`,
