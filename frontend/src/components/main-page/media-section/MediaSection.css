@@ -19,12 +19,12 @@
     grid-template-columns: repeat(6, 1fr);
 }
 
-.media-section__slider-item-4 {
+.media-section__slider-item:nth-child(4) {
     grid-column-start: 4;
     grid-column-end: 6;
 }
 
-.media-section__slider-item-7 {
+.media-section__slider-item:nth-child(7) {
     grid-column-start: 2;
     grid-column-end: 4;
 }
@@ -49,11 +49,11 @@
 }
 
 @media (max-width: 768px) {
-    .media-section__slider-item-4,
-    .media-section__slider-item-5,
-    .media-section__slider-item-8,
-    .media-section__slider-item-9,
-    .media-section__slider-item-10 {
+    .media-section__slider-item:nth-child(4),
+    .media-section__slider-item:nth-child(5),
+    .media-section__slider-item:nth-child(8),
+    .media-section__slider-item:nth-child(9),
+    .media-section__slider-item:nth-child(10) {
         display: none;
     }
     .media-section__slider-list {

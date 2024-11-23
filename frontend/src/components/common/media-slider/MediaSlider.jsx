@@ -10,9 +10,37 @@ import media_section_image_7 from "../../../assets/images/main-page/media-sectio
 import media_section_image_8 from "../../../assets/images/main-page/media-section-image-8.jpg";
 import media_section_image_9 from "../../../assets/images/main-page/media-section-image-9.jpg";
 import media_section_image_10 from "../../../assets/images/main-page/media-section-image-10.jpg";
+import useAPIClient from "../../../hooks/api.hook";
+import useHttp from "../../../hooks/http.hook";
+import React, {useEffect, useState} from "react";
+import {LanguageContext} from "../../../translations/language";
+import Spinner from "../spinner/Spinner";
 
 const MediaSlider = () => {
-    return (
+
+    const [language, setLanguage] = React.useContext(LanguageContext);
+
+
+    const client = useAPIClient(language);
+    const {
+        request, loading,
+        error, clearError
+    } = useHttp(client.getMedia);
+
+    const [media, setMedia] = useState([]);
+
+    async function fetchData() {
+        const response = await request();
+        setMedia(response.data);
+    }
+
+    useEffect(() => {
+        fetchData().then(r => {
+        }).catch(() => {
+        });
+    }, [language]);
+
+    return loading ? <Spinner loading={loading} isSection={true}/> :(
         <Swiper
             slidesPerView={1}
             slidesPerGroup={1}
@@ -26,70 +54,25 @@ const MediaSlider = () => {
         >
             <SwiperSlide>
                 <div className="media-section__slider-list">
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_1} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_2} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_3} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-4">
-                        <img src={media_section_image_4} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-5">
-                        <img src={media_section_image_5} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_6} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-7">
-                        <img src={media_section_image_7} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-8">
-                        <img src={media_section_image_8} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-9">
-                        <img src={media_section_image_9} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-10">
-                        <img src={media_section_image_10} alt="" className="media-section__slider-img"/>
-                    </div>
+                    {
+                        media.map((media, index) => (
+                            <div className="media-section__slider-item" key={media.id}>
+                                <img src={`https://uniservice.site/${media?.image}`}  alt="image" className="media-section__slider-img"/>
+                            </div>
+                        ))
+                    }
                 </div>
             </SwiperSlide>
             <SwiperSlide>
                 <div className="media-section__slider-list">
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_1} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_2} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_3} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-4">
-                        <img src={media_section_image_4} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-5">
-                        <img src={media_section_image_5} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item">
-                        <img src={media_section_image_6} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-7">
-                        <img src={media_section_image_7} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-8">
-                        <img src={media_section_image_8} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-9">
-                        <img src={media_section_image_9} alt="" className="media-section__slider-img"/>
-                    </div>
-                    <div className="media-section__slider-item media-section__slider-item-10">
-                        <img src={media_section_image_10} alt="" className="media-section__slider-img"/>
-                    </div>
+
+                    {
+                        media.map((media, index) => (
+                            <div className="media-section__slider-item" key={media.id}>
+                                <img src={`https://uniservice.site/${media?.image}`}  alt="image" className="media-section__slider-img"/>
+                            </div>
+                        ))
+                    }
                 </div>
             </SwiperSlide>
         </Swiper>

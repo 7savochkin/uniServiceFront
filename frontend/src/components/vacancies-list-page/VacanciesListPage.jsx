@@ -12,11 +12,10 @@ import Input from "../common/input/Input";
 import ShowMore from "../common/show-more/ShowMore";
 import useAPIClient from "../../hooks/api.hook";
 
+
 const VacanciesListPage = ({vacanciesData, setVacanciesData, loadingVacanciesData}) => {
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
-
-    const client = useAPIClient(language);
 
     const [vacancies, setVacancies] = useState([]);
     const [vacancyTitles, setVacancyTitles] = useState({});
@@ -48,6 +47,8 @@ const VacanciesListPage = ({vacanciesData, setVacanciesData, loadingVacanciesDat
     const [errors, setErrors] = useState({});
     const [isError, setIsError] = useState(false);
 
+    const client = useAPIClient(language);
+
     useEffect(() => {
         // check that errors state is empty
         setIsError(!isObjectEmpty(errors));
@@ -76,17 +77,29 @@ const VacanciesListPage = ({vacanciesData, setVacanciesData, loadingVacanciesDat
         return errorsObj;
     };
 
-    const onSubmitForm = (e) => {
+    const onSubmitForm = async (e) => {
         e.preventDefault();
-        // console.log(formData);
-        // setFormData(defaultFormData);
 
         if (!isError) {
-            setPopUpActive(false);
-            console.log(formData);
-            // validationErrors = {}
-            setFormData(defaultFormData);
-            alert("Form submitted successfully");
+            const dataToSend = {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email,
+                message: formData.message,
+            };
+
+            try {
+                const response = await client.postFormOrderTender('/order/tender/', dataToSend);
+                console.log("Form submitted successfully:", response.data);
+                setFormData(defaultFormData);
+                alert("Форма успішно відправлена!");
+                setPopUpActive(false);
+            } catch (error) {
+                console.log("error.message: ", error.response.data);
+                alert("Сталася помилка при відправці форми.");
+            }
+        } else {
+            alert("Будь ласка, виправте помилки в формі.");
         }
     }
 
@@ -199,8 +212,8 @@ const VacanciesListPage = ({vacanciesData, setVacanciesData, loadingVacanciesDat
                     {inputsData.map((item, i) => <Input errors={errors || {}} key={i} {...item}/>)}
                     <div className="pop-up__feedback">
                         <label htmlFor="text-area" className="text-area__label">{translation["Повідомлення"]}</label>
-                        <textarea name="text-area" id="" className="text-area input-field__input"
-                                  placeholder={translation["Напишіть текст"]}></textarea>
+                        <textarea name="message" id="" className="text-area input-field__input"
+                                  placeholder={translation["Напишіть текст"]} required={true} value={formData.message} onChange={onChangeInput}></textarea>
                         <input className="pop-up__send-button button-link" type="submit"
                                value={translation["Відправити"]}/>
                     </div>

@@ -56,6 +56,50 @@ class API {
         let url = "/vacancies/";
         return await this.request({url: url, method: "GET", params: data})
     }
+
+    getMedia = async (data) => {
+        let url = "/media/images/";
+        return await this.request({url: url, method: "GET"});
+    }
+
+    postFormData = async (url, formData) => {
+        const queryParams = new URLSearchParams(formData).toString();
+        const fullUrl = `${url}?${queryParams}`;
+
+        return this.request({
+            url: fullUrl,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
+
+    postFormOrderService = async (url, formData) => {
+        const queryParams = new URLSearchParams(formData).toString();
+        const fullUrl = `${url}?${queryParams}`;
+
+        return this.request({
+            url: fullUrl,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
+
+    postFormOrderTender = async (url, formData) => {
+        const queryParams = new URLSearchParams(formData).toString();
+        const fullUrl = `${url}?${queryParams}`;
+
+        return this.request({
+            url: fullUrl,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
 }
 
 export default API;
