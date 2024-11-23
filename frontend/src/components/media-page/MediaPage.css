@@ -1,5 +1,7 @@
 .media-page {
     background: var(--light-bg-color);
+    display: flex;
+    flex-direction: column;
 }
 
 .filters .filters-buttons{
@@ -8,4 +10,9 @@
 
 .filters .custom-slider-arrows {
     margin-left: auto;
+}
+
+.media-page .media-section__slider {
+    margin-bottom: 48px;
+    margin-top: 0;
 }

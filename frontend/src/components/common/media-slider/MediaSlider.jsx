@@ -1,31 +1,18 @@
-import {Navigation} from "swiper/modules";
-import {Swiper, SwiperSlide} from "swiper/react";
-import media_section_image_1 from "../../../assets/images/main-page/media-section-image-1.jpg";
-import media_section_image_2 from "../../../assets/images/main-page/media-section-image-2.jpg";
-import media_section_image_3 from "../../../assets/images/main-page/media-section-image-3.jpg";
-import media_section_image_4 from "../../../assets/images/main-page/media-section-image-4.jpg";
-import media_section_image_5 from "../../../assets/images/main-page/media-section-image-5.jpg";
-import media_section_image_6 from "../../../assets/images/main-page/media-section-image-6.jpg";
-import media_section_image_7 from "../../../assets/images/main-page/media-section-image-7.jpg";
-import media_section_image_8 from "../../../assets/images/main-page/media-section-image-8.jpg";
-import media_section_image_9 from "../../../assets/images/main-page/media-section-image-9.jpg";
-import media_section_image_10 from "../../../assets/images/main-page/media-section-image-10.jpg";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import useAPIClient from "../../../hooks/api.hook";
 import useHttp from "../../../hooks/http.hook";
-import React, {useEffect, useState} from "react";
-import {LanguageContext} from "../../../translations/language";
+import React, { useEffect, useState } from "react";
+import { LanguageContext } from "../../../translations/language";
 import Spinner from "../spinner/Spinner";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const MediaSlider = () => {
-
-    const [language, setLanguage] = React.useContext(LanguageContext);
-
+    const [language] = React.useContext(LanguageContext);
 
     const client = useAPIClient(language);
-    const {
-        request, loading,
-        error, clearError
-    } = useHttp(client.getMedia);
+    const { request, loading } = useHttp(client.getMedia);
 
     const [media, setMedia] = useState([]);
 
@@ -35,48 +22,61 @@ const MediaSlider = () => {
     }
 
     useEffect(() => {
-        fetchData().then(r => {
-        }).catch(() => {
-        });
+        fetchData().catch(() => {});
     }, [language]);
 
-    return loading ? <Spinner loading={loading} isSection={true}/> :(
+    // Функція для рівномірного розбиття масиву на слайди
+    const distributeEvenly = (array, itemsPerSlide) => {
+        const slides = [];
+        let itemsLeft = array.length;
+        let startIndex = 0;
+
+        while (itemsLeft > 0) {
+            // Розрахунок кількості елементів для поточного слайду
+            const itemsInThisSlide = Math.ceil(itemsLeft / Math.ceil(itemsLeft / itemsPerSlide));
+            slides.push(array.slice(startIndex, startIndex + itemsInThisSlide));
+            startIndex += itemsInThisSlide;
+            itemsLeft -= itemsInThisSlide;
+        }
+
+        return slides;
+    };
+
+    const itemsPerSlide = 5;
+
+    const mediaChunks = distributeEvenly(media, itemsPerSlide);
+
+    return loading ? (
+        <Spinner loading={loading} isSection={true} />
+    ) : (
         <Swiper
-            slidesPerView={1}
+            slidesPerView="auto"
             slidesPerGroup={1}
             navigation={{
-                prevEl: '.media-slider-arrow__prev',
-                nextEl: '.media-slider-arrow__next',
+                prevEl: ".media-slider-arrow__prev",
+                nextEl: ".media-slider-arrow__next",
             }}
             loop={true}
             className="media-section__slider"
             modules={[Navigation]}
         >
-            <SwiperSlide>
-                <div className="media-section__slider-list">
-                    {
-                        media.map((media, index) => (
-                            <div className="media-section__slider-item" key={media.id}>
-                                <img src={`https://uniservice.site/${media?.image}`}  alt="image" className="media-section__slider-img"/>
+            {mediaChunks.map((chunk, index) => (
+                <SwiperSlide key={index}>
+                    <div className="media-section__slider-list">
+                        {chunk.map((mediaItem) => (
+                            <div className="media-section__slider-item" key={mediaItem.id}>
+                                <img
+                                    src={`https://uniservice.site/${mediaItem?.image}`}
+                                    alt="image"
+                                    className="media-section__slider-img"
+                                />
                             </div>
-                        ))
-                    }
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="media-section__slider-list">
-
-                    {
-                        media.map((media, index) => (
-                            <div className="media-section__slider-item" key={media.id}>
-                                <img src={`https://uniservice.site/${media?.image}`}  alt="image" className="media-section__slider-img"/>
-                            </div>
-                        ))
-                    }
-                </div>
-            </SwiperSlide>
+                        ))}
+                    </div>
+                </SwiperSlide>
+            ))}
         </Swiper>
-    )
-}
+    );
+};
 
 export default MediaSlider;
