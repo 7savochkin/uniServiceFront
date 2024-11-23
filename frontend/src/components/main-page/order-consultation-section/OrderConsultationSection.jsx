@@ -25,27 +25,6 @@ const OrderConsultationSection = ({translation}) => {
         setIsError(!isObjectEmpty(errors));
     }, [errors])
 
-    // const validate = (name, value, errorsObj) => {
-    //     if (name === "name") {
-    //         if (!value.trim()) {
-    //             errorsObj.name = "Name is required";
-    //         } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(formData.name.trim())) {
-    //             errorsObj.name = "Name is not valid";
-    //         } else {
-    //             delete errorsObj.name;
-    //         }
-    //     } else if (name === "phone") {
-    //         if (value.trim()) {
-    //             errorsObj.phone = "Phone is required";
-    //         } else if (!/^\+?[1-9]\d{1,14}$/.test(value.trim())) {
-    //             errorsObj.phone = "Phone number is not valid";
-    //         } else {
-    //             delete errorsObj.phone;
-    //         }
-    //     }
-    //
-    //     return errorsObj;
-    // }
     const phoneRegex = /^\+380\d{9}$/;
     const validate = (name, value, errorsObj) => {
         if (name === "name") {
@@ -64,19 +43,19 @@ const OrderConsultationSection = ({translation}) => {
             } else {
                 delete errorsObj.phone;
             }
+        } else if (name === "email") {
+            if (!value.trim()) {
+                errorsObj.email = "Email is required";
+            } else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value.trim())) {
+                errorsObj.email = "Email is not valid";
+            } else {
+                delete errorsObj.email;
+            }
         }
+
 
         return errorsObj;
     };
-
-    // const onChangeInput = (e) => {
-    //     const {name, value} = e.target;
-    //     setFormData(prevState => ({...prevState, [name]: value}));
-    //     setErrors(state => {
-    //         const newErrors = {...state};
-    //         return validate(name, value, newErrors);
-    //     });
-    // }
 
     const onChangeInput = (e) => {
         const {name, value} = e.target;
@@ -164,7 +143,7 @@ const OrderConsultationSection = ({translation}) => {
             isDark: true,
         },
         {
-            label: "Email",
+            label: "Email*",
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -179,6 +158,8 @@ const OrderConsultationSection = ({translation}) => {
             value: formData.email,
             onChange: onChangeInput,
             isDark: true,
+            isRequired: true,
+
         },
     ]
 
