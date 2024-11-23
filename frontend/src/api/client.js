@@ -49,7 +49,7 @@ class API {
 
     getNews = async (data) => {
         let url = "/news/";
-        return await this.request({url: url, method: "GET"});
+        return await this.request({url: url, method: "GET", params: data});
     }
 
     getVacancies = async (data) => {
@@ -69,9 +69,6 @@ class API {
         return this.request({
             url: fullUrl,
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
         });
     };
 
@@ -82,9 +79,6 @@ class API {
         return this.request({
             url: fullUrl,
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
         });
     };
 
@@ -95,9 +89,6 @@ class API {
         return this.request({
             url: fullUrl,
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
         });
     };
 }

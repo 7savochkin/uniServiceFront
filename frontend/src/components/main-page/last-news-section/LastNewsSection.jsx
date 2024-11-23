@@ -1,8 +1,18 @@
 import "./LastNewsSection.css"
 import NewsItem from "../../common/list-items/news-item/NewsItem";
 import Button from "../../common/button/Button";
+import {useEffect, useState} from "react";
 
-const LastNewsSection = ({translation, news}) => {
+const LastNewsSection = ({translation, data, loading}) => {
+    const [lastNews, setLastNews] = useState([]);
+
+    useEffect(() => {
+
+        if (!loading){
+            const dataSlice = data.results.length >= 3 ? data.results.slice(0, 3) : data.results;
+            setLastNews(dataSlice || []);
+        }
+    }, [data]);
 
     const getAdditionalClass = (ind) => {
         const AdditionalClasses = [
@@ -13,8 +23,6 @@ const LastNewsSection = ({translation, news}) => {
         return AdditionalClasses[ind]
     }
 
-    const newsList = news.length >= 3 ? news.slice(0, 3) : news;
-
     return (
         <section className="last-news-section">
             <div className="container">
@@ -24,7 +32,7 @@ const LastNewsSection = ({translation, news}) => {
                         <Button additionalClass={"last-news-section__link"} link={"/news/"}>{translation["Показати більше"]}</Button>
                     </div>
                     <ul className="last-news-section__list">
-                        {newsList.map((item, index) => (
+                        {lastNews.map((item, index) => (
                             <NewsItem key={index} additionalClass={getAdditionalClass(index)} item={item}/>)
                         )}
                     </ul>

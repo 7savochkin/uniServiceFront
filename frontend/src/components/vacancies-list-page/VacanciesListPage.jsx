@@ -199,7 +199,7 @@ const VacanciesListPage = ({vacanciesData, setVacanciesData, loadingVacanciesDat
                                                                          titles={vacancyTitles} item={item}/>)}
                         </ul>
                         {hasNextPage && <ShowMore fetchFuncData={client.getVacancies} setData={setVacanciesData}
-                                                  setHasNextPage={setHasNextPage}/>
+                                                  setHasNextPage={setHasNextPage} withKey={"vacancies"}/>
                         }
                     </div>
                 </div>

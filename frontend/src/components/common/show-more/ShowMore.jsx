@@ -5,7 +5,7 @@ import getTranslations from "../../../translations/translations";
 import useHttp from "../../../hooks/http.hook";
 import Spinner from "../spinner/Spinner";
 
-const ShowMore = ({fetchFuncData, setData, setHasNextPage}) => {
+const ShowMore = ({fetchFuncData, setData, setHasNextPage, withKey=null}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
@@ -25,7 +25,11 @@ const ShowMore = ({fetchFuncData, setData, setHasNextPage}) => {
 
             setData(prevState => {
                 const newState = response.data;
-                newState.results.vacancies = [...prevState.results.vacancies, ...newState.results.vacancies];
+                if (withKey){
+                     newState.results[withKey] = [...prevState.results[withKey], ...newState.results[withKey]];
+                } else{
+                    newState.results = [...prevState.results, ...newState.results];
+                }
                 return newState;
             });
 

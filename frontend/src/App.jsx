@@ -29,52 +29,46 @@ function App() {
     const client = useAPIClient(language);
 
     const {
-        request: getContacts, loading: loadingContacts,
-        error: errorContacts, clearError: clearErrorContacts
+        request: getContacts, loading: loadingContacts
     } = useHttp(client.getContacts);
     const {
-        request: getPhones, loading: loadingPhones,
-        error: errorPhones, clearError: clearErrorPhones,
+        request: getPhones, loading: loadingPhones
     } = useHttp(client.getPhoneNumbers);
     const {
         request: getAboutUs, loading: loadingAboutUs,
-        error: errorAboutUs, clearError: clearErrorAboutUs
     } = useHttp(client.getAboutUs);
     const {
-        request: getServices, loading: loadingServices,
-        error: errorServices, clearError: clearErrorServices
+        request: getServices, loading: loadingServices
     } = useHttp(client.getServices);
     const {
-        request: getReviews, loading: loadingReviews,
-        error: errorReviews, clearError: clearErrorReviews
+        request: getReviews, loading: loadingReviews
     } = useHttp(client.getReviews);
     const {
-        request: getNews, loading: loadingNews,
-        error: errorNews, clearError: clearErrorNews
+        request: getNews, loading: loadingNews
     } = useHttp(client.getNews);
     const {
-        request: getVacancies, loading: loadingVacancies,
-        error: errorVacancies, clearError: clearErrorVacancies
+        request: getVacancies, loading: loadingVacancies
     } = useHttp(client.getVacancies);
     const {
-        request: getMedia, loading: loadingMedia,
-        error: errorMedia, clearError: clearErrorMedia
+        request: getMedia, loading: loadingMedia
     } = useHttp(client.getMedia);
 
     const {
         error: errorForm, clearError: clearErrorForm
     } = useHttp(client.postFormData);
 
-    let loadingData = [
-        loadingContacts, loadingPhones, loadingAboutUs,
-        loadingServices, loadingReviews, loadingNews, loadingVacancies, loadingMedia
-    ];
+    // let loadingData = [
+    //     loadingContacts, loadingPhones, loadingAboutUs,
+    //     loadingServices, loadingReviews, loadingNews, loadingVacancies, loadingMedia
+    // ];
+    const [isFetchError, setIsFetchError] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const [contacts, setContacts] = useState({});
     const [aboutUs, setAboutUs] = useState({});
     const [services, setServices] = useState([]);
-    const [reviews, setReviews] = useState([]);
-    const [news, setNews] = useState([]);
+    const [reviewsData, setReviewsData] = useState([]);
+    const [newsData, setNewsData] = useState([]);
     const [vacanciesData, setVacanciesData] = useState({});
     const [media, setMedia] = useState([]);
 
@@ -93,28 +87,25 @@ function App() {
         setServices(responseServices.data);
 
         const responseReviews = await getReviews();
-        setReviews(responseReviews.data);
+        setReviewsData(responseReviews.data);
 
         const responseNews = await getNews();
-        setNews(responseNews.data?.results);
+        setNewsData(responseNews.data);
 
         const responseVacancies = await getVacancies();
         setVacanciesData(responseVacancies.data);
 
         const responseMedia = await getMedia();
-        setMedia(responseMedia.data?.results);
+        setMedia(responseMedia.data);
     }
 
     useEffect(() => {
         window.localStorage.setItem("lang", language);
-        fetchData().then(r => {
-        });
+        fetchData().then(() => setLoading(false)).catch(() => setIsFetchError(true));
     }, [language]);
 
-    const loading = loadingData.some(v => v === true);
-
     return (
-        <div className="wrapper">
+        isFetchError ? <Spinner loading={isFetchError}/> : <div className="wrapper">
             <Spinner loading={loading}/>
             <LanguageContext.Provider value={[language, setLanguage]}>
                 <Header/>
@@ -122,15 +113,18 @@ function App() {
                 <Routes>
                     <Route path="/*" element={<MainPage aboutUs={aboutUs}
                                                         services={services}
-                                                        reviews={reviews}
-                                                        news={news}
+                                                        reviews={[reviewsData, loadingReviews]}
+                                                        news={[newsData, loadingNews]}
                     />}/>
                     <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
                     <Route path="/not-found/" element={<NotFoundPage/>}/>
                     <Route path="/services/" element={<ServicesPage services={services}/>}/>
-                    <Route path="/news/" element={<NewsListPage news={news}/>}/>
-                    <Route path="/news/:id/" element={<NewsDetailPage news={news}/>}/>
+                    <Route path="/news/" element={<NewsListPage data={newsData}
+                                                                setData={setNewsData}
+                                                                loading={loadingNews}/>}/>
+                    <Route path="/news/:id/" element={<NewsDetailPage data={newsData}
+                                                                      loading={loadingNews}/>}/>
                     <Route path="/vacancies/" element={<VacanciesListPage vacanciesData={vacanciesData}
                                                                           setVacanciesData={setVacanciesData}
                                                                           loadingVacanciesData={loadingVacancies}

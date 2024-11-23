@@ -14,7 +14,15 @@ import pop_up_close_icon from "../../../assets/images/pop-up/pop-up-close-icon.s
 import Button from "../../common/button/Button";
 import {isObjectEmpty} from "../../../utils/objects";
 
-const ReviewsSection = ({translation, reviews}) => {
+const ReviewsSection = ({translation, data, loading}) => {
+
+    const [items, setItems] = useState([]);
+
+    useEffect(()=>{
+        if (!loading){
+            setItems(data || []);
+        }
+    }, [data])
 
     const [popUpActive, setPopUpActive] = useState(false);
 
@@ -160,10 +168,10 @@ const ReviewsSection = ({translation, reviews}) => {
                         className="reviews-section__slider"
                         modules={[Navigation]}
                     >
-                        {reviews.map(
+                        {items.map(
                             (item, index) => (
                                 <SwiperSlide key={index}>
-                                    <ReviewItem item={item} />
+                                    <ReviewItem {...item} />
                                 </SwiperSlide>
                             )
                         )}
@@ -180,10 +188,10 @@ const ReviewsSection = ({translation, reviews}) => {
                         className="reviews-section__slider-tablet"
                         modules={[Navigation]}
                     >
-                        {reviews.map(
+                        {items.map(
                             (item, index) => (
                                 <SwiperSlide key={index}>
-                                    <ReviewItem item={item} />
+                                    <ReviewItem {...item} />
                                 </SwiperSlide>
                             )
                         )}
@@ -199,10 +207,10 @@ const ReviewsSection = ({translation, reviews}) => {
                         className="reviews-section__slider-mobile"
                         modules={[Navigation]}
                     >
-                        {reviews.map(
+                        {items.map(
                             (item, index) => (
                                 <SwiperSlide key={index}>
-                                    <ReviewItem item={item} />
+                                    <ReviewItem {...item} />
                                 </SwiperSlide>
                             )
                         )}
