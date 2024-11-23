@@ -119,7 +119,7 @@ function App() {
                     />}/>
                     <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
-                    <Route path="/not-found/" element={<NotFoundPage/>}/>
+                    {/*<Route path="/not-found/" element={<NotFoundPage/>}/>*/}
                     <Route path="/services/" element={<ServicesPage services={services}/>}/>
                     <Route path="/news/" element={<NewsListPage data={newsData}
                                                                 setData={setNewsData}

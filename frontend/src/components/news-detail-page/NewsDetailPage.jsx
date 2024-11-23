@@ -5,6 +5,7 @@ import React, {useEffect, useState} from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 import formatIsoDate from "../../utils/dates";
+import NotFoundPage from "../not-found-page/NotFoundPage";
 
 const NewsDetailPage = ({data, loading}) => {
 
@@ -28,7 +29,7 @@ const NewsDetailPage = ({data, loading}) => {
         {path: "", name: item?.title}
     ]
 
-    return error ? <p>Error</p> :(
+    return error ? <NotFoundPage/> :(
         <div className="news-detail">
             <Breadcrumbs paths={paths}/>
             <div className="news-detail-section">

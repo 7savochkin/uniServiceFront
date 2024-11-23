@@ -4,6 +4,7 @@ import "./VacancyDetailPage.css";
 import React, {Fragment, useEffect, useState} from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
+import NotFoundPage from "../not-found-page/NotFoundPage";
 
 const VacancyDetailPage = ({vacanciesData, loadingVacanciesData}) => {
     const [language, setLanguage] = React.useContext(LanguageContext);
@@ -37,7 +38,7 @@ const VacancyDetailPage = ({vacanciesData, loadingVacanciesData}) => {
 
     const titlesKeys = Object.keys(titles);
 
-    return error ? <p>Error</p> : (
+    return error ? <NotFoundPage/> : (
         <div className="vacancy-detail">
             <Breadcrumbs paths={paths}/>
             <section className="vacancy-section">
