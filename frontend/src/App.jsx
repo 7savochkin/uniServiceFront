@@ -41,11 +41,11 @@ function App() {
     } = useHttp(client.getAboutUs);
     const {
         request: getServices, loading: loadingServices,
-        error: errorServices, clearError: clearErorServices
+        error: errorServices, clearError: clearErrorServices
     } = useHttp(client.getServices);
     const {
         request: getReviews, loading: loadingReviews,
-        error: errorReviews, clearError: clearErorReviews
+        error: errorReviews, clearError: clearErrorReviews
     } = useHttp(client.getReviews);
     const {
         request: getNews, loading: loadingNews,
@@ -55,6 +55,10 @@ function App() {
         request: getMedia, loading: loadingMedia,
         error: errorMedia, clearError: clearErrorMedia
     } = useHttp(client.getMedia);
+
+    const {
+        error: errorForm, clearError: clearErrorForm
+    } = useHttp(client.postFormData);
 
     let loadingData = [
         loadingContacts, loadingPhones, loadingAboutUs,

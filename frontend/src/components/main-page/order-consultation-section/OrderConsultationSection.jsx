@@ -1,9 +1,11 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Input from "../../common/input/Input";
 
 import "./OrderConsultationSection.css"
 import consultation_square from "../../../assets/images/main-page/consultation-square.png"
 import {isObjectEmpty} from "../../../utils/objects";
+import {LanguageContext} from "../../../translations/language";
+import useAPIClient from "../../../hooks/api.hook";
 
 const OrderConsultationSection = ({translation}) => {
 
@@ -16,9 +18,10 @@ const OrderConsultationSection = ({translation}) => {
     const [formData, setFormData] = useState(defaultFormData)
     const [errors, setErrors] = useState({});
     const [isError, setIsError] = useState(false);
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const client = useAPIClient(language);
 
     useEffect(() => {
-        // check that errors state is empty
         setIsError(!isObjectEmpty(errors));
     }, [errors])
 
@@ -81,21 +84,34 @@ const OrderConsultationSection = ({translation}) => {
 
         setErrors((state) => {
             const newErrors = {...state};
-            return validate(name, value, newErrors); // validate повертає об'єкт
+            return validate(name, value, newErrors);
         });
     };
 
-    const onSubmitForm = (e) => {
+
+    const onSubmitForm = async (e) => {
         e.preventDefault();
 
         if (!isError) {
-            console.log(formData);
-            // validationErrors = {}
-            setFormData(defaultFormData);
-            alert("Form submitted successfully");
+            const dataToSend = {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email
+            };
+
+            try {
+                const response = await client.postFormData('/order/consultation/', dataToSend);
+                console.log("Form submitted successfully:", response.data);
+                setFormData(defaultFormData);
+                alert("Форма успішно відправлена!");
+            } catch (error) {
+                console.log("error.message: ", error.response.data);
+                alert("Сталася помилка при відправці форми.");
+            }
+        } else {
+            alert("Будь ласка, виправте помилки в формі.");
         }
-        // console.log(validationErrors);
-    }
+    };
 
     const inputsData = [
         {
