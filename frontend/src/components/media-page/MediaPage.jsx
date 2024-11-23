@@ -1,5 +1,4 @@
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
-import MediaSection from "../main-page/media-section/MediaSection";
 import MediaSlider from "../common/media-slider/MediaSlider";
 import SliderArrows from "../common/slider-arrows/SliderArrows";
 import React from "react";
@@ -8,7 +7,7 @@ import getTranslations from "../../translations/translations";
 
 import './MediaPage.css'
 
-const MediaPage = () => {
+const MediaPage = ({data, loading}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
@@ -37,7 +36,7 @@ const MediaPage = () => {
                 </div>
             </div>
 
-            <MediaSlider/>
+            <MediaSlider media={data} loading={loading}/>
         </section>
     )
 }

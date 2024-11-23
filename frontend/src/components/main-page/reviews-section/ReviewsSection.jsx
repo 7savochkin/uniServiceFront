@@ -145,7 +145,6 @@ const ReviewsSection = ({translation, data, loading}) => {
         },
     ]
 
-
     return (
         <section className="reviews-section">
             <div className="container">

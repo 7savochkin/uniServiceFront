@@ -15,7 +15,7 @@ import media_section_image_9 from "../../../assets/images/main-page/media-sectio
 import media_section_image_10 from "../../../assets/images/main-page/media-section-image-10.jpg"
 import MediaSlider from "../../common/media-slider/MediaSlider";
 
-const MediaSection = ({translation}) => {
+const MediaSection = ({translation, data, loading}) => {
 
 
     return <section className="media-section">
@@ -31,7 +31,7 @@ const MediaSection = ({translation}) => {
                     />
             </div>
         </div>
-        <MediaSlider />
+        <MediaSlider media={data} loading={loading}/>
     </section>
 }
 

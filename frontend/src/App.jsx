@@ -70,7 +70,7 @@ function App() {
     const [reviewsData, setReviewsData] = useState([]);
     const [newsData, setNewsData] = useState([]);
     const [vacanciesData, setVacanciesData] = useState({});
-    const [media, setMedia] = useState([]);
+    const [mediaData, setMediaData] = useState([]);
 
     async function fetchData() {
         const responseContacts = await getContacts();
@@ -96,7 +96,7 @@ function App() {
         setVacanciesData(responseVacancies.data);
 
         const responseMedia = await getMedia();
-        setMedia(responseMedia.data);
+        setMediaData(responseMedia.data);
     }
 
     useEffect(() => {
@@ -116,6 +116,7 @@ function App() {
                                                         services={services}
                                                         reviews={[reviewsData, loadingReviews]}
                                                         news={[newsData, loadingNews]}
+                                                        media={[mediaData, loadingMedia]}
                     />}/>
                     <Route path="/about-us/" element={<AboutUsPage aboutUs={aboutUs}/>}/>
                     <Route path="/contacts/" element={<ContactsPage contacts={contacts}/>}/>
@@ -133,7 +134,10 @@ function App() {
                     <Route path="/vacancies/:id/" element={<VacancyDetailPage vacanciesData={vacanciesData}
                                                                               loadingVacanciesData={loadingVacancies}
                     />}/>
-                    <Route path="/media/" element={<MediaPage/>}/>
+                    <Route path="/media/" element={<MediaPage
+                                                        data={mediaData}
+                                                        loading={loadingMedia}
+                    />}/>
                 </Routes>
                 <Footer contacts={contacts}/>
             </LanguageContext.Provider>

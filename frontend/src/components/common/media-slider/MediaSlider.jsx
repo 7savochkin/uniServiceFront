@@ -1,31 +1,18 @@
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import useAPIClient from "../../../hooks/api.hook";
-import useHttp from "../../../hooks/http.hook";
 import React, { useEffect, useState } from "react";
 import { LanguageContext } from "../../../translations/language";
 import Spinner from "../spinner/Spinner";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const MediaSlider = () => {
+const MediaSlider = ({ media, loading }) => {
     const [language] = React.useContext(LanguageContext);
 
-    const client = useAPIClient(language);
-    const { request, loading } = useHttp(client.getMedia);
-
-    const [media, setMedia] = useState([]);
-    const [itemsPerSlide, setItemsPerSlide] = useState(10);  // Початкове значення для 1920px
+    const [itemsPerSlide, setItemsPerSlide] = useState(10);
     const [disabledNavigation, setDisabledNavigation] = useState(false);
 
-    async function fetchData() {
-        const response = await request();
-        setMedia(response.data);
-    }
-
     useEffect(() => {
-        fetchData().catch(() => {});
-
         const handleResize = () => {
             if (window.innerWidth > 768) {
                 setItemsPerSlide(10);
@@ -51,7 +38,7 @@ const MediaSlider = () => {
         let startIndex = 0;
 
         while (itemsLeft > 0) {
-            const itemsInThisSlide = Math.min(itemsPerSlide, itemsLeft);  // Максимум itemsPerSlide картинок на слайді
+            const itemsInThisSlide = Math.min(itemsPerSlide, itemsLeft);
             slides.push(array.slice(startIndex, startIndex + itemsInThisSlide));
             startIndex += itemsInThisSlide;
             itemsLeft -= itemsInThisSlide;
