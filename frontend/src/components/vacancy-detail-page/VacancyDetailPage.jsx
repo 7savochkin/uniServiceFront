@@ -1,47 +1,33 @@
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 import {useParams} from "react-router-dom";
 import "./VacancyDetailPage.css";
-import React from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import {LanguageContext} from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
-const VacancyDetailPage = () => {
-
-    const vacancies = [
-        {
-            "title": "Назва",
-            "slug": "vacancy-item-first",
-            "price": 40000,
-            "description": "ТОВ “ЮНІ СЕРВІС” Добування декоративного та будівельного каменю, " +
-                "вапняку, гіпсу, крейди та глинистого сланцю." +
-                " Надання допоміжних послуг у сфері добування інших корисних копалин та розроблення кар'єрів",
-            "requirements": ["Вимога 1", "Вимога 2"],
-            "image": "/media/images/vacancies/vacancy_image.jpg"
-        },
-        {
-            "title": "Назва",
-            "slug": "vacancy-item-second",
-            "price": 30000,
-            "description": "Опис вакансії...",
-            "requirements": ["Вимога 1", "Вимога 2"],
-            "image": "/media/images/vacancies/vacancy_image.jpg"
-        },
-        {
-            "title": "Назва",
-            "price": 100000,
-            "slug": "vacancy-item-third",
-            "description": "Опис вакансії...",
-            "requirements": ["Вимога 1", "Вимога 2"],
-            "image": "/media/images/vacancies/vacancy_image.jpg"
-        },
-    ]
-
-    const {slug} = useParams();
-
-    let vacancy = vacancies.find((item) => item.slug === slug)
-
+const VacancyDetailPage = ({vacanciesData, loadingVacanciesData}) => {
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
+
+    const [vacancy, setVacancy] = useState({});
+    const [titles, setTitles] = useState({});
+    const [error, setError] = useState(false);
+
+    const {id} = useParams();
+
+    useEffect(() => {
+        if (!loadingVacanciesData) {
+
+            const vacancyData = vacanciesData.results.vacancies.find((item) => item.id == id)
+
+            if (vacancyData) {
+                setVacancy(vacancyData);
+                setTitles(vacanciesData.results.titles_of_vacancies);
+            } else {
+                setError(true);
+            }
+        }
+    }, [vacanciesData]);
 
     const paths = [
         {path: "/", name: translation["Головна"]},
@@ -49,7 +35,9 @@ const VacancyDetailPage = () => {
         {path: "", name: vacancy.title}
     ]
 
-    return (
+    const titlesKeys = Object.keys(titles);
+
+    return error ? <p>Error</p> : (
         <div className="vacancy-detail">
             <Breadcrumbs paths={paths}/>
             <section className="vacancy-section">
@@ -57,19 +45,25 @@ const VacancyDetailPage = () => {
                     <div className="vacancy-section-content">
                         <h2 className="vacancy-section__title">{vacancy.title}</h2>
                         <div className="vacancy-section__info">
-                            <p className="vacancy-section__price">{vacancy.price} {translation["грн"]}</p>
-                            <p className="vacancy-section__text">{vacancy.description}</p>
+                            <p className="vacancy-section__price">{vacancy.salary} {translation["грн"]}</p>
+                            <p className="vacancy-section__text">{vacancy.about}</p>
                             <div className="vacancy-section-requirements-wrap">
-                                <h4 className="vacancies-list-item__requirements-title">{translation["Обов’язки"]}:</h4>
-                                <ul className="vacancies-list-item__requirements-list">
-                                    {
-                                        vacancy.requirements.map((item, index) =>
-                                            <li key={index}
-                                                className="vacancies-list-item__requirements-list-item">{item}</li>)
-                                    }
-                                </ul>
+                                {
+                                    titlesKeys.map((key, index) => (
+                                        <Fragment key={index}>
+                                            <h4 className="vacancies-list-item__requirements-title">{titles[key]}:</h4>
+                                            <ul className="vacancies-list-item__requirements-list">
+                                                {vacancy.hasOwnProperty(key) &&
+                                                    vacancy[key].map((item, index) =>
+                                                        <li key={index}
+                                                            className="vacancies-list-item__requirements-list-item">{item}</li>)
+                                                }
+                                            </ul>
+                                        </Fragment>
+                                    ))
+                                }
                             </div>
-                            <p className="vacancy-section__text">{translation["Зважаючи на велику кількість запитів, ми зв’язуємося з кандидатами, які повністю відповідають вимогам вакансії."]}</p>
+                            <p className="vacancy-section__text">{vacancy.additional}</p>
                             <p className="vacancy-section__text">{translation["Запис на співбесіду"]} <a
                                 href="tel:+380508443855">050-844-38-55</a></p>
                         </div>

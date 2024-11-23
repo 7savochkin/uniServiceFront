@@ -52,10 +52,14 @@ function App() {
         request: getNews, loading: loadingNews,
         error: errorNews, clearError: clearErrorNews
     } = useHttp(client.getNews);
+    const {
+        request: getVacancies, loading: loadingVacancies,
+        error: errorVacancies, clearError: clearErrorVacancies
+    } = useHttp(client.getVacancies);
 
     let loadingData = [
         loadingContacts, loadingPhones, loadingAboutUs,
-        loadingServices, loadingReviews, loadingNews
+        loadingServices, loadingReviews, loadingNews, loadingVacancies
     ];
 
     const [contacts, setContacts] = useState({});
@@ -63,6 +67,7 @@ function App() {
     const [services, setServices] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [news, setNews] = useState([]);
+    const [vacanciesData, setVacanciesData] = useState({});
 
     async function fetchData() {
         const responseContacts = await getContacts();
@@ -83,11 +88,15 @@ function App() {
 
         const responseNews = await getNews();
         setNews(responseNews.data?.results);
+
+        const responseVacancies = await getVacancies();
+        setVacanciesData(responseVacancies.data);
     }
 
     useEffect(() => {
         window.localStorage.setItem("lang", language);
-        fetchData().then(r => {});
+        fetchData().then(r => {
+        });
     }, [language]);
 
     const loading = loadingData.some(v => v === true);
@@ -110,8 +119,13 @@ function App() {
                     <Route path="/services/" element={<ServicesPage services={services}/>}/>
                     <Route path="/news/" element={<NewsListPage news={news}/>}/>
                     <Route path="/news/:id/" element={<NewsDetailPage news={news}/>}/>
-                    <Route path="/vacancies/" element={<VacanciesListPage/>}/>
-                    <Route path="/vacancies/:slug/" element={<VacancyDetailPage/>}/>
+                    <Route path="/vacancies/" element={<VacanciesListPage vacanciesData={vacanciesData}
+                                                                          setVacanciesData={setVacanciesData}
+                                                                          loadingVacanciesData={loadingVacancies}
+                    />}/>
+                    <Route path="/vacancies/:id/" element={<VacancyDetailPage vacanciesData={vacanciesData}
+                                                                              loadingVacanciesData={loadingVacancies}
+                    />}/>
                     <Route path="/media/" element={<MediaPage/>}/>
                 </Routes>
                 <Footer contacts={contacts}/>
