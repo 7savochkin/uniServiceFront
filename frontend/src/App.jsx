@@ -101,6 +101,7 @@ function App() {
 
     useEffect(() => {
         window.localStorage.setItem("lang", language);
+        setLoading(true);
         fetchData().then(() => setLoading(false)).catch(() => setIsFetchError(true));
     }, [language]);
 
