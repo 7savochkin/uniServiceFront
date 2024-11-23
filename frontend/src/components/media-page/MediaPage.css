@@ -4,6 +4,11 @@
     flex-direction: column;
 }
 
+.filters {
+    margin-top: 39px;
+    margin-bottom: 30px;
+}
+
 .filters .filters-buttons{
     display: none;
 }
@@ -13,6 +18,5 @@
 }
 
 .media-page .media-section__slider {
-    margin-bottom: 48px;
     margin-top: 0;
 }

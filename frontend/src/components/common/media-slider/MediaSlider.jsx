@@ -15,6 +15,8 @@ const MediaSlider = () => {
     const { request, loading } = useHttp(client.getMedia);
 
     const [media, setMedia] = useState([]);
+    const [itemsPerSlide, setItemsPerSlide] = useState(10);  // Початкове значення для 1920px
+    const [disabledNavigation, setDisabledNavigation] = useState(false);
 
     async function fetchData() {
         const response = await request();
@@ -23,17 +25,33 @@ const MediaSlider = () => {
 
     useEffect(() => {
         fetchData().catch(() => {});
+
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setItemsPerSlide(10);
+            } else if (window.innerWidth < 768) {
+                setItemsPerSlide(5);
+            } else {
+                setItemsPerSlide(3);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, [language]);
 
-    // Функція для рівномірного розбиття масиву на слайди
     const distributeEvenly = (array, itemsPerSlide) => {
         const slides = [];
         let itemsLeft = array.length;
         let startIndex = 0;
 
         while (itemsLeft > 0) {
-            // Розрахунок кількості елементів для поточного слайду
-            const itemsInThisSlide = Math.ceil(itemsLeft / Math.ceil(itemsLeft / itemsPerSlide));
+            const itemsInThisSlide = Math.min(itemsPerSlide, itemsLeft);  // Максимум itemsPerSlide картинок на слайді
             slides.push(array.slice(startIndex, startIndex + itemsInThisSlide));
             startIndex += itemsInThisSlide;
             itemsLeft -= itemsInThisSlide;
@@ -42,9 +60,15 @@ const MediaSlider = () => {
         return slides;
     };
 
-    const itemsPerSlide = 5;
-
     const mediaChunks = distributeEvenly(media, itemsPerSlide);
+
+    useEffect(() => {
+        if (mediaChunks.length <= 1) {
+            setDisabledNavigation(true);
+        } else {
+            setDisabledNavigation(false);
+        }
+    }, [mediaChunks]);
 
     return loading ? (
         <Spinner loading={loading} isSection={true} />
@@ -55,8 +79,9 @@ const MediaSlider = () => {
             navigation={{
                 prevEl: ".media-slider-arrow__prev",
                 nextEl: ".media-slider-arrow__next",
+                disabled: disabledNavigation,
             }}
-            loop={true}
+            loop={false}
             className="media-section__slider"
             modules={[Navigation]}
         >
