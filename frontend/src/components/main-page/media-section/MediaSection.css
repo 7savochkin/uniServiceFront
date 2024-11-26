@@ -19,6 +19,10 @@
     grid-template-columns: repeat(6, 1fr);
 }
 
+.media-section__slider-item{
+    cursor: pointer;
+}
+
 .media-section__slider-item:nth-child(4) {
     grid-column-start: 4;
     grid-column-end: 6;

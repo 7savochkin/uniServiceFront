@@ -62,6 +62,11 @@ class API {
         return await this.request({url: url, method: "GET"});
     }
 
+    getMainVideo = async (data) => {
+        let url = "/media/video/";
+        return await this.request({url: url, method: "GET"});
+    }
+
     postFormData = async (url, formData) => {
         const queryParams = new URLSearchParams(formData).toString();
         const fullUrl = `${url}?${queryParams}`;

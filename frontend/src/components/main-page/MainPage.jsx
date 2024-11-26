@@ -13,7 +13,7 @@ import React from "react";
 import { LanguageContext } from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
-const MainPage = ({ aboutUs, services, reviews, news, media }) => {
+const MainPage = ({ aboutUs, services, video, reviews, news, media }) => {
 
   const [language, setLanguage] = React.useContext(LanguageContext);
   const translation = getTranslations(language, "main");
@@ -24,7 +24,7 @@ const MainPage = ({ aboutUs, services, reviews, news, media }) => {
 
   return (
     <div className="main">
-      <FacialSection translation={translation} />
+      <FacialSection translation={translation} video={video}/>
       <WhyChooseUsSection translation={translation} />
       <AboutUsSection translation={translation} aboutUs={aboutUs} />
       <ServicesSection translation={translation} services={services} />
