@@ -142,3 +142,35 @@
     margin-top: 0px;
   }
 }
+
+/* Стилі для відображення зображень в попапі */
+.pop-up__content--image {
+  background: transparent; /* Без фону */
+  max-width: 95vw; /* Збільшуємо максимальну ширину — 95% від екрана */
+  max-height: 95vh; /* Збільшуємо максимальну висоту — 95% від екрана */
+  padding: 0; /* Без відступів */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Для розміщення кнопки закриття */
+  width: 100%;
+}
+
+.popup-image {
+  width: 100%; /* Зображення займає всю доступну ширину контейнера */
+  height: 100%; /* Зображення займає всю доступну висоту контейнера */
+  object-fit: cover; /* Зберігаємо пропорції, але обрізаємо зображення, щоб воно заповнило блок */
+  border-radius: 8px; /* Можна додати закруглені кути */
+}
+
+.pop-up__image-close {
+  position: absolute;
+  cursor: pointer;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  color: #ffffff;
+  background: none;
+  border: none;
+  z-index: 101; /* Кнопка закриття має бути поверх зображення */
+}

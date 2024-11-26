@@ -1,16 +1,20 @@
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { LanguageContext } from "../../../translations/language";
 import Spinner from "../spinner/Spinner";
+import PopUp from "../pop-up/PopUp"; // Імпортуємо готовий PopUp компонент
 import "swiper/css";
 import "swiper/css/navigation";
 
 const MediaSlider = ({ media, loading }) => {
-  const [language] = React.useContext(LanguageContext);
-
+  const [language] = useContext(LanguageContext);
   const [itemsPerSlide, setItemsPerSlide] = useState(10);
   const [disabledNavigation, setDisabledNavigation] = useState(false);
+
+  // Стан для попапу
+  const [isPopupActive, setPopupActive] = useState(false);
+  const [currentImage, setCurrentImage] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,7 +28,6 @@ const MediaSlider = ({ media, loading }) => {
     };
 
     handleResize();
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -57,37 +60,61 @@ const MediaSlider = ({ media, loading }) => {
     }
   }, [mediaChunks]);
 
+  const openPopup = (image) => {
+    setCurrentImage(image); // Зберігаємо вибране зображення
+    setPopupActive(true); // Активуємо попап
+  };
+
   return loading ? (
     <Spinner loading={loading} isSection={true} />
   ) : (
-    <Swiper
-      slidesPerView="auto"
-      slidesPerGroup={1}
-      navigation={{
-        prevEl: ".media-slider-arrow__prev",
-        nextEl: ".media-slider-arrow__next",
-        disabled: disabledNavigation,
-      }}
-      loop={false}
-      className="media-section__slider"
-      modules={[Navigation]}
-    >
-      {mediaChunks.map((chunk, index) => (
-        <SwiperSlide key={index}>
-          <div className="media-section__slider-list">
-            {chunk.map((mediaItem) => (
-              <div className="media-section__slider-item" key={mediaItem.id}>
-                <img
-                  src={`https://uniservice.site/${mediaItem?.image}`}
-                  alt="image"
-                  className="media-section__slider-img"
-                />
-              </div>
-            ))}
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <>
+      <Swiper
+        slidesPerView="auto"
+        slidesPerGroup={1}
+        navigation={{
+          prevEl: ".media-slider-arrow__prev",
+          nextEl: ".media-slider-arrow__next",
+          disabled: disabledNavigation,
+        }}
+        loop={false}
+        className="media-section__slider"
+        modules={[Navigation]}
+      >
+        {mediaChunks.map((chunk, index) => (
+          <SwiperSlide key={index}>
+            <div className="media-section__slider-list">
+              {chunk.map((mediaItem) => (
+                <div
+                  className="media-section__slider-item"
+                  key={mediaItem.id}
+                  onClick={() =>
+                    openPopup(`https://uniservice.site/${mediaItem?.image}`)
+                  } // Відкриваємо попап із зображенням
+                >
+                  <img
+                    src={`https://uniservice.site/${mediaItem?.image}`}
+                    alt="image"
+                    className="media-section__slider-img"
+                  />
+                </div>
+              ))}
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Попап для зображень */}
+      <PopUp active={isPopupActive} setActive={setPopupActive} isImage={true}>
+        {currentImage && (
+          <img
+            src={currentImage}
+            alt="popup-img"
+            className="popup-image"
+          />
+        )}
+      </PopUp>
+    </>
   );
 };
 
