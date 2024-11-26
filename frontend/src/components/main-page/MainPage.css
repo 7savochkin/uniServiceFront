@@ -1,0 +1,41 @@
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 41px;
+    margin-bottom: 91px;
+}
+
+.filters-buttons__link {
+    width: 141px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--azure-text-color);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: var(--white-bg-color);
+}
+
+.filters-buttons {
+    display: flex;
+    gap: 1px;
+}
+
+.filters-buttons__link--active {
+    background-color: var(--dark-white-color);
+    color: #000000;
+}
+
+.media-page__title {
+    font-family: 'Unbounded';
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: #182829;
+    margin-top: 50px;
+}

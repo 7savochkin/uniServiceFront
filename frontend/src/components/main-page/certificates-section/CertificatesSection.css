@@ -1,13 +1,43 @@
-.slide {
-  opacity: 0.2;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-  cursor: pointer;
+.certificates-section {
+  background: var(--light-bg-color);
+  padding: 110px 0;
 }
 
-.swiper-slide-active {
-  opacity: 1;
-  transform: scale(1.2);
-  cursor: pointer;
+.certification-section-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 70px;
 }
+
+.certification-section__title {
+  font-family: "Unbounded", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: var(--green-text-color);
+}
+
+.certificates-section__slider {
+  width: 100%;
+}
+
+.certificates-section__slider .swiper-slide {
+  transition: all 0.3s ease;
+  width: calc(100% / 3) !important;
+  height: 100%;
+}
+
+.certificates-section__slider .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/*.certificates-section__slider .swiper-slide-active {*/
+/*    opacity: 1;*/
+/*    !*transform: scale(1);*!*/
+/*    !*width: 410px !important;*!*/
+/*    transition: all 0.3s ease;*/
+/*}*/

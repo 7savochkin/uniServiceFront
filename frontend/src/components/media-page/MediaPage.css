@@ -1,0 +1,22 @@
+.media-page {
+    background: var(--light-bg-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.filters {
+    margin-top: 39px;
+    margin-bottom: 30px;
+}
+
+.filters .filters-buttons{
+    display: none;
+}
+
+.filters .custom-slider-arrows {
+    margin-left: auto;
+}
+
+.media-page .media-section__slider {
+    margin-top: 0;
+}

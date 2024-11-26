@@ -28,7 +28,18 @@
     text-decoration: none;
     font-size: 17px;
     line-height: 25px;
+    transition: .3s all;
 }
+
+.footer-content-menu__link:hover {
+    color: #00CCCC;
+}
+
+.footer-content-menu__link:active {
+    color: #01A0A0;
+}
+
+
 
 .footer-content-menu__items:not(:last-child) {
     margin-bottom: 5px;
@@ -47,10 +58,20 @@
     color: #fff;
     font-size: 17px;
     line-height: 25px;
+    transition: .3s all;
 }
 
-.footer-content-graph__items:nth-child(2) {
+.footer-content-graph__link-mail:hover {
+    color: #00CCCC;
+}
+
+.footer-content-graph__link-mail:active {
+    color: #01A0A0;
+}
+
+.footer-content-graph__items:nth-child(1) {
     margin-bottom: 26px;
+    max-width: 160px;
 }
 
 .footer-content-graph__link-tel {
@@ -68,6 +89,7 @@
     color: #4e5a67;
     font-size: 17px;
     line-height: 25px;
+    transition: .3s all;
 }
 
 .footer-content-contacts {
@@ -87,10 +109,107 @@
     margin-right: 10px;
 }
 
+.footer-content__link:hover {
+    svg rect {
+    transition: .3s all;
+        fill: #fff;
+    }
+
+    svg path {
+    transition: .3s all;
+        fill: #00CCCC;
+    }
+}
+
+.active-link {
+    color: var(--azure-text-color);
+}
+
 .footer-rights {
     font-size: 12px;
     line-height: 17px;
     color: #4e5a67;
     text-align: center;
     margin-top: 39px;
+}
+
+@media (max-width: 1200px) {
+    .footer-content {
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 1050px) {
+    .footer-content__logo {
+        flex-basis: 49%;
+        margin-bottom: 40px;
+    }
+
+    .footer-content-menu {
+        flex-basis: 49%;
+        margin-bottom: 40px;
+    }
+
+    .footer-content-graph {
+        flex-basis: 49%;
+    }
+
+    .footer-content-contacts {
+        flex-basis: 49%;
+    }
+}
+
+@media (max-width: 824px) {
+    .footer-content__logo {
+        flex-basis: 40%;
+    }
+
+    .footer-content-menu {
+        flex-basis: 40%;
+    }
+
+    .footer-content-graph {
+        flex-basis: 40%;
+        margin-bottom: 40px;
+    }
+
+    .footer-content-contacts {
+        flex-basis: 40%;
+        margin-bottom: 40px;
+    }
+
+    .footer {
+        padding-block: 60px;
+    }
+}
+
+@media (max-width: 540px) {
+    .footer-content__logo {
+        flex-basis: 100%;
+        order: 4;
+    }
+
+    .footer-content-menu {
+        flex-basis: 100%;
+        order: 1;
+    }
+
+    .footer-content-graph {
+        flex-basis: 100%;
+        order: 2;
+    }
+
+    .footer-content-contacts {
+        flex-basis: 100%;
+        order: 3;
+    }
+
+    .footer-content-menu__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-rights {
+        text-align: left;
+    }
 }

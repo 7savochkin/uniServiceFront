@@ -1,17 +1,17 @@
 .burger {
     position: absolute;
-    top: 22px;
-    right: 10px;
-    display: flex;
+    top: 26px;
+    right: 24px;
     flex-direction: column;
     justify-content: space-around;
-    width: 2rem;
-    height: 2rem;
+    width: 20px;
+    height: 20px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 10;
+    display: none;
 }
 
 .burger:focus {
@@ -19,9 +19,9 @@
 }
 
 .burger-line {
-    width: 2rem;
-    height: 0.25rem;
-    background: #effffa;
+    width: 21px;
+    height: 2px;
+    background: var(--azure-text-color);
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -30,7 +30,7 @@
 
 .burger.open .burger-line:first-child {
     transform: rotate(45deg);
-    background: #0d0c1d;
+    background: var(--azure-text-color);
 }
 
 .burger.open .burger-line:nth-child(2) {
@@ -40,5 +40,11 @@
 
 .burger.open .burger-line:nth-child(3) {
     transform: rotate(-45deg);
-    background: #0d0c1d;
+    background: var(--azure-text-color);
+}
+
+@media  screen and (max-width: 1200px) {
+    .burger {
+        display: flex;
+    }
 }

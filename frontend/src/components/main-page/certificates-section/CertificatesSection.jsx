@@ -1,66 +1,100 @@
-import "./CertificatesSection.css"
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { Navigation, EffectCreative } from "swiper/modules";
+import SliderArrows from "../../common/slider-arrows/SliderArrows";
 
-import { EffectCreative } from 'swiper/modules';
+import "swiper/css"; // Core Swiper CSS
+import 'swiper/css/effect-creative';
+import "./CertificatesSection.css"
+import certification_section_doc from "../../../assets/images/main-page/cerificates-section-doc.jpg";
 
-import sertificate_image from "../../../assets/images/main-page/sertificate.png";
+const CertificatesSection = ({ translation }) => {
 
-const CertificatesSection = () => {
+  const documentItems = [
+    {
+      "img": certification_section_doc,
+      "alt": "certification-section-doc"
+    },
+    {
+      "img": certification_section_doc,
+      "alt": "certification-section-doc"
+    },
+    {
+      "img": certification_section_doc,
+      "alt": "certification-section-doc"
+    },
+    {
+      "img": certification_section_doc,
+      "alt": "certification-section-doc"
+    },
+    {
+      "img": certification_section_doc,
+      "alt": "certification-section-doc"
+    },
+    {
+      "img": certification_section_doc,
+      "alt": "certification-section-doc"
+    },
+    {
+      "img": certification_section_doc,
+      "alt": "certification-section-doc"
+    }
+  ]
 
-  return <section className="certificates-section">
-    <div className="container">
-      <h2 className="certificates-section-title">
-        сертифікати
-      </h2>
-      <Swiper
-        modules={[EffectCreative]}
-        slidesPerView={7}
-        centeredSlides={true}
-        loop={true}
-        scrollbar={{ draggable: true }}
-        grabCursor={true}
-        effect={'creative'}
-        creativeEffect={{
-          prev: {
-            shadow: true,
-            translate: [50, 0, 100],
-          },
-          next: {
-            translate: [100, 0, 150],
-          },
-        }}
-      >
-        <SwiperSlide className="slide">
-          <img src={sertificate_image} alt="sertificate image" className="sertificate-section-image" />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img
-            src={sertificate_image}
-            alt="sertificate image"
-            className="sertificate-section-image"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img src={sertificate_image} alt="sertificate image" className="sertificate-section-image" />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img src={sertificate_image} alt="sertificate image" className="sertificate-section-image" />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img src={sertificate_image} alt="sertificate image" className="sertificate-section-image" />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img src={sertificate_image} alt="sertificate image" className="sertificate-section-image" />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img src={sertificate_image} alt="sertificate image" className="sertificate-section-image" />
-        </SwiperSlide>
-      </Swiper>
-    </div>
-
-  </section>
+  return (
+    <section className="certificates-section">
+      <div className="container">
+        <div className="certification-section-content">
+          <div className="certification-section-header">
+            <h2 className="certification-section__title">{translation["Сертифікати"]}</h2>
+            <SliderArrows additionalClassName="certification-section-arrows"
+              prevClassName={"certification-section-arrows__prev"}
+              nextClassName={"certification-section-arrows__next"}
+            />
+          </div>
+          <Swiper className="certificates-section__slider"
+            modules={[Navigation, EffectCreative]}
+            slidesPerView={3}
+            slidesPerGroup={1}
+            centeredSlides={true}
+            loop={true}
+            // grabCursor={true}
+            effect={'creative'}
+            watchSlidesProgress={true}
+            creativeEffect={{
+              prev: {
+                shadow: true,
+                translate: ['-100%', 0, 0],
+                limitProgress: 3,
+                shadowPerProgress: true,
+                origin: "left bottom"
+              },
+              next: {
+                shadow: true,
+                translate: ['100%', 0, 0],
+                limitProgress: 3,
+                shadowPerProgress: true,
+                origin: "right top"
+              },
+            }}
+            navigation={{
+              prevEl: '.certification-section-arrows__prev',
+              nextEl: '.certification-section-arrows__next',
+            }}
+          >
+            {
+              documentItems.map(({ img, alt }, index) => (
+                <SwiperSlide key={index}>
+                  <img src={img}
+                    alt={alt}
+                  />
+                </SwiperSlide>
+              ))
+            }
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default CertificatesSection;

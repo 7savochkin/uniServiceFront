@@ -1,0 +1,114 @@
+.vacancies-section {
+    padding-top: 61px;
+    padding-bottom: 108px;
+    background: var(--light-bg-color);
+}
+
+.vacancies-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 43px;
+    flex-wrap: wrap;
+}
+
+.vacancies-section__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: var(--green-text-color);
+}
+
+.vacancies-section__title span {
+    color: #D5D5D5;
+    padding-left: 10px;
+}
+
+.vacancies-section-list__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 65px;
+    padding-bottom: 65px;
+}
+
+.vacancies-section__link {
+    padding: 0;
+    margin: 0;
+    width: 371px;
+    height: 54px;
+}
+
+.vacancies-section__link::after {
+    left: 75%;
+}
+
+.vacancies-section__loadmore {
+    margin: 0 auto;
+    padding: 0;
+    width: 328px;
+    height: 54px;
+}
+
+.vacancies-section__loadmore::after {
+    left: 75%;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .vacancies-section{
+        padding-bottom: 62px;
+    }
+
+    .vacancies-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 42px;
+        padding-bottom: 58px;
+    }
+
+    .vacancies-section__link {
+        align-self: flex-end;
+    }
+
+    .vacancies-section-list__inner{
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .vacancies-section {
+        padding-top: 20px;
+        padding-bottom: 126px;
+    }
+    .vacancies-section__title span {
+        padding-left: 0;
+    }
+
+    .vacancies-section-header{
+        gap: 31px;
+        padding-bottom: 74px;
+    }
+
+    .vacancies-section__title{
+        font-size: 30px;
+    }
+
+    .vacancies-section__link{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 450px){
+    .vacancies-section__loadmore{
+        width: 100%;
+        margin: 0;
+    }
+
+    .vacancies-section__link {
+        padding-right: 20px;
+    }
+}

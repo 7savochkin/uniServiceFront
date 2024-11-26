@@ -27,7 +27,7 @@
     color: var(--green-text-color);
 }
 
-.about-us-section .facial-section-info__link {
+.about-us-section .about-us-section-btn {
     padding: 14px 91px;
     width: 291px;
     height: 54px;
@@ -81,3 +81,56 @@
     object-fit: cover;
     object-position: center;
 }
+
+.about-us-section-header-text {
+    gap: 40px;
+}
+
+.about-us-info__link-mobile {
+    display: none;
+}
+
+.about-us-section-btn::after {
+    left: 75%;
+}
+
+@media (max-width: 768px) {
+    .about-us-section-header-text {
+        flex-direction: column;
+    }
+
+    .about-us-section {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-us-section-btn {
+        display: none;
+    }
+    .about-us-info__link-mobile::after {
+        left: 75%;
+    }
+
+
+    .about-us-info__link-mobile {
+        display: flex;
+        margin-left: auto;
+        margin-bottom: 46px;
+    }
+
+    .about-us-section {
+        padding-bottom: 64px;
+    }
+
+    .about-us-section-main__img-wrap {
+        height: 257px;
+    }
+
+    .about-us-section-header__title {
+        font-size: 30px;
+    }
+}
+
+
+

@@ -1,0 +1,34 @@
+.custom-slider-arrows {
+    display: flex;
+}
+
+.custom-slider-arrow {
+    width: 52px;
+    height: 52px;
+    border: 1px solid var(--dark-white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arrows-dark .custom-slider-arrow {
+    border: 1px solid var(--gray-text-color);
+}
+
+.arrows-dark .custom-slider-arrow__next{
+    border-left: none;
+}
+
+.custom-slider-arrow__next {
+    border-left: none;
+}
+
+.custom-slider-arrow__next svg {
+    transform: rotate(180deg);
+}
+
+.custom-slider-arrow:hover svg path {
+    fill: var(--azure-text-color);
+    transition: all 0.3s ease-in-out;
+}

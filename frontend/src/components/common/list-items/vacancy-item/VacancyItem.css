@@ -1,0 +1,116 @@
+
+.vacancies-list-item {
+    width: calc(50% - 65px);
+    border: 1px solid var(--dark-white-color);
+    background: var(--white-bg-color);
+}
+
+.vacancies-list-item-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vacancies-list-item__price {
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 150%;
+    color: var(--azure-text-color)
+}
+
+.vacancies-list-item__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 170%;
+    text-transform: uppercase;
+    color: var(--green-text-color);
+}
+
+.vacancies-list-item__desc {
+    min-height: 104px;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: var(--green-text-color);
+}
+
+.vacancies-list-item__requirements {
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: var(--green-text-color);
+}
+
+.vacancies-list-item__requirements-title {
+    font-weight: 700;
+}
+
+.vacancies-list-item__requirements-list-item {
+    position: relative;
+    padding-left: 20px;
+}
+
+.vacancies-list-item__requirements-list-item:before {
+    content: "";
+    left: 6px;
+    top: 7px;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--green-text-color);
+    border-radius: 100%;
+}
+
+.vacancies-list-item .facial-section-info__link {
+    width: 132px;
+    height: 36px;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    /*text-align: center;*/
+    color: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start;
+    align-self: flex-end;
+    padding-left: 10px;
+}
+
+.vacancies-list-item .facial-section-info__link::after {
+    top: 53%;
+    left: 85%;
+}
+
+.vacancies-list__btn {
+    width: 132px;
+    height: 36px;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .vacancies-list-item {
+        width: 100%;
+    }
+
+    .vacancies-list-item-container {
+        padding-top: 62px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .vacancies-list-item-container {
+        padding: 30px 20px;
+    }
+}
+

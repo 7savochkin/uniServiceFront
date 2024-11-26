@@ -68,7 +68,7 @@
     gap: 30px;
 }
 
-.order-consultation-section .facial-section-info__link {
+.order-consultation-section .order-consultation__link {
     border: none;
     padding: 0;
     margin: 20px 0 0;
@@ -96,4 +96,88 @@
     width: 550px;
     height: 600px;
     background-image: url("../../../assets/images/main-page/consultation-man.jpg");
+}
+
+
+@media (max-width: 1500px) {
+    .order-consultation-section::before, .order-consultation-section::after {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1220px) {
+    .order-consultation-section-images__square {
+        width: 280px;
+    }
+    .order-consultation-section-images__square::before {
+        width: 320px;
+        left: -80px;
+    }
+}
+
+@media (max-width: 940px) {
+    .order-consultation-section-images__square::before, .order-consultation-section-images__square {
+        display: none;
+    }
+
+
+    .order-consultation-section-form {
+        /*margin-bottom: 120px;*/
+    }
+
+    .order-consultation-content {
+        position: relative;
+        z-index: 99;
+    }
+
+    .order-consultation-wrapper {
+        background-image: url('../../../assets/images/main-page/consultation-man.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 110px;
+        padding-bottom: 110px;
+        background-position: bottom;
+        position: relative;
+        /*z-index: -10;*/
+    }
+
+    .order-consultation-section {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .order-consultation-bg {
+        background-color: #091017;
+        opacity: 0.7;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 15;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .order-consultation-section-info {
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .order-consultation-section__title {
+        max-width: 100%;
+        font-size: 30px;
+
+    }
+
+    .order-consultation-section__text {
+        max-width: 100%;
+    }
+
+    .order-consultation-section-form {
+        padding-top: 41px;
+    }
 }

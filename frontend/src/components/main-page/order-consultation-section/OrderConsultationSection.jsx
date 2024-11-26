@@ -1,10 +1,13 @@
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Input from "../../common/input/Input";
 
 import "./OrderConsultationSection.css"
 import consultation_square from "../../../assets/images/main-page/consultation-square.png"
+import {isObjectEmpty} from "../../../utils/objects";
+import {LanguageContext} from "../../../translations/language";
+import useAPIClient from "../../../hooks/api.hook";
 
-const OrderConsultationSection = () => {
+const OrderConsultationSection = ({translation}) => {
 
     const defaultFormData = {
         "name": "",
@@ -13,20 +16,85 @@ const OrderConsultationSection = () => {
     }
 
     const [formData, setFormData] = useState(defaultFormData)
+    const [errors, setErrors] = useState({});
+    const [isError, setIsError] = useState(false);
+    const [language, setLanguage] = React.useContext(LanguageContext);
+    const client = useAPIClient(language);
 
-    const onSubmitForm = (e) => {
-        e.preventDefault();
-        console.log(formData);
-        setFormData(defaultFormData);
-    }
+    useEffect(() => {
+        setIsError(!isObjectEmpty(errors));
+    }, [errors])
+
+    const phoneRegex = /^\+380\d{9}$/;
+    const validate = (name, value, errorsObj) => {
+        if (name === "name") {
+            if (!value.trim()) {
+                errorsObj.name = "Name is required";
+            } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(value.trim())) {
+                errorsObj.name = "Name is not valid";
+            } else {
+                delete errorsObj.name;
+            }
+        } else if (name === "phone") {
+            if (!value.trim()) {
+                errorsObj.phone = "Phone is required";
+            } else if (!phoneRegex.test(value.trim())) {
+                errorsObj.phone = "Phone number is not valid";
+            } else {
+                delete errorsObj.phone;
+            }
+        } else if (name === "email") {
+            if (!value.trim()) {
+                errorsObj.email = "Email is required";
+            } else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value.trim())) {
+                errorsObj.email = "Email is not valid";
+            } else {
+                delete errorsObj.email;
+            }
+        }
+
+
+        return errorsObj;
+    };
 
     const onChangeInput = (e) => {
-        setFormData((prevState) => ({...prevState, [e.target.name]: e.target.value}));
-    }
+        const {name, value} = e.target;
+        setFormData((prevState) => ({...prevState, [name]: value}));
+
+        setErrors((state) => {
+            const newErrors = {...state};
+            return validate(name, value, newErrors);
+        });
+    };
+
+
+    const onSubmitForm = async (e) => {
+        e.preventDefault();
+
+        if (!isError) {
+            const dataToSend = {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email
+            };
+
+            try {
+                const response = await client.postFormData('/order/consultation/', dataToSend);
+                console.log("Form submitted successfully:", response.data);
+                setFormData(defaultFormData);
+                alert("Форма успішно відправлена!");
+            } catch (error) {
+                console.log("error.message: ", error.response.data);
+                alert("Сталася помилка при відправці форми.");
+            }
+        } else {
+            alert("Будь ласка, виправте помилки в формі.");
+        }
+    };
 
     const inputsData = [
         {
-            label: "Ім’я*",
+            label: `${translation["Ім’я"]}*`,
             icon: (<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_17_8922)">
                         <path
@@ -43,14 +111,14 @@ const OrderConsultationSection = () => {
             id: "input_name",
             name: "name",
             type: "text",
-            placeholder: "Напишіть ім’я",
+            placeholder: translation["Напишіть ім’я"],
             value: formData.name,
             onChange: onChangeInput,
             isRequired: true,
             isDark: true,
         },
         {
-            label: "Телефон*",
+            label: `${translation["Телефон"]}*`,
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_17_8916)">
@@ -68,14 +136,14 @@ const OrderConsultationSection = () => {
             id: "input_phone",
             name: "phone",
             type: "text",
-            placeholder: "Напишіть телефон",
+            placeholder: translation["Напишіть телефон"],
             value: formData.phone,
             onChange: onChangeInput,
             isRequired: true,
             isDark: true,
         },
         {
-            label: "Email",
+            label: "Email*",
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -86,31 +154,37 @@ const OrderConsultationSection = () => {
             id: "input_email",
             name: "email",
             type: "email",
-            placeholder: "Напишіть E-mail",
+            placeholder: `${translation["Напишіть"]} E-mail`,
             value: formData.email,
             onChange: onChangeInput,
             isDark: true,
+            isRequired: true,
+
         },
     ]
 
     return (
         <section className="order-consultation-section">
-            <div className="container">
-                <div className="order-consultation-content">
-                    <div className="order-consultation-section-info">
-                        <h2 className="order-consultation-section__title">Замовити консультацію</h2>
-                        <p className="order-consultation-section__text">Залиште свої контакти та отримайте безкоштовний
-                            виїзд та консультацію від фахівця</p>
-                        <form onSubmit={onSubmitForm} className="order-consultation-section-form">
-                            {inputsData.map((item, i) => <Input key={i} {...item}/>)}
-                            <input className="facial-section-info__link" type="submit" value='Відправити'/>
-                        </form>
-                    </div>
-                    <div className="order-consultation-section-images">
-                        <div className="order-consultation-section-images__square">
-                            <img src={consultation_square} alt={"consultation-square"}/>
+            <div className="order-consultation-wrapper">
+                <div className="container">
+                    <div className="order-consultation-content">
+                        <div className="order-consultation-section-info">
+                            <h2 className="order-consultation-section__title">{translation["Замовити консультацію"]}</h2>
+                            <p className="order-consultation-section__text">{translation["Залиште свої контакти та отримайте безкоштовний виїзд та консультацію від фахівця"]}</p>
+                            <form onSubmit={onSubmitForm} className="order-consultation-section-form">
+                                {inputsData.map((item, i) => <Input errors={errors || {}}
+                                                                    key={i} {...item}/>)}
+                                <input className="order-consultation__link button-link" type="submit"
+                                       value={translation["Відправити"]}/>
+                            </form>
+                        </div>
+                        <div className="order-consultation-section-images">
+                            <div className="order-consultation-section-images__square">
+                                <img src={consultation_square} alt={"consultation-square"}/>
+                            </div>
                         </div>
                     </div>
+                    <div className="order-consultation-bg"></div>
                 </div>
             </div>
         </section>
