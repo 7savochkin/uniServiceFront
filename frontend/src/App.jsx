@@ -52,15 +52,13 @@ function App() {
     const {
         request: getMedia, loading: loadingMedia
     } = useHttp(client.getMedia);
-
+    const {
+        request: getMainVideo, loading: loadingMainVideo
+    } = useHttp(client.getMainVideo);
     const {
         error: errorForm, clearError: clearErrorForm
     } = useHttp(client.postFormData);
 
-    // let loadingData = [
-    //     loadingContacts, loadingPhones, loadingAboutUs,
-    //     loadingServices, loadingReviews, loadingNews, loadingVacancies, loadingMedia
-    // ];
     const [isFetchError, setIsFetchError] = useState(false);
     const [loading, setLoading] = useState(true);
 
@@ -71,6 +69,7 @@ function App() {
     const [newsData, setNewsData] = useState([]);
     const [vacanciesData, setVacanciesData] = useState({});
     const [mediaData, setMediaData] = useState([]);
+    const [mainVideoData, setMainVideo] = useState("");
 
     async function fetchData() {
         const responseContacts = await getContacts();
@@ -97,6 +96,9 @@ function App() {
 
         const responseMedia = await getMedia();
         setMediaData(responseMedia.data);
+
+        const responseMainVideo = await getMainVideo();
+        setMainVideo(responseMainVideo.data?.video);
     }
 
     useEffect(() => {
@@ -114,6 +116,7 @@ function App() {
                 <Routes>
                     <Route path="/*" element={<MainPage aboutUs={aboutUs}
                                                         services={services}
+                                                        video={mainVideoData}
                                                         reviews={[reviewsData, loadingReviews]}
                                                         news={[newsData, loadingNews]}
                                                         media={[mediaData, loadingMedia]}

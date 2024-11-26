@@ -1,9 +1,11 @@
 import "./FacialSection.css"
 import Button from "../../common/button/Button";
-import {NavLink} from "react-router-dom";
 
-const FacialSection = ({translation}) => (
+const FacialSection = ({translation, video}) => (
     <section className="facial-section">
+        <video autoPlay loop muted src={`https://uniservice.site/${video}`}
+               className={"facial-section-bg__video"}></video>
+        <div className="facial-section-overlay"></div>
         <div className="container">
             <div className="facial-section-content">
                 <h1 className="facial-section__title">{translation["Виробництво вибухових речовин"]}</h1>
