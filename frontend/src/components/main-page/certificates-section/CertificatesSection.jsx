@@ -6,6 +6,8 @@ import "swiper/css"; // Core Swiper CSS
 import 'swiper/css/effect-creative';
 import "./CertificatesSection.css"
 import certification_section_doc from "../../../assets/images/main-page/cerificates-section-doc.jpg";
+import { useState } from "react";
+import PopUp from '../../common/pop-up/PopUp';
 
 const CertificatesSection = ({ translation }) => {
 
@@ -38,7 +40,16 @@ const CertificatesSection = ({ translation }) => {
       "img": certification_section_doc,
       "alt": "certification-section-doc"
     }
-  ]
+  ];
+
+  // Стан для попапу
+  const [isPopupActive, setPopupActive] = useState(false);
+  const [currentImage, setCurrentImage] = useState(null);
+
+  const openPopup = (image) => {
+    setCurrentImage(image); // Зберігаємо вибране зображення
+    setPopupActive(true); // Активуємо попап
+  };
 
   return (
     <section className="certificates-section">
@@ -57,7 +68,6 @@ const CertificatesSection = ({ translation }) => {
             slidesPerGroup={1}
             centeredSlides={true}
             loop={true}
-            // grabCursor={true}
             effect={'creative'}
             watchSlidesProgress={true}
             creativeEffect={{
@@ -84,8 +94,11 @@ const CertificatesSection = ({ translation }) => {
             {
               documentItems.map(({ img, alt }, index) => (
                 <SwiperSlide key={index}>
-                  <img src={img}
+                  <img
+                    src={img}
                     alt={alt}
+                    onClick={() => openPopup(img)} // Відкриваємо попап при кліку на зображення
+                    className="certificate-image" // Додаємо клас для стилізації
                   />
                 </SwiperSlide>
               ))
@@ -93,8 +106,15 @@ const CertificatesSection = ({ translation }) => {
           </Swiper>
         </div>
       </div>
+
+      {/* Попап для сертифікатів */}
+      <PopUp active={isPopupActive} setActive={setPopupActive} isImage={true}>
+        {currentImage && (
+          <img src={currentImage} alt="popup-img" className="popup-image" />
+        )}
+      </PopUp>
     </section>
-  )
+  );
 }
 
 export default CertificatesSection;
