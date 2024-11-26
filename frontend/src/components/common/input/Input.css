@@ -106,7 +106,7 @@ div.input-field-wrap > input.input-field__input--error {
 }
 
 @media (max-height: 800px) {
-  .services-section .input-field-wrap {
+  .input-field-wrap {
     height: 40px;
     margin-top: 7px;
   }
