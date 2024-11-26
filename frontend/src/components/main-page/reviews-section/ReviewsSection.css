@@ -1,174 +1,174 @@
 .reviews-section {
-    padding-top: 110px;
-    padding-bottom: 110px;
-    background: var(--light-bg-color);
+  padding-top: 110px;
+  padding-bottom: 110px;
+  background: var(--light-bg-color);
 }
 
 .reviews-section-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .reviews-section-header__title {
-    font-family: 'Unbounded', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 150%;
-    text-transform: uppercase;
-    color: var(--green-text-color);
+  font-family: "Unbounded", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: var(--green-text-color);
 }
 
 .reviews-section-header__arrows {
-    display: flex;
+  display: flex;
 }
 
 .reviews-section-header__arrows {
 }
 
 .input-field__input {
-    border: 1px solid var(--gray-text-color);
-    height: 100%;
-    padding: 17px;
-    font-family: 'Jost', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 150%;
-    color: var(--gray-text-color);
+  border: 1px solid var(--gray-text-color);
+  height: 100%;
+  padding: 17px;
+  font-family: "Jost", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: var(--gray-text-color);
 }
 
 .reviews-section__slider {
-    margin-top: 84px;
-    margin-bottom: 102px;
-    display: flex;
+  margin-top: 84px;
+  margin-bottom: 102px;
+  display: flex;
 }
 
 .reviews-section__list-item {
-    height: 580px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid var(--dark-white-color);
+  height: 580px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--dark-white-color);
 }
 
 .reviews-section__list-item:before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background: var(--azure-text-color);
-    width: 100%;
-    height: 160px;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: var(--azure-text-color);
+  width: 100%;
+  height: 160px;
 }
 
 .reviews-section__list-item__img-wrap {
-    position: relative;
-    z-index: 2;
-    width: 150px;
-    height: 150px;
-    margin: 50px 0 19px 0;
+  position: relative;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
+  margin: 50px 0 19px 0;
 }
 
 .reviews-section__list-item__img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .reviews-section__list-item__title {
-    font-family: 'Unbounded', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 17px;
-    line-height: 170%;
-    text-transform: uppercase;
-    color: var(--green-text-color);
+  font-family: "Unbounded", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 170%;
+  text-transform: uppercase;
+  color: var(--green-text-color);
 }
 
 .reviews-section__list-item__text {
-    max-width: 221px;
-    font-family: 'Jost', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    text-align: center;
-    color: #586574;
+  max-width: 221px;
+  font-family: "Jost", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: #586574;
 }
 
 .reviews-section__list-item__desc {
-    max-width: 360px;
-    font-family: 'Jost', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 150%;
-    color: var(--green-text-color);
-    padding: 35px;
-    box-sizing: content-box;
+  max-width: 360px;
+  font-family: "Jost", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 150%;
+  color: var(--green-text-color);
+  padding: 35px;
+  box-sizing: content-box;
 }
 
 .reviews-section-content .reviews-section__link {
-    width: 326px;
-    height: 54px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 326px;
+  height: 54px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .reviews-section__link::after {
-    left: 75%;
+  left: 75%;
 }
 
-.reviews-section__slider-tablet, .reviews-section__slider-mobile {
-    display: none;
+.reviews-section__slider-tablet,
+.reviews-section__slider-mobile {
+  display: none;
 }
 
 @media (max-width: 876px) {
-    .reviews-section__slider {
-        display: none;
-    }
+  .reviews-section__slider {
+    display: none;
+  }
 
-    .reviews-section__slider-tablet {
-        display: flex;
-        margin-top: 84px;
-        margin-bottom: 62px;
-    }
+  .reviews-section__slider-tablet {
+    display: flex;
+    margin-top: 84px;
+    margin-bottom: 62px;
+  }
 }
 
 @media (max-width: 592px) {
+  .reviews-section__slider-tablet {
+    display: none;
+  }
 
-    .reviews-section__slider-tablet {
-        display: none;
-    }
+  .reviews-section__slider-mobile {
+    display: flex;
+    margin-block: 30px;
+  }
 
-    .reviews-section__slider-mobile {
-        display: flex;
-        margin-block: 30px;
-    }
+  .reviews-section-content .reviews-section__link {
+    width: 100%;
+  }
 
-    .reviews-section-content .reviews-section__link {
-        width: 100%;
-    }
+  .reviews-section-header {
+    flex-direction: column;
+  }
 
-    .reviews-section-header {
-        flex-direction: column;
-    }
+  .reviews-slider-arrows {
+    margin-top: 23px;
+    margin-left: auto;
+  }
 
-    .reviews-slider-arrows {
-        margin-top: 23px;
-        margin-left: auto;
-    }
+  .reviews-section {
+    padding-block: 60px;
+  }
 
-    .reviews-section {
-        padding-block: 60px;
-    }
-
-    .reviews-section-header__title {
-        font-size: 30px;
-        line-height: 37px;
-    }
+  .reviews-section-header__title {
+    font-size: 30px;
+    line-height: 37px;
+  }
 }

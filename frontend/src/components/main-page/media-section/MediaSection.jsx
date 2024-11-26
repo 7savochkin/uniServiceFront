@@ -1,7 +1,7 @@
 import "./MediaSection.css"
 import SliderArrows from "../../common/slider-arrows/SliderArrows";
-import {Navigation} from "swiper/modules";
-import {Swiper, SwiperSlide} from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import media_section_image_1 from "../../../assets/images/main-page/media-section-image-1.jpg"
 import media_section_image_2 from "../../../assets/images/main-page/media-section-image-2.jpg"
@@ -15,24 +15,24 @@ import media_section_image_9 from "../../../assets/images/main-page/media-sectio
 import media_section_image_10 from "../../../assets/images/main-page/media-section-image-10.jpg"
 import MediaSlider from "../../common/media-slider/MediaSlider";
 
-const MediaSection = ({translation, data, loading}) => {
+const MediaSection = ({ translation, data, loading }) => {
 
 
-    return <section className="media-section">
-        <div className="container">
-            <div className="media-section-header">
-                    <h2 className="media-section__title">
-                        {translation["Медіа"]}
-                    </h2>
-                    <SliderArrows
-                        additionalClassName={"media-slider-arrows"}
-                        prevClassName={"media-slider-arrow__prev"}
-                        nextClassName={"media-slider-arrow__next"}
-                    />
-            </div>
-        </div>
-        <MediaSlider media={data} loading={loading}/>
-    </section>
+  return <section className="media-section">
+    <div className="container">
+      <div className="media-section-header">
+        <h2 className="media-section__title">
+          {translation["Медіа"]}
+        </h2>
+        <SliderArrows
+          additionalClassName={"media-slider-arrows"}
+          prevClassName={"media-slider-arrow__prev"}
+          nextClassName={"media-slider-arrow__next"}
+        />
+      </div>
+    </div>
+    <MediaSlider media={data} loading={loading} />
+  </section>
 }
 
 export default MediaSection;
