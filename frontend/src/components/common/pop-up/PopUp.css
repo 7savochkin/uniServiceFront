@@ -26,12 +26,12 @@
 .pop-up__content {
   border-right: 12px;
   background: #ffffff;
-  height: 860px;
+  height: 800px;
   width: 470px;
   transform: scale(0.5);
   transition: 0.4s all;
   padding-inline: 40px;
-  padding-top: 70px;
+  padding-top: 50px;
   padding-bottom: 167px;
   position: relative;
 }
@@ -61,7 +61,8 @@
 .pop-up__send-button {
   border: none;
   padding: 0;
-  width: 285px;
+  max-width: 285px;
+  width: 100%;
   height: 54px;
   margin: 0 auto;
   position: relative;
@@ -103,14 +104,41 @@
 @media (max-width: 492px) {
   .pop-up__content {
     width: 350px;
-    height: 900px;
+    max-height: 900px;
+  }
+
+  .pop-up.active {
+    width: 100%;
   }
 
   .text-area {
     width: 100%;
+    margin-bottom: 30px;
   }
 
   .pop-up__content.pop-up__content--errors {
-    height: 930px;
+    max-height: 850px;
+  }
+}
+
+@media (max-height: 800px) {
+  .pop-up__content.pop-up__content--errors {
+    height: 95%;
+  }
+
+  .pop-up__content {
+    height: 95%;
+  }
+
+  .pop-up__content--errors:has(.pop-up__form) .pop-up__form {
+    gap: 10px;
+  }
+
+  .pop-up__content--errors:has(.text-area) .text-area {
+    margin-bottom: 20px;
+  }
+
+  .pop-up__content--errors:has(.input-field-wrap) .input-field-wrap {
+    margin-top: 0px;
   }
 }
