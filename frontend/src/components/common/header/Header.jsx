@@ -45,7 +45,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-top">
-          <NavLink to={"/"}>
+          <NavLink to={"/"} className={"header-top__logo-link"}>
             <img className="header-top__logo" src={logo} alt="logo" />
           </NavLink>
           <ul className="header-top-nav">
