@@ -57,8 +57,6 @@ const ReviewsSection = ({ translation, data, loading }) => {
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    // console.log(formData);
-    // setFormData(defaultFormData);
 
     if (!isError) {
       // setPopUpActive(false);

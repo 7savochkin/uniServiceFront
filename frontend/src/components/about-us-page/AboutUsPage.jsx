@@ -6,28 +6,28 @@ import "./AboutUsPage.css";
 import TeamSection from "./team-section/TeamSection";
 import AchievementsSection from "./achievements-section/AchievementsSection";
 import React from "react";
-import {LanguageContext} from "../../translations/language";
+import { LanguageContext } from "../../translations/language";
 import getTranslations from "../../translations/translations";
 
-const AboutUsPage = ({aboutUs}) => {
+const AboutUsPage = ({ aboutUs }) => {
 
-    const [language, setLanguage] = React.useContext(LanguageContext);
-    const translation = getTranslations(language, "main");
+  const [language, setLanguage] = React.useContext(LanguageContext);
+  const translation = getTranslations(language, "main");
 
-    const paths = [
-        {path: "/", name: translation["Головна"]},
-        {path: "", name: translation["Про компанію"]}
-    ]
+  const paths = [
+    { path: "/", name: translation["Головна"] },
+    { path: "", name: translation["Про компанію"] }
+  ]
 
-    return (
-        <div className="about-us">
-            <Breadcrumbs paths={paths}/>
-            <AboutUsSection translation={translation} aboutUs={aboutUs}/>
-            <TeamSection translation={translation}/>
-            <AchievementsSection translation={translation}/>
-            <OrderConsultationSection translation={translation}/>
-        </div>
-    )
+  return (
+    <div className="about-us">
+      <Breadcrumbs paths={paths} />
+      <AboutUsSection translation={translation} aboutUs={aboutUs} showButton={false} />
+      <TeamSection translation={translation} />
+      <AchievementsSection translation={translation} />
+      <OrderConsultationSection translation={translation} />
+    </div>
+  )
 }
 
 
