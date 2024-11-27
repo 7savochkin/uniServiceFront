@@ -61,7 +61,7 @@ const ContactsPage = ({contacts}) => {
                         </ul>
                         <div className="contacts-section-map">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80419.76038121224!2d28.54717992147123!3d50.958531562567785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472bdb0e59f0f0d1%3A0x59ae94f2d8f93b38!2sKorosten&#39;%2C%20Zhytomyr%20Oblast%2C%2011506!5e0!3m2!1sen!2sua!4v1731980882039!5m2!1sen!2sua"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6475.805894773473!2d29.34388420752462!3d50.74746917566225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472ba73c9519d21b%3A0xc1868cd1a36c8144!2sVulytsya%20Shevchenka%2C%20Zhytomyrs&#39;ka%20oblast!5e0!3m2!1sen!2sua!4v1732665506213!5m2!1sen!2sua"
                                 width="100%" height="100%" style={{border: "1px solid var(--gray-text-color)"}} allowFullScreen="" loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"></iframe>
                         </div>
