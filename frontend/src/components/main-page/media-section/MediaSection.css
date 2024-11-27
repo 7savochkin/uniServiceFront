@@ -96,7 +96,7 @@
 }
 
 @media (max-width: 768px) {
-  .swiper-wrapper {
+  .media-section .swiper-wrapper {
     max-height: 800px;
   }
 
@@ -148,7 +148,7 @@
 }
 
 @media (max-width: 468px) {
-  .swiper-wrapper {
+  .media-section .swiper-wrapper {
     max-height: 400px;
   }
 
