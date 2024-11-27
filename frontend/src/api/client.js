@@ -4,6 +4,7 @@ class API {
     constructor(lang) {
         this.request = axios.create({
             baseURL: `https://uniservice.site/api/v1/`,
+            withCredentials: true,
         });
 
         // add defaults headers to requests
@@ -64,6 +65,11 @@ class API {
 
     getMediaVideos = async (data) => {
         let url = "/media/videos/";
+        return await this.request({url: url, method: "GET"});
+    }
+
+    getCsrfToken = async (data) => {
+        let url = "/get-csrf-token/";
         return await this.request({url: url, method: "GET"});
     }
 

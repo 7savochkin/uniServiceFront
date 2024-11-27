@@ -58,6 +58,8 @@ function App() {
             "phones": responsePhones.data
         })
 
+        await client.getCsrfToken();
+
         const responseAboutUs = await getAboutUs();
         setAboutUs({...responseAboutUs.data})
 
