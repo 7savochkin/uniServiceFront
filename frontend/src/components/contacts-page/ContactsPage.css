@@ -1,105 +1,140 @@
 .contacts-section {
-    padding-top: 61px;
-    padding-bottom: 112px;
-    background: var(--light-bg-color);
-    position: relative;
+  padding-top: 61px;
+  padding-bottom: 112px;
+  background: var(--light-bg-color);
+  position: relative;
 }
 
 .contacts-section:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 309px;
-    background: var(--azure-text-color);
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 309px;
+  background: var(--azure-text-color);
+}
+
+.contacts-section__link {
+  transition: 0.3s all;
+}
+
+.contacts-section__link:not(:last-child) {
+  margin-right: 10px;
+}
+
+.contacts-section__link {
+  svg rect {
+    stroke: transparent; /* Колір обведення */
+    stroke-width: 1px; /* Товщина обведення */
+    transition: 0.3s all;
+  }
+}
+
+.contacts-section__link:hover {
+  svg {
+    overflow: visible;
+  }
+
+  svg rect {
+    stroke: #00cccc; /* Колір обведення */
+    stroke-width: 1px; /* Товщина обведення */
+    fill: #fff; /* Зберігає поточний колір заливки */
+    transition: 0.3s all;
+    vector-effect: non-scaling-stroke;
+  }
+
+  svg path {
+    transition: 0.3s all;
+    fill: #00cccc;
+  }
 }
 
 .contacts-section__title {
-    font-family: 'Unbounded', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 150%;
-    text-transform: uppercase;
-    color: var(--green-text-color);
+  font-family: "Unbounded", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: var(--green-text-color);
 }
 
 .contacts-section-list {
-    padding: 64px 0;
-    display: flex;
-    gap: 40px;
+  padding: 64px 0;
+  display: flex;
+  gap: 40px;
 }
 
 .contacts-section-list__item {
-    width: calc(25% - 40px);
+  width: calc(25% - 40px);
 }
 
 .contacts-section-list__item-title {
-    font-family: 'Unbounded', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 19px;
-    line-height: 170%;
-    text-transform: uppercase;
-    color: var(--green-text-color);
+  font-family: "Unbounded", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 170%;
+  text-transform: uppercase;
+  color: var(--green-text-color);
 }
 
 .contacts-section-list__item-text {
-    max-width: 290px;
-    font-family: 'Jost', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 150%;
-    color: var(--green-text-color);
-    padding-top: 6px;
+  max-width: 290px;
+  font-family: "Jost", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 150%;
+  color: var(--green-text-color);
+  padding-top: 6px;
 }
 
 .contacts-section-list__item-text.schedule {
-    max-width: 160px;
+  max-width: 160px;
 }
 
 .contacts-section-list__item-links {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .contacts-section-map {
-    width: 100%;
-    height: 550px;
-    position: relative;
-    z-index: 4;
+  width: 100%;
+  height: 550px;
+  position: relative;
+  z-index: 4;
 }
 
 @media screen and (max-width: 1100px) {
-    .contacts-section-list {
-        flex-wrap: wrap;
-    }
+  .contacts-section-list {
+    flex-wrap: wrap;
+  }
 
-    .contacts-section-list__item {
-        width: calc(50% - 40px);
-    }
+  .contacts-section-list__item {
+    width: calc(50% - 40px);
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .contacts-section {
-        padding-top: 19px;
-    }
+  .contacts-section {
+    padding-top: 19px;
+  }
 
-    .contacts-section__title{
-        font-size: 30px;
-    }
+  .contacts-section__title {
+    font-size: 30px;
+  }
 
-    .contacts-section-list{
-        padding-top: 34px;
-        padding-bottom: 70px;
-    }
+  .contacts-section-list {
+    padding-top: 34px;
+    padding-bottom: 70px;
+  }
 
-    .contacts-section-list__item{
-        width: 100%;
-    }
+  .contacts-section-list__item {
+    width: 100%;
+  }
 
-    .contacts-section-map{
-        height: 260px;
-    }
+  .contacts-section-map {
+    height: 260px;
+  }
 }
