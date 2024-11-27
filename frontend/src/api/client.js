@@ -87,6 +87,16 @@ class API {
         });
     };
 
+    postReview = async (url, formData) => {
+        const queryParams = new URLSearchParams(formData).toString();
+        const fullUrl = `${url}?${queryParams}`;
+
+        return this.request({
+            url: fullUrl,
+            method: "POST",
+        });
+    };
+
     postFormOrderTender = async (url, formData) => {
         const queryParams = new URLSearchParams(formData).toString();
         const fullUrl = `${url}?${queryParams}`;

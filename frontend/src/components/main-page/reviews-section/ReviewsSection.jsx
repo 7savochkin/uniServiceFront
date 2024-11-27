@@ -7,12 +7,14 @@ import "./ReviewsSection.css"
 import ReviewItem from "./ReviewItem";
 import SliderArrows from "../../common/slider-arrows/SliderArrows";
 import PopUp from "../../common/pop-up/PopUp";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Input from "../../common/input/Input";
 
 import pop_up_close_icon from "../../../assets/images/pop-up/pop-up-close-icon.svg"
 import Button from "../../common/button/Button";
 import { isObjectEmpty } from "../../../utils/objects";
+import { LanguageContext } from "../../../translations/language";
+import useAPIClient from "../../../hooks/api.hook";
 
 const ReviewsSection = ({ translation, data, loading }) => {
 
@@ -30,17 +32,33 @@ const ReviewsSection = ({ translation, data, loading }) => {
     "name": "",
     "email": "",
     "company": "",
+    "message": "",
   }
 
   const [formData, setFormData] = useState(defaultFormData)
   const [errors, setErrors] = useState({});
   const [isError, setIsError] = useState(false);
+  const [language, setLanguage] = useContext(LanguageContext);
+  const client = useAPIClient(language);
 
   useEffect(() => {
     // check that errors state is empty
     setIsError(!isObjectEmpty(errors));
   }, [errors])
 
+  // const validate = (name, value, errorsObj) => {
+  //   if (name === "name") {
+  //     if (!value.trim()) {
+  //       errorsObj.name = "Name is required";
+  //     } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(value.trim())) {
+  //       errorsObj.name = "Name is not valid";
+  //     } else {
+  //       delete errorsObj.name;
+  //     }
+  //   }
+
+  //   return errorsObj;
+  // };
   const validate = (name, value, errorsObj) => {
     if (name === "name") {
       if (!value.trim()) {
@@ -50,33 +68,52 @@ const ReviewsSection = ({ translation, data, loading }) => {
       } else {
         delete errorsObj.name;
       }
+    } else if (name === "email") {
+      if (!value.trim()) {
+        errorsObj.email = "Email is required";
+      } else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value.trim())) {
+        errorsObj.email = "Email is not valid";
+      } else {
+        delete errorsObj.email;
+      }
     }
 
     return errorsObj;
   };
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault();
 
     if (!isError) {
-      // setPopUpActive(false);
-      console.log(formData);
-      // validationErrors = {}
-      setFormData(defaultFormData);
-      alert("Form submitted successfully");
+      const dataToSend = {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+      };
+
+      try {
+        const response = await client.postReview('/order/review/', dataToSend);
+        console.log("Form submitted successfully:", response.data);
+        setFormData(defaultFormData);
+        alert("Форма успішно відправлена!");
+        setPopUpActive(false);
+      } catch (error) {
+        alert(`Сталася помилка при відправці форми: ${error.message}`);
+      }
+    } else {
+      alert("Будь ласка, виправте помилки в формі.");
     }
   }
 
   const onChangeInput = (e) => {
-    //setFormData((prevState) => ({...prevState, [e.target.name]: e.target.value}));
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
 
     setErrors((state) => {
       const newErrors = { ...state };
-      return validate(name, value, newErrors); // validate повертає об'єкт
+      return validate(name, value, newErrors);
     });
-
   }
 
   const inputsData = [
@@ -105,7 +142,7 @@ const ReviewsSection = ({ translation, data, loading }) => {
       isDark: false,
     },
     {
-      label: "Email",
+      label: "Email*",
       icon: (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -120,7 +157,7 @@ const ReviewsSection = ({ translation, data, loading }) => {
       value: formData.email,
       onChange: onChangeInput,
       isDark: false,
-      isRequired: false,
+      isRequired: true,
     },
     {
       label: translation["Компанія"],
@@ -138,7 +175,7 @@ const ReviewsSection = ({ translation, data, loading }) => {
       placeholder: translation["Напишіть назву компанії"],
       value: formData.company,
       onChange: onChangeInput,
-      isRequired: false,
+      isRequired: true,
       isDark: false,
     },
   ]
@@ -222,8 +259,8 @@ const ReviewsSection = ({ translation, data, loading }) => {
           {inputsData.map((item, i) => <Input errors={errors || {}} key={i} {...item} />)}
           <div className="pop-up__feedback">
             <label htmlFor="text-area" className="text-area__label">{translation["Відгук"]}</label>
-            <textarea name="text-area" id="" className="text-area input-field__input"
-              placeholder={translation["Напишіть текст"]} ></textarea>
+            <textarea name="message" id="" className="text-area input-field__input"
+              placeholder={translation["Напишіть текст"]} required value={formData.message} onChange={onChangeInput}></textarea>
             <input className="pop-up__send-button button-link" type="submit" value={translation["Відправити"]} />
           </div>
         </form>
