@@ -2,7 +2,7 @@ const TeamItem = ({item}) => (
     <div className="team-section-slider-item">
         <div className="team-section-slider-item-wrap">
             <div className="team-section-slider-item__img-wrap">
-                <img src={item?.image} alt={item?.name}/>
+                <img src={`https://uniservice.site${item?.image}`} alt={item?.name}/>
             </div>
             <div className="team-section-slider-item-content">
                 <h3 className="team-section-slider-item__title">{item?.name}</h3>
