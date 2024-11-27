@@ -154,8 +154,11 @@
   align-items: center;
   position: relative; /* Для розміщення кнопки закриття */
   width: 100%;
-  transform: scale(0.7);
+  transform: scale(1);
   height: auto;
+  max-width: max-content;
+  max-height: max-content;
+  margin-inline: 20px;
 }
 
 .popup-image {
