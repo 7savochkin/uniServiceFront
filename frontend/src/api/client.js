@@ -57,13 +57,13 @@ class API {
         return await this.request({url: url, method: "GET", params: data})
     }
 
-    getMedia = async (data) => {
+    getMediaImages = async (data) => {
         let url = "/media/images/";
         return await this.request({url: url, method: "GET"});
     }
 
-    getMainVideo = async (data) => {
-        let url = "/media/video/";
+    getMediaVideos = async (data) => {
+        let url = "/media/videos/";
         return await this.request({url: url, method: "GET"});
     }
 

@@ -2,7 +2,7 @@ import "./MediaSection.css"
 import SliderArrows from "../../common/slider-arrows/SliderArrows";
 import MediaSlider from "../../common/media-slider/MediaSlider";
 
-const MediaSection = ({ translation, data, loading }) => {
+const MediaSection = ({ translation, data }) => {
 
 
   return <section className="media-section">
@@ -18,7 +18,7 @@ const MediaSection = ({ translation, data, loading }) => {
         />
       </div>
     </div>
-    <MediaSlider media={data} loading={loading} />
+    <MediaSlider media={data}/>
   </section>
 }
 

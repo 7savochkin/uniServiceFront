@@ -33,6 +33,13 @@
     grid-column-end: 4;
 }
 
+.media-section__slider-item video{
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+}
+
 .media-section__slider {
     margin-top: 84px;
     display: flex;

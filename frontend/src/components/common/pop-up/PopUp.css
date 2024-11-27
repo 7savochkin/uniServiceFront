@@ -1,181 +1,190 @@
 .pop-up {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.3s all;
-  pointer-events: none;
-  z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s all;
+    pointer-events: none;
+    z-index: 100;
 }
 
 .pop-up__content.pop-up__content--errors {
-  height: 900px;
+    height: 900px;
 }
 
 .pop-up.active {
-  opacity: 1;
-  pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .pop-up__content {
-  border-right: 12px;
-  background: #ffffff;
-  height: 800px;
-  width: 470px;
-  transform: scale(0.5);
-  transition: 0.4s all;
-  padding-inline: 40px;
-  padding-top: 50px;
-  padding-bottom: 167px;
-  position: relative;
+    border-right: 12px;
+    background: #ffffff;
+    height: 800px;
+    width: 470px;
+    transform: scale(0.5);
+    transition: 0.4s all;
+    padding-inline: 40px;
+    padding-top: 50px;
+    padding-bottom: 167px;
+    position: relative;
 }
 
 .pop-up__content.active {
-  transform: scale(1);
+    transform: scale(1);
 }
 
 .pop-up__title {
-  font-family: "Unbounded", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 150%;
-  text-transform: uppercase;
-  color: #182829;
+    font-family: "Unbounded", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: #182829;
 }
 
 .text-area {
-  resize: none;
-  width: 390px;
-  height: 140px;
-  margin-top: 7px;
-  margin-bottom: 43px;
+    resize: none;
+    width: 390px;
+    height: 140px;
+    margin-top: 7px;
+    margin-bottom: 43px;
 }
 
 .pop-up__send-button {
-  border: none;
-  padding: 0;
-  max-width: 285px;
-  width: 100%;
-  height: 54px;
-  margin: 0 auto;
-  position: relative;
+    border: none;
+    padding: 0;
+    max-width: 285px;
+    width: 100%;
+    height: 54px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .pop-up__send-button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  background-image: url("../../../assets/images/main-page/button-white-arrow.svg");
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-image: url("../../../assets/images/main-page/button-white-arrow.svg");
 }
 
 .pop-up__form {
-  padding-top: 31px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    padding-top: 31px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .text-area__label {
-  font-family: "Jost", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 150%;
-  color: var(--green-text-color);
+    font-family: "Jost", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: var(--green-text-color);
 }
 
 .pop-up__image-close {
-  position: absolute;
-  cursor: pointer;
-  top: 24px;
-  right: 24px;
+    position: absolute;
+    cursor: pointer;
+    top: 24px;
+    right: 24px;
 }
 
 @media (max-width: 492px) {
-  .pop-up__content {
-    width: 350px;
-    max-height: 900px;
-  }
+    .pop-up__content {
+        width: 350px;
+        max-height: 900px;
+    }
 
-  .pop-up.active {
-    width: 100%;
-  }
+    .pop-up.active {
+        width: 100%;
+    }
 
-  .text-area {
-    width: 100%;
-    margin-bottom: 30px;
-  }
+    .text-area {
+        width: 100%;
+        margin-bottom: 30px;
+    }
 
-  .pop-up__content.pop-up__content--errors {
-    max-height: 850px;
-  }
+    .pop-up__content.pop-up__content--errors {
+        max-height: 850px;
+    }
 }
 
 @media (max-height: 800px) {
-  .pop-up__content.pop-up__content--errors {
-    height: 95%;
-  }
+    .pop-up__content.pop-up__content--errors {
+        height: 95%;
+    }
 
-  .pop-up__content {
-    height: 95%;
-  }
+    .pop-up__content {
+        height: 95%;
+    }
 
-  .pop-up__content--errors .pop-up__form {
-    gap: 10px;
-  }
+    .pop-up__content--errors .pop-up__form {
+        gap: 10px;
+    }
 
-  .pop-up__content--errors .text-area {
-    margin-bottom: 20px;
-  }
+    .pop-up__content--errors .text-area {
+        margin-bottom: 20px;
+    }
 
-  .pop-up__content--errors .input-field-wrap {
-    margin-top: 0px;
-  }
+    .pop-up__content--errors .input-field-wrap {
+        margin-top: 0px;
+    }
 }
 
 /* Стилі для відображення зображень в попапі */
 .pop-up__content--image {
-  background: transparent; /* Без фону */
-  /*max-width: 95vw; !* Збільшуємо максимальну ширину — 95% від екрана *!*/
-  /*max-height: 95vh; !* Збільшуємо максимальну висоту — 95% від екрана *!*/
-  padding: 0; /* Без відступів */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; /* Для розміщення кнопки закриття */
-  width: 100%;
-  transform: scale(1);
-  height: auto;
-  max-width: max-content;
-  max-height: max-content;
-  margin-inline: 20px;
+    background: transparent; /* Без фону */
+    /*max-width: 95vw; !* Збільшуємо максимальну ширину — 95% від екрана *!*/
+    /*max-height: 95vh; !* Збільшуємо максимальну висоту — 95% від екрана *!*/
+    padding: 0; /* Без відступів */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Для розміщення кнопки закриття */
+    width: 100%;
+    transform: scale(1);
+    height: auto;
+    max-width: max-content;
+    max-height: max-content;
+    margin-inline: 20px;
 }
 
 .popup-image {
-  width: 100%; /* Зображення займає всю доступну ширину контейнера */
-  height: 100%; /* Зображення займає всю доступну висоту контейнера */
-  object-fit: contain; /* Зберігаємо пропорції, але обрізаємо зображення, щоб воно заповнило блок */
-  border-radius: 8px; /* Можна додати закруглені кути */
+    width: 100%; /* Зображення займає всю доступну ширину контейнера */
+    height: 100%; /* Зображення займає всю доступну висоту контейнера */
+    object-fit: contain; /* Зберігаємо пропорції, але обрізаємо зображення, щоб воно заповнило блок */
+    border-radius: 8px; /* Можна додати закруглені кути */
+}
+
+.popup-video {
+    width: 100%; /* Зображення займає всю доступну ширину контейнера */
+    height: 100%; /* Зображення займає всю доступну висоту контейнера */
+    max-width: 80vw;
+    max-height: 80vh;
+    object-fit: contain; /* Зберігаємо пропорції, але обрізаємо зображення, щоб воно заповнило блок */
+    border-radius: 8px; /* Можна додати закруглені кути */
 }
 
 .pop-up__image-close {
-  position: absolute;
-  cursor: pointer;
-  top: 16px;
-  right: 16px;
-  font-size: 24px;
-  color: #ffffff;
-  background: none;
-  border: none;
-  z-index: 101; /* Кнопка закриття має бути поверх зображення */
+    position: absolute;
+    cursor: pointer;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    color: #ffffff;
+    background: none;
+    border: none;
+    z-index: 101; /* Кнопка закриття має бути поверх зображення */
 }

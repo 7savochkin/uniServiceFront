@@ -7,7 +7,7 @@ import getTranslations from "../../translations/translations";
 
 import './MediaPage.css'
 
-const MediaPage = ({data, loading}) => {
+const MediaPage = ({data}) => {
 
     const [language, setLanguage] = React.useContext(LanguageContext);
     const translation = getTranslations(language, "main");
@@ -36,7 +36,7 @@ const MediaPage = ({data, loading}) => {
                 </div>
             </div>
 
-            <MediaSlider media={data} loading={loading}/>
+            <MediaSlider media={data}/>
         </section>
     )
 }

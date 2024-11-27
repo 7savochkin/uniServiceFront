@@ -20,7 +20,6 @@ const MainPage = ({ aboutUs, services, video, reviews, news, media }) => {
 
   const [reviewsData, loadingReviews] = reviews;
   const [newsData, loadingNews] = news;
-  const [mediaData, loadingMedia] = media;
 
   return (
     <div className="main">
@@ -29,7 +28,7 @@ const MainPage = ({ aboutUs, services, video, reviews, news, media }) => {
       <AboutUsSection translation={translation} aboutUs={aboutUs} />
       <ServicesSection translation={translation} services={services} />
       <CertificatesSection translation={translation} />
-      <MediaSection translation={translation} data={mediaData} loading={loadingMedia} />
+      <MediaSection translation={translation} data={media} />
       <ReviewsSection translation={translation} data={reviewsData} loading={loadingReviews} />
       <OrderConsultationSection translation={translation} />
       <LastNewsSection translation={translation} data={newsData} loading={loadingNews} />
