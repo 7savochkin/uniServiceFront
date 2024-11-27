@@ -127,7 +127,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid var(--dark-white-color);
+  border-left: 1px solid var(--dark-white-color);
   height: 100%;
   border-bottom: none;
   border-top: none;
