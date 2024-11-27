@@ -35,9 +35,61 @@
   object-fit: contain;
 }
 
-/*.certificates-section__slider .swiper-slide-active {*/
-/*    opacity: 1;*/
-/*    !*transform: scale(1);*!*/
-/*    !*width: 410px !important;*!*/
-/*    transition: all 0.3s ease;*/
-/*}*/
+.certificate-image {
+  cursor: pointer;
+}
+
+/* Стилі для контейнера з сертифікатами, де зображення буде відображатися без обмежень по висоті та ширині */
+.certificates-section__slider .pop-up__content--image {
+  background: transparent; /* Прозорий фон */
+  max-width: none; /* Забираємо максимальну ширину */
+  max-height: none; /* Забираємо максимальну висоту */
+  width: 100%; /* Встановлюємо 100% ширину */
+  height: auto; /* Встановлюємо автоматичну висоту для зображення */
+  padding: 0; /* Без відступів */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Для кнопки закриття */
+}
+
+/* Оновлення для попапу з зображенням, щоб зображення відображалося коректно */
+.popup-image {
+  width: 100%; /* Зображення займає всю доступну ширину контейнера */
+  height: auto; /* Висота автоматична для збереження пропорцій */
+  object-fit: contain; /* Зберігаємо пропорції, але без обрізання */
+  background-color: transparent; /* Прозорий фон */
+  border-radius: 8px; /* Кути */
+}
+
+/* Кнопка закриття для попапу */
+.pop-up__image-close {
+  position: absolute;
+  cursor: pointer;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  color: #ffffff;
+  background: none;
+  border: none;
+  z-index: 101; /* Кнопка поверх зображення */
+}
+
+@media (max-width: 600px) {
+  .certification-section-header {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .certification-section__title {
+    font-size: 30px;
+  }
+
+  .certificates-section {
+    padding-top: 60px;
+    padding-bottom: 47px;
+  }
+  .certificates-section__slider {
+    margin-top: 40px;
+  }
+}

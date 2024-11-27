@@ -130,15 +130,15 @@
     height: 95%;
   }
 
-  .pop-up__content--errors:has(.pop-up__form) .pop-up__form {
+  .pop-up__content--errors .pop-up__form {
     gap: 10px;
   }
 
-  .pop-up__content--errors:has(.text-area) .text-area {
+  .pop-up__content--errors .text-area {
     margin-bottom: 20px;
   }
 
-  .pop-up__content--errors:has(.input-field-wrap) .input-field-wrap {
+  .pop-up__content--errors .input-field-wrap {
     margin-top: 0px;
   }
 }
@@ -154,8 +154,11 @@
   align-items: center;
   position: relative; /* Для розміщення кнопки закриття */
   width: 100%;
-  transform: scale(0.7);
+  transform: scale(1);
   height: auto;
+  max-width: max-content;
+  max-height: max-content;
+  margin-inline: 20px;
 }
 
 .popup-image {
