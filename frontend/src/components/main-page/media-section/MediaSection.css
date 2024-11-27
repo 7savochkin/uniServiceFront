@@ -87,7 +87,13 @@
   pointer-events: none; /* Значок не блокує клік */
 }
 
-/* new code */
+.swiper-slide {
+  height: auto;
+}
+
+.media-section__slider-list {
+  height: 100%;
+}
 
 @media (max-width: 768px) {
   .swiper-wrapper {
