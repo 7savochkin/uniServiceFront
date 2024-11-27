@@ -98,7 +98,6 @@ const ServicesSection = ({ translation, services }) => {
       const newErrors = { ...state };
       return validate(name, value, newErrors); // validate повертає об'єкт
     });
-
   }
 
   const inputsData = [
