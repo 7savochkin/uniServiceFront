@@ -8,11 +8,14 @@ import { LanguageContext } from "../../../translations/language";
 import getTranslations from "../../../translations/translations";
 import { useNavActive } from "../../../hooks/setNavClass.hook";
 
-const Header = () => {
+const Header = ({contacts}) => {
 
   const [language, setLanguage] = React.useContext(LanguageContext);
 
   const translation = getTranslations(language, "header");
+
+  const phones = contacts?.phones;
+  const phoneNumber = phones ? phones.map(item => item?.phone)[0] : null;
 
   const useOnClickOutside = (ref, handler) => {
     React.useEffect(() => {
@@ -90,9 +93,9 @@ const Header = () => {
                 <span className="header-top-lang__item-link">ENG</span>
               </li>
             </ul>
-            <a className="header-top-tel" href="tel:+380979471159">+38(097)-947-11-59</a>
+            <a className="header-top-tel" href={`tel:${phoneNumber}`}>{phoneNumber}</a>
             <div className="header-top-social">
-              <a className="header-top-social__link" href="https://www.facebook.com/" target='_blank' rel="noreferrer">
+              <a className="header-top-social__link" href={contacts?.facebook} target='_blank' rel="noreferrer">
                 <svg className={"header-top-social__link-img"} width="8" height="14" viewBox="0 0 8 14"
                   fill="#182829"
                   xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +104,7 @@ const Header = () => {
                     fill="#182829" />
                 </svg>
               </a>
-              <a className="header-top-social__link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+              <a className="header-top-social__link" href={contacts?.instagram} target="_blank" rel="noreferrer">
                 <svg className={"header-top-social__link-img"} width="14" height="14"
                   viewBox="0 0 14 14" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +127,7 @@ const Header = () => {
                 </svg>
 
               </a>
-              <a className="header-top-social__link" href="https://www.telegram.com/" target="_blank" rel="noreferrer">
+              <a className="header-top-social__link" href={contacts?.telegram} target="_blank" rel="noreferrer">
                 <svg className={"header-top-social__link-img"} width="14" height="14"
                   viewBox="0 0 14 14" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -139,7 +142,7 @@ const Header = () => {
           <div ref={menuRef}>
             <HeaderBurger open={open} setOpen={setOpen} />
 
-            <HeaderBurgerMenu open={open} setOpen={setOpen} />
+            <HeaderBurgerMenu open={open} setOpen={setOpen} contacts={contacts} />
           </div>
         </div>
       </div>

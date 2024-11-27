@@ -5,7 +5,7 @@ import {LanguageContext} from "../../../translations/language";
 import getTranslations from "../../../translations/translations";
 import {useNavActive} from "../../../hooks/setNavClass.hook";
 
-const HeaderBurgerMenu = ({open, setOpen}) => {
+const HeaderBurgerMenu = ({open, setOpen, contacts}) => {
 
 
     const [language, setLanguage] = React.useContext(LanguageContext);
@@ -80,14 +80,14 @@ const HeaderBurgerMenu = ({open, setOpen}) => {
                 </li>
             </ul>
             <div className="menu-social">
-                <a className="menu-social__link" href="https://www.facebook.com/">
+                <a className="menu-social__link" target='_blank' href={contacts?.facebook}>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M8.08433 14V7.61441H10.2268L10.5483 5.12509H8.08433V3.53603C8.08433 2.81554 8.28358 2.32453 9.31793 2.32453L10.635 2.32399V0.097461C10.4072 0.0678617 9.62539 0 8.71539 0C6.81517 0 5.51425 1.15988 5.51425 3.28949V5.12509H3.36523V7.61441H5.51425V14H8.08433Z"
                             fill="white"/>
                     </svg>
                 </a>
-                <a className="menu-social__link menu-social__link-second-child" href="https://www.instagram.com/">
+                <a className="menu-social__link menu-social__link-second-child" target='_blank' href={contacts?.instagram}>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_28_4093)">
                             <path
@@ -108,7 +108,7 @@ const HeaderBurgerMenu = ({open, setOpen}) => {
                     </svg>
 
                 </a>
-                <a className="menu-social__link" href="https://www.telegram.com/">
+                <a className="menu-social__link" target='_blank' href={contacts?.telegram}>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M0.247281 7.52467L3.47316 8.72867L4.72177 12.7442C4.80167 13.0014 5.11615 13.0964 5.32489 12.9258L7.12305 11.4599C7.31154 11.3063 7.58001 11.2987 7.77699 11.4416L11.0202 13.7963C11.2435 13.9586 11.5599 13.8362 11.6159 13.5664L13.9917 2.13817C14.0529 1.84343 13.7633 1.59754 13.4826 1.70609L0.243501 6.81333C-0.083212 6.93933 -0.0803654 7.40189 0.247281 7.52467ZM4.52055 8.08775L10.8251 4.20476C10.9384 4.13518 11.055 4.28839 10.9577 4.37864L5.7546 9.21517C5.57171 9.38541 5.45374 9.61324 5.42033 9.86053L5.24309 11.174C5.21961 11.3494 4.97326 11.3668 4.92487 11.1971L4.24321 8.80189C4.16513 8.52871 4.27891 8.2369 4.52055 8.08775Z"

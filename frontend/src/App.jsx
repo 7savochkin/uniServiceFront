@@ -111,7 +111,7 @@ function App() {
         isFetchError ? <Spinner loading={isFetchError}/> : <div className="wrapper">
             <Spinner loading={loading}/>
             <LanguageContext.Provider value={[language, setLanguage]}>
-                <Header/>
+                <Header contacts={contacts}/>
                 <ScrollToTop/>
                 <Routes>
                     <Route path="/*" element={<MainPage aboutUs={aboutUs}
