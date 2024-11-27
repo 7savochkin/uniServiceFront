@@ -11,6 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 html,
 body,
 div,
@@ -141,7 +147,6 @@ body {
   --placeholder-text-color: #a4abb3;
   --dark-gray-text-color: #4e5a67;
   --header-height: 70px;
-  overflow-x: hidden;
 }
 
 body {
