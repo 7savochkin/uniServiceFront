@@ -1,8 +1,9 @@
 .facial-section {
     height: calc(100vh - var(--header-height));
-    background-image: linear-gradient(180deg, rgba(9, 16, 23, 0) 3.48%, #091017 100%),
-    url("../../../assets/images/main-page/facial.jpg");
+    background-image: url("../../../assets/images/main-page/facial.jpg");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     overflow: hidden;
     color: var(--dark-white-color);
     width: 100%;
@@ -28,9 +29,7 @@
     height: 100%;
     object-fit: cover; /* Ensures the video covers the entire background */
     z-index: 0; /* Behind everything */
-    background-image: linear-gradient(180deg, rgba(9, 16, 23, 0) 3.48%, #091017 100%),
-    url("../../../assets/images/main-page/facial.jpg");
-    background-repeat: no-repeat;
+    background: transparent;
 }
 
 
