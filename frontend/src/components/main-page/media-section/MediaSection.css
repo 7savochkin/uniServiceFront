@@ -87,10 +87,16 @@
   pointer-events: none; /* Значок не блокує клік */
 }
 
-/* new code */
+.swiper-slide {
+  height: auto;
+}
+
+.media-section__slider-list {
+  height: 100%;
+}
 
 @media (max-width: 768px) {
-  .swiper-wrapper {
+  .media-section .swiper-wrapper {
     max-height: 800px;
   }
 
@@ -142,7 +148,7 @@
 }
 
 @media (max-width: 468px) {
-  .swiper-wrapper {
+  .media-section .swiper-wrapper {
     max-height: 400px;
   }
 
