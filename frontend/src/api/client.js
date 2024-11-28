@@ -69,7 +69,7 @@ class API {
     }
 
     getCsrfToken = async (data) => {
-        let url = "/get-csrf-token/";
+        let url = "/core/get-csrf-token/";
         return await this.request({url: url, method: "GET"});
     }
 
