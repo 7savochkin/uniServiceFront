@@ -35,7 +35,16 @@
 }
 
 .facial-section-bg__video::-webkit-media-controls {
-  display: none;
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  pointer-events: none;
+  opacity: 0;
+}
+video::-webkit-media-controls {
+  display: none !important;
 }
 
 .facial-section-content {
@@ -150,5 +159,9 @@
   .facial-section-content {
     height: auto;
     padding-top: 137px;
+  }
+
+  .facial-section {
+    padding-top: 0;
   }
 }
