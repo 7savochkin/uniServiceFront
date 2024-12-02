@@ -3,6 +3,13 @@
   height: var(--header-height);
   box-sizing: content-box;
   border-bottom: 1px solid var(--dark-white-color);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
 }
 
 .header-top {
