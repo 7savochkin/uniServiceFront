@@ -1,24 +1,7 @@
 import "./FacialSection.css"
 import Button from "../../common/button/Button";
-import { useEffect } from "react";
 
 const FacialSection = ({ translation, video }) => {
-
-  useEffect(() => {
-    const videoElements = document.querySelectorAll('.facial-section-bg__video');
-
-    videoElements.forEach((videoElement) => {
-      videoElement.controls = false;
-
-      videoElement.addEventListener('play', function () {
-        this.controls = false;
-      });
-
-      videoElement.addEventListener('pause', function () {
-        this.controls = false;
-      });
-    });
-  }, []);
 
   return (
     <section className="facial-section">

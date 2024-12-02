@@ -147,6 +147,7 @@ body {
   --placeholder-text-color: #a4abb3;
   --dark-gray-text-color: #4e5a67;
   --header-height: 70px;
+  padding-top: var(--header-height);
 }
 
 body {
