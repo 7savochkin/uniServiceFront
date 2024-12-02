@@ -160,4 +160,8 @@ video::-webkit-media-controls {
     height: auto;
     padding-top: 137px;
   }
+
+  .facial-section {
+    padding-top: 0;
+  }
 }
