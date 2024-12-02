@@ -1,151 +1,146 @@
 .menu {
-    display: flex;
-    flex-direction: column;
-    background: #091017;
-    height: calc(100vh - var(--header-height));
-    text-align: left;
-    padding-top: 64px;
-    padding-left: 40px;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(100%);
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  background: #091017;
+  height: calc(100vh - var(--header-height));
+  text-align: left;
+  padding-top: 64px;
+  padding-left: 40px;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  width: 50%;
 }
 
 .menu.active {
-    transform: translateX(0);
-    z-index: 100;
-
+  transform: translateX(0);
+  z-index: 100;
 }
 
 .menu-item {
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: color 0.3s linear;
-    font-family: 'Jost';
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 25px;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s linear;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 25px;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
 
 .menu-item:hover {
-    color: #00CCCC;
+  color: #00cccc;
 }
 
 .menu-item:active {
-    color: #01A0A0;
+  color: #01a0a0;
 }
 
-
 .menu-lang {
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--gray-text-color);
-    width: 100px;
-    height: 50px;
-    margin-top: auto;
-    margin-bottom: 62px;
-    display: none;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--gray-text-color);
+  width: 100px;
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: 62px;
+  display: none;
 }
 
 .menu-lang:nth-child(1) {
 }
 
 .menu-lang__item {
-    width: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.menu-lang__item:first-child{
-    height: 50px;
-    border-right: 1px solid var(--gray-text-color);
+.menu-lang__item:first-child {
+  height: 50px;
+  border-right: 1px solid var(--gray-text-color);
 }
 
 .menu-lang__item {
-    color: var(--gray-text-color);
-    transition: color 0.3s linear;
+  color: var(--gray-text-color);
+  transition: color 0.3s linear;
 }
 .menu-lang__item:hover {
-    color: var(--dark-white-color);
-    transition: color 0.3s linear;
+  color: var(--dark-white-color);
+  transition: color 0.3s linear;
 }
 
-.menu-lang__item.lang-active{
-    color: var(--dark-white-color);
+.menu-lang__item.lang-active {
+  color: var(--dark-white-color);
 }
 
 .menu-social {
-    align-items: center;
-    border: 1px solid var(--gray-text-color);
-    height: 50px;
-    margin-bottom: 69px;
+  align-items: center;
+  border: 1px solid var(--gray-text-color);
+  height: 50px;
+  margin-bottom: 69px;
 
-    display: none;
-    justify-content: space-around;
-    width: 150px;
+  display: none;
+  justify-content: space-around;
+  width: 150px;
 }
 
 .menu-social__link {
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .3s all;
-    height: 100%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s all;
+  height: 100%;
 }
 
 .menu-social__link:hover svg path {
-    fill: #00CCCC;
+  fill: #00cccc;
 }
 
 .menu-social__link:active {
-    background-color: #01A0A0;
-    svg path {
-        fill: #fff;
-    }
+  background-color: #01a0a0;
+  svg path {
+    fill: #fff;
+  }
 }
 
 .menu-social__link-second-child {
-    border-inline: 1px solid var(--gray-text-color);
-    height: 100%;
+  border-inline: 1px solid var(--gray-text-color);
+  height: 100%;
 }
 
 .menu {
-    display: none;
-    z-index: 99;
+  display: none;
+  z-index: 99;
 }
 
 @media (max-width: 1200px) {
-    .menu {
-        display: flex;
-    }
+  .menu {
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {
-    .menu-lang {
-        display: flex;
-    }
-    .menu-item {
-        font-size: 17px;
-        line-height: 25px;
-    }
+  .menu-lang {
+    display: flex;
+  }
+  .menu-item {
+    font-size: 17px;
+    line-height: 25px;
+  }
 }
 
 @media (max-width: 628px) {
-    .menu-social {
-        display: flex;
-    }
+  .menu-social {
+    display: flex;
+  }
 
-
-    .menu {
-        width: 100%;
-    }
-
+  .menu {
+    width: 100%;
+  }
 }
