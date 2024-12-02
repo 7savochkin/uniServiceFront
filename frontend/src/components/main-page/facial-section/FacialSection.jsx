@@ -3,7 +3,7 @@ import Button from "../../common/button/Button";
 
 const FacialSection = ({ translation, video }) => (
   <section className="facial-section">
-    <video autoPlay loop muted playsInline preload="auto" src={`https://uniservice.site/${video}`}
+    <video autoPlay loop muted playsInline preload="auto" controls="false" src={`https://uniservice.site/${video}`}
       className={"facial-section-bg__video"}></video>
     <div className="facial-section-overlay"></div>
     <div className="container">
