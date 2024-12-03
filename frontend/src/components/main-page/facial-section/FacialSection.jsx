@@ -1,11 +1,21 @@
 import "./FacialSection.css"
 import Button from "../../common/button/Button";
+import { useEffect, useRef } from "react";
 
 const FacialSection = ({ translation, video }) => {
 
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.setAttribute("webkit-playsinline", "");
+    }
+  }, []);
+
   return (
     <section className="facial-section">
-      <video autoPlay loop muted playsInline preload="none" controls={false} src={`https://uniservice.site/${video}`}
+      <video autoPlay loop muted playsInline ref={videoRef}
+        controls={false} src={`https://uniservice.site/${video}`}
         className={"facial-section-bg__video"}></video>
       <div className="facial-section-overlay"></div>
       <div className="container">
