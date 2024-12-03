@@ -18,7 +18,7 @@ const MediaSection = ({ translation, data }) => {
         />
       </div>
     </div>
-    <MediaSlider media={data}/>
+    <MediaSlider media={data} />
   </section>
 }
 
