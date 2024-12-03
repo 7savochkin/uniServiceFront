@@ -32,10 +32,6 @@
   background: transparent;
 }
 
-.facial-section-bg__video::-webkit-media-controls {
-  display: none !important;
-}
-
 .facial-section-content {
   height: 100%;
   display: flex;
