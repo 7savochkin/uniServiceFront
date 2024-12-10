@@ -152,7 +152,7 @@ body {
 
 body {
   color: var(--green-text-color, #182829);
-  background: var(--white-bg-color, #fff);
+  background: #f9f9f9;
 }
 
 ol,

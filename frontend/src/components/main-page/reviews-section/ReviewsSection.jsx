@@ -29,10 +29,10 @@ const ReviewsSection = ({ translation, data, loading }) => {
   const [popUpActive, setPopUpActive] = useState(false);
 
   const defaultFormData = {
-    "name": "",
+    "author": "",
     "email": "",
-    "company": "",
-    "message": "",
+    "position": "",
+    "content": "",
   }
 
   const [formData, setFormData] = useState(defaultFormData)
@@ -46,25 +46,12 @@ const ReviewsSection = ({ translation, data, loading }) => {
     setIsError(!isObjectEmpty(errors));
   }, [errors])
 
-  // const validate = (name, value, errorsObj) => {
-  //   if (name === "name") {
-  //     if (!value.trim()) {
-  //       errorsObj.name = "Name is required";
-  //     } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(value.trim())) {
-  //       errorsObj.name = "Name is not valid";
-  //     } else {
-  //       delete errorsObj.name;
-  //     }
-  //   }
-
-  //   return errorsObj;
-  // };
   const validate = (name, value, errorsObj) => {
-    if (name === "name") {
+    if (name === "author") {
       if (!value.trim()) {
-        errorsObj.name = "Name is required";
+        errorsObj.name = "Author is required";
       } else if (!/^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+(?: [A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/.test(value.trim())) {
-        errorsObj.name = "Name is not valid";
+        errorsObj.name = "Author is not valid";
       } else {
         delete errorsObj.name;
       }
@@ -86,10 +73,10 @@ const ReviewsSection = ({ translation, data, loading }) => {
 
     if (!isError) {
       const dataToSend = {
-        name: formData.name,
+        author: formData.author,
         email: formData.email,
-        company: formData.company,
-        message: formData.message,
+        position: formData.position,
+        content: formData.content,
       };
 
       try {
@@ -118,7 +105,7 @@ const ReviewsSection = ({ translation, data, loading }) => {
 
   const inputsData = [
     {
-      label: `${translation["Ім’я"]}*`,
+      label: `${translation["Автор"]}*`,
       icon: (<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_17_8922)">
           <path
@@ -133,10 +120,10 @@ const ReviewsSection = ({ translation, data, loading }) => {
       </svg>
       ),
       id: "input_name",
-      name: "name",
+      name: "author",
       type: "text",
       placeholder: translation["Напишіть ім’я"],
-      value: formData.name,
+      value: formData.author,
       onChange: onChangeInput,
       isRequired: true,
       isDark: false,
@@ -160,7 +147,7 @@ const ReviewsSection = ({ translation, data, loading }) => {
       isRequired: true,
     },
     {
-      label: translation["Компанія"],
+      label: `${translation["Посада"]}*`,
       icon: (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -170,10 +157,10 @@ const ReviewsSection = ({ translation, data, loading }) => {
 
       ),
       id: "input_company",
-      name: "company",
+      name: "position",
       type: "text",
-      placeholder: translation["Напишіть назву компанії"],
-      value: formData.company,
+      placeholder: translation["Напишіть вашу посаду"],
+      value: formData.position,
       onChange: onChangeInput,
       isRequired: true,
       isDark: false,
@@ -258,9 +245,9 @@ const ReviewsSection = ({ translation, data, loading }) => {
         <form onSubmit={onSubmitForm} className="pop-up__form">
           {inputsData.map((item, i) => <Input errors={errors || {}} key={i} {...item} />)}
           <div className="pop-up__feedback">
-            <label htmlFor="text-area" className="text-area__label">{translation["Відгук"]}</label>
-            <textarea name="message" id="" className="text-area input-field__input"
-              placeholder={translation["Напишіть текст"]} required value={formData.message} onChange={onChangeInput}></textarea>
+            <label htmlFor="text-area" className="text-area__label">{`${translation["Контент"]}*`}</label>
+            <textarea name="content" id="" className="text-area input-field__input"
+              placeholder={translation["Напишіть текст"]} required value={formData.content} onChange={onChangeInput}></textarea>
             <input className="pop-up__send-button button-link" type="submit" value={translation["Відправити"]} />
           </div>
         </form>
